@@ -1,0 +1,9 @@
+---
+
+- name: ansible/python package bindings
+  import_tasks: checks.package.yml
+  when: pc_package
+
+- name: ansible/python security bindings
+  import_tasks: checks.security.yml
+  when: pc_security

@@ -1,0 +1,33 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: requirements.yml
+driver:
+  name: docker
+lint:
+  name: yamllint
+  options:
+    config-file: .yamllint
+platforms:
+  - name: m-centos7
+    image: centos:7
+  - name: m-fedora26
+    image: fedora:26
+  - name: m-xenial
+    image: ubuntu:16.04
+  - name: m-yakkety
+    image: ubuntu:16.10
+provisioner:
+  name: ansible
+  playbooks:
+    create: ../default/create.yml
+    destroy: ../default/destroy.yml
+    prepare: prepare.yml
+    converge: playbook.yml
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

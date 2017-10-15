@@ -1,0 +1,12 @@
+---
+
+pc_package: true
+pc_security: false
+
+pc_package_binding_packages:
+  Fedora:
+    - python-dnf
+  Ubuntu:
+    - python-apt
+  RedHat:
+    - yum
