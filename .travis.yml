@@ -10,4 +10,6 @@ install:
   - pip install molecule
   - pip install docker-py
 script:
+  - bootstrap.sh
+  - .tools/click/bin/python tasks.py molecule
   - molecule test
