@@ -1,0 +1,12 @@
+[submodule "powo.apache"]
+	path = powo.apache
+	url = git@github.com:powo-roles/powo.apache.git
+[submodule "powo.checks"]
+	path = powo.checks
+	url = git@github.com:powo-roles/powo.checks.git
+[submodule "powo.php"]
+	path = powo.php
+	url = git@github.com:powo-roles/powo.php.git
+[submodule "powo.utils"]
+	path = powo.utils
+	url = git@github.com:powo-roles/powo.utils.git
