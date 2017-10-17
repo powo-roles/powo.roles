@@ -30,7 +30,10 @@
         dockerfile: "{{ item.item.dockerfile | default(item.invocation.module_args.dest) }}"
         force: "{{ item.item.force | default(True) }}"
       with_items: "{{ platforms.results }}"
-      when: platforms.changed or docker_images.results | map(attribute='images') | select('equalto', []) | list | count >= 0
+      when: |
+        platforms.changed or docker_images.results
+        | map(attribute='images') | select('equalto', [])
+        | list | count >= 0
 
     - name: Create molecule instance(s)
       docker_container:

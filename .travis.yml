@@ -11,6 +11,6 @@ install:
   - pip install docker-py
 script:
   # missing-package molecule disabled
-  #- ./bootstrap.sh
-  #- .tools/click/bin/python tasks.py molecule
+  # - ./bootstrap.sh
+  # - .tools/click/bin/python tasks.py molecule
   - molecule test
