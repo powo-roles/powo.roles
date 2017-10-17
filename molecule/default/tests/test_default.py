@@ -7,4 +7,4 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_package(host):
-    host.ansible("shell", "apachectl -S", check=True)
+    host.ansible("shell", "apachectl -S", check=False)
