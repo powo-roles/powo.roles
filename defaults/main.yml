@@ -1,8 +1,11 @@
 ---
 
+# check python bindings for packaging
 pc_package: true
+# check security bindings
 pc_security: false
 
+# packages by distribution
 pc_package_binding_packages:
   Fedora:
     - python-dnf

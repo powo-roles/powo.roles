@@ -1,3 +1,4 @@
 ---
 
+# packages for python bindings (yum, apt, ...)
 _pc_package_binding_packages: "{{ pc_package_binding_packages | distro(vars) }}"
