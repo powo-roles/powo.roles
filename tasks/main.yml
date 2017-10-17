@@ -1,0 +1,17 @@
+---
+
+- name: install
+  package:
+    name: "{{ item }}"
+  with_items: "{{ _pa_packages }}"
+
+- name: service
+  service:
+    name: "{{ _pa_service }}"
+    state: started
+    enabled: true
+
+- name: modules
+  apache2_module:
+    name: "{{ item }}"
+  with_items: "{{ _pa_modules }}"
