@@ -1,0 +1,24 @@
+---
+
+- import_tasks: user.yml
+
+# register result as getent_passwd fact
+- name: home folder
+  getent:
+    database: passwd
+    key: "{{ pu_user }}"
+    split: ":"
+
+- name: check ssh
+  stat:
+    path: /usr/bin/ssh-keygen
+  register: ssh_stat
+
+- import_tasks: ssh.yml
+  become: true
+  become_user: "{{ pu_user }}"
+  when: ssh_stat.stat.exists
+
+- import_tasks: bash.yml
+  become: true
+  become_user: "{{ pu_user }}"

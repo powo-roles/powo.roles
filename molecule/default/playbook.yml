@@ -1,0 +1,17 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: install ssh
+      package:
+        name: openssh
+
+    - name: powo.user
+      include_role:
+        role: powo.user
+      vars:
+        pu_user: toto
+        pu_password: titi
+        pu_fullname: Toto le Héros
+        pu_passphrase: titi le canari
+        pu_uid: 2000

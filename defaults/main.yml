@@ -1,0 +1,18 @@
+---
+
+# mandatory
+pu_user: "{{ you must define pu_user }}"
+pu_password: "{{ you must define pu_password }}"
+pu_uid: "{{ you must define pu_uid }}"
+pu_shell: "/bin/bash"
+pu_groups: []
+pu_fullname: "John Doe"
+# optional if sshkey already exists
+pu_passphrase: "{{ you must define pu_passphrase to create a ssh key}}"
+
+pu_profiles: []
+# - filename: my_vars.conf
+#   template: |
+#     export MY_VAR=toto
+# - filename: other_vars.conf
+#   template: ...

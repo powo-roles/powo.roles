@@ -1,0 +1,21 @@
+---
+
+- name: "group creation"
+  group:
+    name: "{{ _pu_group }}"
+    gid: "{{ _pu_gid }}"
+    system: false
+
+
+- name: "user creation"
+  user:
+    name: "{{ pu_user }}"
+    uid: "{{ pu_uid }}"
+    shell: "{{ pu_shell }}"
+    group: "{{ _pu_group }}"
+    groups: "{{ pu_groups }}"
+    append: true
+    comment: "{{ pu_fullname }}"
+    createhome: true
+    password: "{{ pu_password }}"
+    update_password: on_create

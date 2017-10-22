@@ -1,0 +1,6 @@
+---
+
+_pu_group: "{{ pu_user }}"
+_pu_gid: "{{ pu_uid }}"
+# valid after getent task run
+_pu_home: "{{ getent_passwd[pu_user][4] }}"

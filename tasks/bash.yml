@@ -1,0 +1,96 @@
+---
+
+- name: bashrc.d directory
+  file:
+    path: "{{ _pu_home }}/.bashrc.d"
+    owner: "{{ pu_user }}"
+    group: "{{ _pu_group }}"
+    mode: u=rwx,g=rwx,o=rx
+    state: directory
+
+- name: bashrc.d loading
+  blockinfile:
+    create: false
+    dest: "{{ _pu_home }}/.bashrc"
+    owner: "{{ pu_user }}"
+    group: "{{ _pu_group }}"
+    mode: u=rw,g=rw,o=r
+    state: present
+    insertafter: EOF
+    block: |
+        if [ -d "$HOME/.bashrc.d" -a $( find "$HOME/.bashrc.d" -type f -name "*.conf" | wc -l ) -ne 0 ]; then
+            for item in $( find "$HOME/.bashrc.d" -type f -name "*.conf" ); do
+              source "$item"
+            done
+        fi
+
+- name: bash_profile.d directory
+  file:
+    path: "{{ _pu_home }}/.bash_profile.d"
+    owner: "{{ pu_user }}"
+    group: "{{ _pu_group }}"
+    mode: u=rwx,g=rwx,o=rx
+    state: directory
+
+- name: bash_profile.d loading
+  blockinfile:
+    create: true
+    dest: "{{ _pu_home }}/.bash_profile"
+    owner: "{{ pu_user }}"
+    group: "{{ _pu_group }}"
+    mode: u=rw,g=rw,o=r
+    state: present
+    insertafter: EOF
+    block: |
+        if [ -f "$HOME/.profile" ]; then
+          source "$HOME/.profile"
+        fi
+        if [ -d "$HOME/.bash_profile.d" -a $( find "$HOME/.bash_profile.d" -type f -name "*.conf" | wc -l ) -ne 0 ];
+            then
+            for item in $( find "$HOME/.bash_profile.d" -type f -name "*.conf" ); do
+              source "$item"
+            done
+        fi
+
+- name: profile.d directory
+  file:
+    path: "{{ _pu_home }}/.profile.d"
+    owner: "{{ pu_user }}"
+    group: "{{ _pu_group }}"
+    mode: u=rwx,g=rwx,o=rx
+    state: directory
+
+- name: profile.d loading
+  blockinfile:
+    create: true
+    dest: "{{ _pu_home }}/.profile"
+    owner: "{{ pu_user }}"
+    group: "{{ _pu_group }}"
+    mode: u=rw,g=rw,o=r
+    state: present
+    insertafter: EOF
+    block: |
+        if [ -d "$HOME/.profile.d" -a $( find "$HOME/.profile.d" -type f -name "*.conf" | wc -l ) -ne 0 ]; then
+            for item in $( find "$HOME/.profile.d" -type f -name "*.conf" ); do
+              source "$item"
+            done
+        fi
+
+- name: profile.d/50-powo.conf
+  template:
+    dest: "{{ _pu_home }}/.profile.d/50-powo.conf"
+    force: true
+    owner: "{{ pu_user }}"
+    group: "{{ _pu_group }}"
+    mode: u=rw,g=rw,o=r
+    src: profile.d_powo.conf.jinja
+
+- name: custom profile.d files
+  with_items: "{{ pu_profiles }}"
+  copy:
+    dest: "{{ _pu_home }}/.profile.d/{{ item.filename }}"
+    force: true
+    owner: "{{ pu_user }}"
+    group: "{{ _pu_group }}"
+    mode: u=rw,o=rw,o=r
+    content: "{{ item.template }}"
