@@ -10,3 +10,6 @@
 [submodule "powo.utils"]
 	path = powo.utils
 	url = git@github.com:powo-roles/powo.utils.git
+[submodule "powo.user"]
+	path = powo.user
+	url = git@github.com:powo-roles/powo.user.git
