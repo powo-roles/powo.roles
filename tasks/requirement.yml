@@ -1,0 +1,6 @@
+---
+
+# required to enable become
+- name: sudo
+  package:
+    name: sudo

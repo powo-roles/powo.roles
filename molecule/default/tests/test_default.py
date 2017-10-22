@@ -19,3 +19,6 @@ def test_package(host):
     assert not ssh_a['stat']['xoth']
     id_rsa_a = host.ansible('stat', 'path={}'.format(id_rsa_file))
     assert id_rsa_a['stat']['exists']
+    env = host.check_output('sudo -i -u toto printenv JAVA_HOME', shell=True)
+    assert os.path.normpath(os.path.join(home, 'Documents/apps/java/')) \
+        == os.path.normpath(env)

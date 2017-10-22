@@ -1,5 +1,7 @@
 ---
 
+- import_tasks: requirement.yml
+
 - import_tasks: user.yml
 
 # register result as getent_passwd fact

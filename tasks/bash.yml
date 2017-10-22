@@ -5,76 +5,65 @@
     path: "{{ _pu_home }}/.bashrc.d"
     owner: "{{ pu_user }}"
     group: "{{ _pu_group }}"
-    mode: u=rwx,g=rwx,o=rx
+    mode: u=rwx,g=rx,o=rx
     state: directory
 
+# .bashrc load bashrc.d/*.conf
 - name: bashrc.d loading
   blockinfile:
     create: false
     dest: "{{ _pu_home }}/.bashrc"
     owner: "{{ pu_user }}"
     group: "{{ _pu_group }}"
-    mode: u=rw,g=rw,o=r
+    mode: u=rw,g=r,o=r
     state: present
     insertafter: EOF
     block: |
-        if [ -d "$HOME/.bashrc.d" -a $( find "$HOME/.bashrc.d" -type f -name "*.conf" | wc -l ) -ne 0 ]; then
-            for item in $( find "$HOME/.bashrc.d" -type f -name "*.conf" ); do
-              source "$item"
-            done
-        fi
+      if compgen -G "$HOME/.bashrc.d/*.conf" > /dev/null; then
+          for item in "$HOME/.bashrc.d/"*.conf; do
+            source "$item"
+          done
+      fi
 
-- name: bash_profile.d directory
-  file:
-    path: "{{ _pu_home }}/.bash_profile.d"
-    owner: "{{ pu_user }}"
-    group: "{{ _pu_group }}"
-    mode: u=rwx,g=rwx,o=rx
-    state: directory
-
-- name: bash_profile.d loading
+# .bash_profile loads .profile
+- name: profile loading
   blockinfile:
     create: true
     dest: "{{ _pu_home }}/.bash_profile"
     owner: "{{ pu_user }}"
     group: "{{ _pu_group }}"
-    mode: u=rw,g=rw,o=r
+    mode: u=rw,g=r,o=r
     state: present
     insertafter: EOF
     block: |
-        if [ -f "$HOME/.profile" ]; then
+      if [ -f "$HOME/.profile" ]; then
           source "$HOME/.profile"
-        fi
-        if [ -d "$HOME/.bash_profile.d" -a $( find "$HOME/.bash_profile.d" -type f -name "*.conf" | wc -l ) -ne 0 ];
-            then
-            for item in $( find "$HOME/.bash_profile.d" -type f -name "*.conf" ); do
-              source "$item"
-            done
-        fi
+      fi
 
 - name: profile.d directory
   file:
     path: "{{ _pu_home }}/.profile.d"
     owner: "{{ pu_user }}"
     group: "{{ _pu_group }}"
-    mode: u=rwx,g=rwx,o=rx
+    mode: u=rwx,g=rx,o=rx
     state: directory
 
+# .profile loads .profile.d/*.conf
 - name: profile.d loading
   blockinfile:
     create: true
     dest: "{{ _pu_home }}/.profile"
     owner: "{{ pu_user }}"
     group: "{{ _pu_group }}"
-    mode: u=rw,g=rw,o=r
+    mode: u=rw,g=r,o=r
     state: present
     insertafter: EOF
     block: |
-        if [ -d "$HOME/.profile.d" -a $( find "$HOME/.profile.d" -type f -name "*.conf" | wc -l ) -ne 0 ]; then
-            for item in $( find "$HOME/.profile.d" -type f -name "*.conf" ); do
-              source "$item"
-            done
-        fi
+      if compgen -G "$HOME/.profile.d/*.conf" > /dev/null; then
+          for item in "$HOME/.profile.d/"*.conf; do
+            source "$item"
+          done
+      fi
 
 - name: profile.d/50-powo.conf
   template:
@@ -82,7 +71,7 @@
     force: true
     owner: "{{ pu_user }}"
     group: "{{ _pu_group }}"
-    mode: u=rw,g=rw,o=r
+    mode: u=rw,g=r,o=r
     src: profile.d_powo.conf.jinja
 
 - name: custom profile.d files
