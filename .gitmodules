@@ -13,3 +13,9 @@
 [submodule "powo.user"]
 	path = powo.user
 	url = git@github.com:powo-roles/powo.user.git
+[submodule "powo.ubuntu-backports"]
+	path = powo.ubuntu-backports
+	url = git@github.com:powo-roles/powo.ubuntu-backports.git
+[submodule "powo.gnome-shell"]
+	path = powo.gnome-shell
+	url = git@github.com:powo-roles/powo.gnome-shell.git
