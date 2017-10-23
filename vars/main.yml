@@ -1,0 +1,3 @@
+---
+
+_pgs_packages: "{{ pgs_packages | distro(vars) }}"

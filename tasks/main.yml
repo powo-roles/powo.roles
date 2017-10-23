@@ -1,0 +1,11 @@
+---
+
+- name: gnome-shell
+  with_items: "{{ _pgs_packages }}"
+  package:
+    name: "{{ item }}"
+
+- name: arc-theme
+  with_items: "{{ _pgs_arc_theme }}"
+  package:
+    name: "{{ item }}"

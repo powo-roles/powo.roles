@@ -1,0 +1,15 @@
+---
+
+# mandatory
+pgs_packages:
+  RedHat:
+    - '@GNOME'
+  Debian:
+    - ubuntu-gnome-desktop
+
+pgs_arc_theme:
+  Fedora:
+    - arc-theme
+  Ubuntu_16.10:
+    - arc-theme
+  default: []
