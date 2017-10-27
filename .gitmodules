@@ -19,3 +19,21 @@
 [submodule "powo.gnome-shell"]
 	path = powo.gnome-shell
 	url = git@github.com:powo-roles/powo.gnome-shell.git
+[submodule "powo.archive"]
+	path = powo.archive
+	url = git@github.com:powo-roles/powo.archive.git
+[submodule "powo.chrome"]
+	path = powo.chrome
+	url = git@github.com:powo-roles/powo.chrome.git
+[submodule "powo.eclipse"]
+	path = powo.eclipse
+	url = git@github.com:powo-roles/powo.eclipse.git
+[submodule "powo.maven"]
+	path = powo.maven
+	url = git@github.com:powo-roles/powo.maven.git
+[submodule "powo.tomcat"]
+	path = powo.tomcat
+	url = git@github.com:powo-roles/powo.tomcat.git
+[submodule "powo.virtualbox"]
+	path = powo.virtualbox
+	url = git@github.com:powo-roles/powo.virtualbox.git
