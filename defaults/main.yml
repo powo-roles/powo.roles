@@ -4,3 +4,14 @@ pec_install_base_folder: "{{ xxx_mandatory }}"
 pec_download_folder: "{{ xxx_mandatory }}"
 pec_default_vm: None
 pec_default_vmargs: None
+eclipse_libwebkitgtk_packages:
+  RedHat:
+    - webkitgtk3
+    - webkitgtk4
+  Fedora:
+    - webkitgtk
+    - webkitgtk3
+    - webkitgtk4
+  Debian:
+    - libwebkitgtk-1.0-0
+    - libwebkitgtk-3.0-0

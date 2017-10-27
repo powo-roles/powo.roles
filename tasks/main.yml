@@ -3,3 +3,8 @@
 - name: bundles
   include_tasks: eclipse_item.yml
   with_items: "{{ pec_bundles }}"
+
+- name: webkit
+  with_items: "{{ eclipse_libwebkitgtk_packages | distro(vars) }}"
+  package:
+    name: "{{ item }}"
