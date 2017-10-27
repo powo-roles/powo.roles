@@ -1,0 +1,3 @@
+_par_archive_basename: "{{ par_archive_basename | default(par_archive_url | basename) }}"
+_par_archive_strip: "{{ par_archive_strip | default(False) }}"
+_par_archive_extra_opts: "{{ '--strip-components=' + _par_archive_strip if _par_archive_strip else omit }}"

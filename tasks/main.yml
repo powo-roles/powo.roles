@@ -1,0 +1,27 @@
+---
+
+- name: download folder
+  file:
+    path: "{{ par_archive_destination_folder }}"
+    state: directory
+    mode: u=rwx,g=rx,o=rx
+
+- name: extraction folder
+  file:
+    path: "{{ par_archive_extraction_folder | dirname }}"
+    state: directory
+    mode: u=rwx,g=rx,o=rx
+
+- name: download
+  get_url:
+    url: "{{ par_archive_url }}"
+    headers: "{{ par_download_headers }}"
+    dest: "{{ _par_archive_basename }}"
+    checksum: "{{ par_archive_checksum }}"
+
+- name: unarchive
+  unarchive:
+    src: "{{ _par_archive_basename }}"
+    remote_src: True
+    dest: "{{ par_archive_extraction_folder }}"
+    extra_opts: "{{ _par_archive_extra_opts }}"
