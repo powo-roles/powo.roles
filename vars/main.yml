@@ -2,5 +2,5 @@
 
 _virtualbox_group: vboxusers
 _virtualbox_el_dist_name: "{{ 'fedora' if ansible_distribution == 'Fedora' else 'el' }}"
-_virtualbox_el_repository: |
+_virtualbox_el_repository: >-
   http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_el_dist_name }}/$releasever/$basearch
