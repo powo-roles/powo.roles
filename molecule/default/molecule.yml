@@ -12,12 +12,12 @@ lint:
 platforms:
   - name: m-centos7
     image: centos:7
-    #  - name: m-fedora26
-    #    image: fedora:26
-    #  - name: m-xenial
-    #    image: ubuntu:16.04
-    #  - name: m-yakkety
-    #    image: ubuntu:16.10
+  - name: m-fedora26
+    image: fedora:26
+  - name: m-xenial
+    image: ubuntu:16.04
+  - name: m-yakkety
+    image: ubuntu:16.10
 provisioner:
   name: ansible
   playbooks:

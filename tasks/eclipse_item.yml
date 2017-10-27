@@ -8,3 +8,16 @@
     par_archive_extraction_folder: "{{ _pec_item_install_folder }}"
     par_archive_url: "{{ _pec_item_download_url }}"
     par_archive_checksum: "{{ _pec_item_download_checksum }}"
+    par_archive_strip: 1
+
+- name: desktop files' folder
+  file:
+    path: "~/.local/share/applications/"
+    state: directory
+
+- name: desktop file
+  template:
+    dest: "~/.local/share/applications/{{ _pec_item_desktop_file_basename }}"
+    force: yes
+    mode: u=rw,g=rw,o=r
+    src: eclipse-desktop.jinja
