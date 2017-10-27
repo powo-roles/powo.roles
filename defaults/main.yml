@@ -1,10 +1,12 @@
 ---
 
 virtualbox_users: []
+virtualbox_dkms_packages:
+  default:
+    - dkms
 virtualbox_packages:
   Ubuntu:
     - virtualbox-5.2
-  Fedora:
+  RedHat:
     - VirtualBox-5.2
     - kernel-devel
-    - dkms

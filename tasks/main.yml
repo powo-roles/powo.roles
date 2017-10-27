@@ -4,7 +4,8 @@
   include: "repository_{{ ansible_os_family }}.yml"
 
 - name: dkms installation
-  package: name=dkms state=present
+  package: name={{ item }} state=present
+  with_items: "{{ virtualbox_dkms_packages | distro(vars) }}"
 
 - name: virtualbox installation
   package: name={{ item }} state=present
@@ -15,4 +16,4 @@
   user:
     name: "{{ item }}"
     groups: "{{ _virtualbox_group }}"
-    append: yes
+    append: true
