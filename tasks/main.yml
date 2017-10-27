@@ -24,7 +24,7 @@
 
 - name: unarchive
   unarchive:
-    src: "{{ par_archive_basename }}"
+    src: "{{ _par_archive_destination_file }}"
     remote_src: True
     dest: "{{ par_archive_extraction_folder }}"
     extra_opts: "{{ _par_archive_extra_opts }}"
