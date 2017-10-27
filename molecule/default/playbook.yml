@@ -1,11 +1,12 @@
 ---
 - name: Converge
   hosts: all
+  serial: 1
   roles:
     - role: powo.eclipse
       pec_install_base_folder: "/tmp"
       pec_download_folder: "/tmp"
       pec_bundles:
-        - url: http://ftp.heanet.ie/mirrors/eclipse/technology/epp/downloads/release/oxygen/R/eclipse-java-oxygen-R-linux-gtk-x86_64.tar.gz
+        - url: http://ftp.heanet.ie/mirrors/eclipse/technology/epp/downloads/release/oxygen/R/eclipse-testing-oxygen-R-linux-gtk-x86_64.tar.gz
           checksum: sha1:539e2edd7fe72653a7076e696ade52c4a3bafd0d
           desktop_name: Eclipse Oxygen (4.7.0)
