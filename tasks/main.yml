@@ -1,0 +1,5 @@
+---
+
+- name: bundles
+  include_tasks: tomcat_item.yml
+  with_items: "{{ pto_bundles }}"

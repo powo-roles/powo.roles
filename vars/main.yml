@@ -1,0 +1,10 @@
+---
+
+_pto_item_download_url: "{{ item.url }}"
+_pto_item_download_checksum: "{{ item.checksum }}"
+_pto_item_desktop_name: "{{ item.desktop_name }}"
+
+_pto_item_download_basename: "{{ item.basename | default(_pto_item_download_url | basename) }}"
+_pto_item_name: "{{ item.name | default(_pto_item_download_basename.split('.') | first) }}"
+
+_pto_item_install_folder: "{{ pto_install_base_folder }}/{{ _pto_item_name }}"
