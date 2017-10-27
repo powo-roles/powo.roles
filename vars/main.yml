@@ -1,0 +1,6 @@
+---
+
+_pec_item_download_basename: "{{ item.basename | default(_pec_item_download_url | basename) }}"
+_pec_item_install_folder: "{{ pec_install_base_folder }}/{{ _pec_item_download_basename.split('.') | first }}"
+_pec_item_download_url: "{{ item.url }}"
+_pec_item_download_checksum: "{{ item.checksum }}"

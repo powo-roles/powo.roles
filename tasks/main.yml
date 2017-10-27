@@ -1,0 +1,5 @@
+---
+
+- name: bundles
+  include_tasks: eclipse_item.yml
+  with_items: "{{ pec_bundles }}"
