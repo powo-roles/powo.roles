@@ -7,6 +7,6 @@ par_archive_url: "{{ xxx_mandatory }}"
 par_archive_checksum: "{{ xxx_mandatory }}"
 
 # optional
-par_archive_basename: "{{ par_archive_basename | default(par_archive_url | basename) }}"
+par_archive_basename: "{{ par_archive_url | basename }}"
 par_download_headers: "{{ omit }}"
 par_archive_strip: "{{ par_archive_strip | default(False) }}"

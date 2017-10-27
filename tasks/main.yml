@@ -19,7 +19,7 @@
   get_url:
     url: "{{ par_archive_url }}"
     headers: "{{ par_download_headers }}"
-    dest: "{{ par_archive_basename }}"
+    dest: "{{ _par_archive_destination_file }}"
     checksum: "{{ par_archive_checksum }}"
 
 - name: unarchive

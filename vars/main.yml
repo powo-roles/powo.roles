@@ -1,1 +1,2 @@
 _par_archive_extra_opts: "{{ '--strip-components=' + _par_archive_strip if _par_archive_strip else omit }}"
+_par_archive_destination_file: "{{ par_archive_destination_folder}}/{{ par_archive_basename }}"
