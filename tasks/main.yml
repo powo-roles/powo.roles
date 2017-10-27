@@ -1,8 +1,5 @@
 ---
 
-- debug:
-    msg: "{{ vars }}"
-
 - name: download folder
   file:
     path: "{{ par_archive_destination_folder }}"
