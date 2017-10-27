@@ -8,7 +8,7 @@
 
 - name: extraction folder
   file:
-    path: "{{ par_archive_extraction_folder | dirname }}"
+    path: "{{ par_archive_extraction_folder }}"
     state: directory
     mode: u=rwx,g=rx,o=rx
 
