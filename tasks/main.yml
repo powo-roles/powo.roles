@@ -1,5 +1,8 @@
 ---
 
+- name: repository
+  include: "repository_{{ ansible_os_family }}.yml"
+
 - name: google chrome installation
   package: name=google-chrome-stable state=present
 
