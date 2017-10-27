@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: Laurent Almeras
+  description: Virtualbox installation.
+  license: BSD
+  min_ansible_version: 2.4
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Fedora
+      versions:
+        - 26
+        - 27
+    - name: Ubuntu
+        - xenial
+        - yakkety
+  galaxy_tags:
+    - powo
+    - installer
+    - virtualbox
+dependencies:
+  - powo.utils

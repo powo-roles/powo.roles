@@ -1,0 +1,18 @@
+---
+
+- name: virtualbox repository keys
+  rpm_key:
+    key: "{{ item }}"
+  with_items:
+    - https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    - https://www.virtualbox.org/download/oracle_vbox.asc
+
+- name: virtualbox repository
+  yum_repository:
+    name: virtualbox
+    description: Virtualbox repository
+    baseurl: http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
+    enabled: yes
+    file: virtualbox
+    gpgcheck: yes
+    gpgkey: http://www.virtualbox.org/download/oracle_vbox.asc

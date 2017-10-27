@@ -1,0 +1,18 @@
+---
+
+# rewrite key install without apt-key (that is deprecated ?)
+- name: dirmngr utility
+  package:
+    name: dirmngr
+
+- name: virtualbox repository keys
+  apt_key: id={{ item }} keyserver=keys.gnupg.net
+  with_items:
+    - 7B0FAB3A13B907435925D9C954422A4B98AB5139
+    - B9F8D658297AF3EFC18D5CDFA2F683C52980AECF
+
+- name: virtualbox repository
+  apt_repository:
+    repo: deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} non-free contrib
+    state: present
+    filename: virtualbox

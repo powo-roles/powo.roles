@@ -1,0 +1,10 @@
+---
+
+virtualbox_users: []
+virtualbox_packages:
+  Ubuntu:
+    - virtualbox-5.2
+  Fedora:
+    - VirtualBox-5.2
+    - kernel-devel
+    - dkms
