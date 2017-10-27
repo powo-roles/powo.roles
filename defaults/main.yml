@@ -1,0 +1,7 @@
+---
+
+chromium_packages:
+  Ubuntu:
+    - chromium-browser
+  RedHat:
+    - chromium
