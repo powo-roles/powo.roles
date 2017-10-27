@@ -1,0 +1,7 @@
+---
+
+pma_install_base_folder: "{{ xxx_mandatory }}"
+pma_download_folder: "{{ xxx_mandatory }}"
+pma_default_vm: None
+pma_default_vmargs: None
+pma_bundles: []

@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  serial: 1
+  roles:
+    - role: powo.maven
+      pma_install_base_folder: "/tmp"
+      pma_download_folder: "/tmp"
+      pma_bundles:
+        - url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+          checksum: md5:948110de4aab290033c23bf4894f7d9a
+          basename: maven-3.5.2
