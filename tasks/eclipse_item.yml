@@ -18,6 +18,6 @@
 - name: desktop file
   template:
     dest: "~/.local/share/applications/{{ _pec_item_desktop_file_basename }}"
-    force: yes
+    force: true
     mode: u=rw,g=rw,o=r
     src: eclipse-desktop.jinja
