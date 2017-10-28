@@ -20,4 +20,4 @@ galaxy_info:
     - httpd
     - system
 dependencies:
-  - role: powo-roles.utils
+  - role: powo.utils
