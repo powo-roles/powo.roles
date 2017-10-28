@@ -1,0 +1,27 @@
+---
+doc:
+  help: "install you computer and code!"
+tasks:
+  - powo.checks:
+      become_user: root
+  - powo.ubuntu-backports:
+      become_user: root
+  - powo.base:
+      become_user: root
+  - powo.apache:
+      become_user: root
+  - powo.php:
+      become_user: root
+  - powo.chrome:
+      become_user: root
+  - powo.gnome-shell
+  - powo.eclipse
+  - powo.maven
+  - powo.tomcat
+  - powo.virtualbox:
+      become_user: root
+vars:
+  use_become: yes
+  become: yes
+role_repos:
+  - gh:powo-roles/powo.checks
