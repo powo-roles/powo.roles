@@ -6,8 +6,6 @@ tasks:
       become_user: root
   - powo.ubuntu-backports:
       become_user: root
-  - powo.base:
-      become_user: root
   - powo.apache:
       become_user: root
   - powo.php:
