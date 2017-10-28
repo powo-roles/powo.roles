@@ -14,7 +14,10 @@ tasks:
   - powo.chrome:
       become_user: root
   - powo.gnome-shell
-  - powo.eclipse
+  - powo.eclipse:
+      pec_bundles: []
+      pec_install_base_folder: '~/Documents/apps/'
+      pec_download_folder: '~/Documents/tools/eclipse'
   - powo.maven
   - powo.tomcat
   - powo.virtualbox:
