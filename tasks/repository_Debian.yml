@@ -1,7 +1,12 @@
 ---
 
 - name: google chrome repository keys
-  apt_key: id=4CCA1EAF950CEE4AB83976DCA040830F7FAC5991 keyserver=keys.gnupg.net
+  with_items:
+    - EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
+    - 4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
+  apt_key:
+    id: "{{ item }}"
+    keyserver: keys.gnupg.net
 
 - name: google chrome repository
   apt_repository:
