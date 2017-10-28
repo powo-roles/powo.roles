@@ -18,4 +18,4 @@ galaxy_info:
     - powo
     - installer
 dependencies:
-  - role: powo-roles.utils
+  - role: powo.utils
