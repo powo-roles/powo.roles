@@ -2,6 +2,7 @@
 doc:
   help: "install you computer and code!"
 tasks:
+  - powo.utils
   - powo.checks:
       become_user: root
   - powo.ubuntu-backports:
