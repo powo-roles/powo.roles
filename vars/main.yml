@@ -6,6 +6,7 @@ _pja_item_desktop_name: "{{ item.desktop_name }}"
 _pja_headers: "Cookie: oraclelicense=accept-securebackup-cookie"
 
 _pja_item_download_basename: "{{ item.basename | default(_pja_item_download_url | basename) }}"
-_pja_item_name: "{{ item.name | default(_pja_item_download_basename.split('.') | first) }}"
+# split extension without split version
+_pja_item_name: "{{ item.name | default(_pja_item_download_basename | regex_replace('(\\.[a-z]{1,3})*$', '')) }}"
 
 _pja_item_install_folder: "{{ pja_install_base_folder }}/{{ _pja_item_name }}"
