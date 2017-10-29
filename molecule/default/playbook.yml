@@ -11,13 +11,6 @@
             http_proxy: "{{ lookup('env', 'PROXY_HTTP') }}"
             https_proxy: "{{ lookup('env', 'PROXY_HTTPS') }}"
           proxy_cert_path: "{{ lookup('env', 'PROXY_CERT_PATH') }}"
-    # ca-certificates needs sudo
-    # (we need to install package before enabling proxy, else it can trigger
-    # ssl certificate errors)
-    - name: sudo
-      when: install_certs
-      package:
-        name: sudo
     - name: register proxy ssl certificate
       when: install_certs
       include_role:
@@ -52,6 +45,7 @@
       include_role:
         role: powo.user
       vars:
+        pu_create: true
         pu_user: toto
         pu_password: titi
         pu_fullname: Toto le Héros

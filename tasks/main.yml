@@ -3,6 +3,7 @@
 - import_tasks: requirement.yml
 
 - import_tasks: user.yml
+  when: pu_create
 
 # register result as getent_passwd fact
 - name: home folder

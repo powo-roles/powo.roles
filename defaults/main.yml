@@ -1,6 +1,7 @@
 ---
 
 # mandatory
+pu_create: false
 pu_user: "{{ you must define pu_user }}"
 pu_password: "{{ you must define pu_password }}"
 pu_uid: "{{ you must define pu_uid }}"
