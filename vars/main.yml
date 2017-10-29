@@ -1,0 +1,10 @@
+---
+
+_pja_item_download_url: "{{ item.url }}"
+_pja_item_download_checksum: "{{ item.checksum }}"
+_pja_item_desktop_name: "{{ item.desktop_name }}"
+
+_pja_item_download_basename: "{{ item.basename | default(_pja_item_download_url | basename) }}"
+_pja_item_name: "{{ item.name | default(_pja_item_download_basename.split('.') | first) }}"
+
+_pja_item_install_folder: "{{ pja_install_base_folder }}/{{ _pja_item_name }}"

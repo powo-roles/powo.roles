@@ -1,0 +1,5 @@
+---
+
+- name: bundles
+  include_tasks: java_item.yml
+  with_items: "{{ pja_bundles }}"
