@@ -9,4 +9,4 @@
       pma_bundles:
         - url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
           checksum: md5:948110de4aab290033c23bf4894f7d9a
-          basename: maven-3.5.2
+          basename: maven-3.5.2.tar.gz

@@ -5,6 +5,7 @@ _pma_item_download_checksum: "{{ item.checksum }}"
 _pma_item_desktop_name: "{{ item.desktop_name }}"
 
 _pma_item_download_basename: "{{ item.basename | default(_pma_item_download_url | basename) }}"
-_pma_item_name: "{{ item.name | default(_pma_item_download_basename.split('.') | first) }}"
+# split extension without split version
+_pma_item_name: "{{ item.name | default(_pma_item_download_basename | regex_replace('(\\.[a-z]{1,3})*$', '')) }}"
 
 _pma_item_install_folder: "{{ pma_install_base_folder }}/{{ _pma_item_name }}"
