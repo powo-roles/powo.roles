@@ -1,11 +1,15 @@
 ---
 
-- name: gnome-shell
-  with_items: "{{ _pgs_packages }}"
-  package:
-    name: "{{ item }}"
+- name: privileged
+  become: true
+  become_user: root
+  block:
+    - name: gnome-shell
+      with_items: "{{ _pgs_packages }}"
+      package:
+        name: "{{ item }}"
 
-- name: arc-theme
-  with_items: "{{ _pgs_arc_theme }}"
-  package:
-    name: "{{ item }}"
+    - name: arc-theme
+      with_items: "{{ _pgs_arc_theme }}"
+      package:
+        name: "{{ item }}"
