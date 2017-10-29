@@ -1,5 +1,10 @@
 ---
 
+# rewrite key install without apt-key (that is deprecated ?)
+- name: dirmngr utility
+  package:
+    name: dirmngr
+
 - name: google chrome repository keys
   with_items:
     - EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796

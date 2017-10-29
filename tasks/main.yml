@@ -1,11 +1,15 @@
 ---
 
-- name: repository
-  include: "repository_{{ ansible_os_family }}.yml"
+- name: privileged
+  become: true
+  become_user: root
+  block:
+    - name: repository
+      include: "repository_{{ ansible_os_family }}.yml"
 
-- name: google chrome installation
-  package: name=google-chrome-stable state=present
+    - name: google chrome installation
+      package: name=google-chrome-stable state=present
 
-- name: chromium installation
-  package: name={{ item }} state=present
-  with_items: "{{ chromium_packages | distro(vars) }}"
+    - name: chromium installation
+      package: name={{ item }} state=present
+      with_items: "{{ chromium_packages | distro(vars) }}"
