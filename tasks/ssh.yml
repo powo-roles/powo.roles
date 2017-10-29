@@ -4,7 +4,7 @@
   file:
     path: "{{ _pu_home }}/.ssh"
     state: directory
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     owner: "{{ pu_user }}"
     mode: u=rwx,g=,o=
 

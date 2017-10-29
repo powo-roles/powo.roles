@@ -4,7 +4,7 @@
   file:
     path: "{{ _pu_home }}/.bashrc.d"
     owner: "{{ pu_user }}"
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     mode: u=rwx,g=rx,o=rx
     state: directory
 
@@ -14,7 +14,7 @@
     create: false
     dest: "{{ _pu_home }}/.bashrc"
     owner: "{{ pu_user }}"
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     mode: u=rw,g=r,o=r
     state: present
     insertafter: EOF
@@ -31,7 +31,7 @@
     create: true
     dest: "{{ _pu_home }}/.bash_profile"
     owner: "{{ pu_user }}"
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     mode: u=rw,g=r,o=r
     state: present
     insertafter: EOF
@@ -44,7 +44,7 @@
   file:
     path: "{{ _pu_home }}/.profile.d"
     owner: "{{ pu_user }}"
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     mode: u=rwx,g=rx,o=rx
     state: directory
 
@@ -54,7 +54,7 @@
     create: true
     dest: "{{ _pu_home }}/.profile"
     owner: "{{ pu_user }}"
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     mode: u=rw,g=r,o=r
     state: present
     insertafter: EOF
@@ -70,7 +70,7 @@
     dest: "{{ _pu_home }}/.profile.d/50-powo.conf"
     force: true
     owner: "{{ pu_user }}"
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     mode: u=rw,g=r,o=r
     src: profile.d_powo.conf.jinja
 
@@ -80,6 +80,6 @@
     dest: "{{ _pu_home }}/.profile.d/{{ item.filename }}"
     force: true
     owner: "{{ pu_user }}"
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     mode: u=rw,o=rw,o=r
     content: "{{ item.template }}"

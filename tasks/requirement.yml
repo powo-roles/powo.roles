@@ -2,5 +2,12 @@
 
 # required to enable become
 - name: sudo
+  become: true
+  become_user: root
   package:
     name: sudo
+
+- name: check username
+  fail:
+    msg: username cannot be root
+  when: pu_user == 'root'

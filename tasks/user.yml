@@ -2,8 +2,8 @@
 
 - name: "group creation"
   group:
-    name: "{{ _pu_group }}"
-    gid: "{{ _pu_gid }}"
+    name: "{{ pu_group }}"
+    gid: "{{ pu_gid }}"
     system: false
 
 
@@ -12,7 +12,7 @@
     name: "{{ pu_user }}"
     uid: "{{ pu_uid }}"
     shell: "{{ pu_shell }}"
-    group: "{{ _pu_group }}"
+    group: "{{ pu_group }}"
     groups: "{{ pu_groups }}"
     append: true
     comment: "{{ pu_fullname }}"
