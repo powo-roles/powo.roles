@@ -5,6 +5,8 @@
   with_items: "{{ pec_bundles }}"
 
 - name: webkit
+  become: true
+  become_user: root
   with_items: "{{ eclipse_libwebkitgtk_packages | distro(vars) }}"
   package:
     name: "{{ item }}"
