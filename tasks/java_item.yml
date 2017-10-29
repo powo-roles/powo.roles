@@ -9,3 +9,4 @@
     par_archive_url: "{{ _pja_item_download_url }}"
     par_archive_checksum: "{{ _pja_item_download_checksum }}"
     par_archive_strip: 1
+    par_download_headers: "{{ _pja_headers }}"
