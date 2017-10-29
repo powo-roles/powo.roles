@@ -1,5 +1,11 @@
 ---
 
+- name: prevent google-chrome-stable repo management
+  copy:
+    dest: /etc/default/google-chrome
+    content: repo_add_once="false"
+    force: true
+
 - name: google chrome repository
   yum_repository:
     name: google-chrome
