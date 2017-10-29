@@ -1,19 +1,23 @@
 ---
 
-- name: repository
-  include: "repository_{{ ansible_os_family }}.yml"
+- name: privileged
+  become: true
+  become_user: root
+  block:
+    - name: repository
+      include: "repository_{{ ansible_os_family }}.yml"
 
-- name: dkms installation
-  package: name={{ item }} state=present
-  with_items: "{{ virtualbox_dkms_packages | distro(vars) }}"
+    - name: dkms installation
+      package: name={{ item }} state=present
+      with_items: "{{ virtualbox_dkms_packages | distro(vars) }}"
 
-- name: virtualbox installation
-  package: name={{ item }} state=present
-  with_items: "{{ virtualbox_packages | distro(vars) }}"
+    - name: virtualbox installation
+      package: name={{ item }} state=present
+      with_items: "{{ virtualbox_packages | distro(vars) }}"
 
-- name: "user in group vboxusers"
-  with_items: "{{ virtualbox_users }}"
-  user:
-    name: "{{ item }}"
-    groups: "{{ _virtualbox_group }}"
-    append: true
+    - name: "user in group vboxusers"
+      with_items: "{{ virtualbox_users }}"
+      user:
+        name: "{{ item }}"
+        groups: "{{ _virtualbox_group }}"
+        append: true
