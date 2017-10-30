@@ -1,0 +1,35 @@
+tasks:
+  - powo.tomcat:
+      meta:
+        task-desc: powo.tomcat
+        task-type: ansible-role
+        task-name: powo.tomcat
+        task-roles:
+          - powo.archive
+  - powo.maven:
+      meta:
+        task-desc: powo.maven
+        task-type: ansible-role
+        task-name: powo.maven
+        task-roles:
+          - powo.archive
+  - powo.eclipse:
+      meta:
+        task-desc: powo.eclipse
+        task-type: ansible-role
+        task-name: powo.eclipse
+        task-roles:
+          - powo.archive
+  - powo.java:
+      meta:
+        task-desc: powo.java
+        task-type: ansible-role
+        task-name: powo.java
+        task-roles:
+          - powo.archive
+  - debug:
+      meta:
+        default-key: msg
+        task-name: debug
+        var-keys:
+          - msg
