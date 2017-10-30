@@ -2,8 +2,8 @@
 
 pec_install_base_folder: "{{ xxx_mandatory }}"
 pec_download_folder: "{{ xxx_mandatory }}"
-pec_default_vm: None
-pec_default_vmargs: None
+pec_default_vm: null
+pec_default_vmargs: null
 eclipse_libwebkitgtk_packages:
   RedHat:
     - webkitgtk3
