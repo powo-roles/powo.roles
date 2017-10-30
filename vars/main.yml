@@ -4,7 +4,7 @@ _pec_item_download_url: "{{ item.url }}"
 _pec_item_download_checksum: "{{ item.checksum }}"
 _pec_item_desktop_name: "{{ item.desktop_name }}"
 
-_pec_item_vm: "{{ item.vm | expanduser | default(pec_default_vm) }}"
+_pec_item_vm: "{{ item.vm | default(pec_default_vm) }}"
 _pec_item_vmargs: "{{ item.vmargs | default(pec_default_vmargs) }}"
 _pec_item_download_basename: "{{ item.basename | default(_pec_item_download_url | basename) }}"
 # split extension without split version
@@ -12,6 +12,6 @@ _pec_item_name: "{{ item.name | default(_pec_item_download_basename | regex_repl
 _pec_item_description: "{{ item.desktop_description | default(_pec_item_desktop_name) }}"
 
 _pec_item_install_folder: "{{ pec_install_base_folder }}/{{ _pec_item_name }}"
-_pec_item_eclipse_bin: "{{ _pec_item_install_folder | expanduser }}/eclipse"
-_pec_item_eclipse_icon: "{{ _pec_item_install_folder | expanduser }}/icon.xpm"
+_pec_item_eclipse_bin: "{{ _pec_item_install_folder }}/eclipse"
+_pec_item_eclipse_icon: "{{ _pec_item_install_folder }}/icon.xpm"
 _pec_item_desktop_file_basename: "{{ _pec_item_name }}.desktop"
