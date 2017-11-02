@@ -7,76 +7,93 @@ tasks:
   - powo.ubuntu-backports
   - powo.apache
   - powo.php
-  - powo.user
+  - powo.user:
+      pu_create: false
   - powo.chrome
   - powo.gnome-shell
-  - powo.eclipse
-  - powo.java
-  - powo.maven
-  - powo.tomcat
+  - powo.eclipse:
+      pec_install_base_folder: "{{ apps_folder }}"
+      pec_download_folder: "{{ tools_folder }}/eclipse"
+      pec_bundles:
+        - "{{ bundle_eclipse_java_471 }}"
+  - powo.java:
+      pja_install_base_folder: "{{ apps_folder }}"
+      pja_download_folder: "{{ tools_folder }}/java"
+      pja_bundles:
+        - "{{ bundle_jdk901 }}"
+        - "{{ bundle_jdk18u152 }}"
+  - powo.maven:
+      pma_install_base_folder: "{{ apps_folder }}"
+      pma_download_folder: "{{ tools_folder }}/maven"
+      pma_bundles:
+        - "{{ bundle_maven_3_3_9 }}"
+        - "{{ bundle_maven_3_5_2 }}"
+  - powo.tomcat:
+      pto_install_base_folder: "{{ apps_folder }}"
+      pto_download_folder: "{{ tools_folder }}/tomcat"
+      pto_bundles:
+        - "{{ bundle_tomcat_7_0_82 }}"
+        - "{{ bundle_tomcat_8_0_47 }}"
+        - "{{ bundle_tomcat_8_5_23 }}"
+        - "{{ bundle_tomcat_9_0_1 }}"
   - powo.virtualbox
-vars:
+meta:
   use_become: yes
-  pu_create: false
-  pec_install_base_folder: "~/Documents/apps"
-  pec_download_folder: "~/Documents/tools/eclipse"
-  pec_bundles:
-    - url: http://dl.likide.org/eclipse/releases/eclipse-java-extra-oxygen-1-linux-gtk-x86_64.tar.gz
-      checksum: sha256:7d0e7bca124474cd173e199c47103dab98fd4463bd097d03dd24abc17ee7a337
-      desktop_name: Eclipse 4.7.1 (extra)
-      vm: ~/Documents/apps/jdk-8u152-linux-x64/bin/java
-  pto_install_base_folder: "~/Documents/apps"
-  pto_download_folder: "~/Documents/tools/tomcat"
-  pto_bundles:
-    - "{{ tomcat_7_0_82 }}"
-    - "{{ tomcat_8_0_47 }}"
-    - "{{ tomcat_8_5_23 }}"
-    - "{{ tomcat_9_0_1 }}"
-  pja_install_base_folder: "~/Documents/apps"
-  pja_download_folder: "~/Documents/tools/java"
-  pja_bundles:
-    - "{{ jdk901 }}"
-    - "{{ jdk18u152 }}"
-  pma_install_base_folder: "~/Documents/apps"
-  pma_download_folder: "~/Documents/tools/maven"
-  pma_bundles:
-    - "{{ maven_3_3_9 }}"
-    - "{{ maven_3_5_2 }}"
-  jdk18u151:
+vars:
+  bundle_jdk18u151:
     url: http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz
     checksum: sha256:c78200ce409367b296ec39be4427f020e2c585470c4eed01021feada576f027f
     desktop_name: Java 1.8u151
-  jdk18u152:
+  bundle_jdk18u152:
     url: http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz
     checksum: sha256:218b3b340c3f6d05d940b817d0270dfe0cfd657a636bad074dcabe0c111961bf
     desktop_name: Java 1.8u152
-  jdk901:
+  bundle_jdk901:
     url: http://download.oracle.com/otn-pub/java/jdk/9.0.1+11/jdk-9.0.1_linux-x64_bin.tar.gz
     checksum: sha256:2cdaf0ff92d0829b510edd883a4ac8322c02f2fc1beae95d048b6716076bc014
     desktop_name: Java 9.0.1
     basename: jdk-9.0.1_linux-x64
-  jdk17u80:
+  bundle_jdk17u80:
     # authentification needed :-/
     url: http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz
     checksum: sha256:bad9a731639655118740bee119139c1ed019737ec802a630dd7ad7aab4309623
     desktop_name: Java 1.7u80
-  tomcat_7_0_82:
+  bundle_tomcat_7_0_82:
     url: http://apache.mindstudios.com/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz
     checksum: sha1:4681bfbc86bb4da76a7aabbb3c545475eb9a8075
-  tomcat_8_0_47:
+  bundle_tomcat_8_0_47:
     url: http://wwwftp.ciril.fr/pub/apache/tomcat/tomcat-8/v8.0.47/bin/apache-tomcat-8.0.47.tar.gz
     checksum: sha1:2b5a0d173040f9a576e372cae5d85b05599fd0eb
-  tomcat_8_5_23:
+  bundle_tomcat_8_5_23:
     url: http://wwwftp.ciril.fr/pub/apache/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz
     checksum: sha1:1ba27c1bb86ab9c8404e98068800f90bd662523c
-  tomcat_9_0_1:
+  bundle_tomcat_9_0_1:
     url: http://mirrors.ircam.fr/pub/apache/tomcat/tomcat-9/v9.0.1/bin/apache-tomcat-9.0.1.tar.gz
     checksum: sha1:c7f563e58df7f0ff1903425e0fed42779387d08d
-  maven_3_5_2:
+  bundle_maven_3_5_2:
     url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
     checksum: md5:948110de4aab290033c23bf4894f7d9a
     basename: maven-3.5.2.tar.gz
-  maven_3_3_9:
+  bundle_maven_3_3_9:
     url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
     checksum: md5:516923b3955b6035ba6b0a5b031fbd8b
     basename: maven-3.3.9.tar.gz
+  bundle_eclipse_java_471:
+    url: http://dl.likide.org/eclipse/releases/eclipse-java-extra-oxygen-1-linux-gtk-x86_64.tar.gz
+    checksum: sha256:7d0e7bca124474cd173e199c47103dab98fd4463bd097d03dd24abc17ee7a337
+    desktop_name: Eclipse 4.7.1 (extra)
+    vm: ~/Documents/apps/jdk-8u152-linux-x64/bin/java
+defaults:
+  tools_folder: "~/Documents/tools"
+  apps_folder: "~/Documents/apps"
+  bundle_eclipse_java_471: "{{ bundle_eclipse_java_471 }}"
+  bundle_tomcat_7_0_82: "{{ bundle_tomcat_7_0_82 }}"
+  bundle_tomcat_8_0_47: "{{ bundle_tomcat_8_0_47 }}"
+  bundle_tomcat_8_5_23: "{{ bundle_tomcat_8_5_23 }}"
+  bundle_tomcat_9_0_1: "{{ bundle_tomcat_9_0_1 }}"
+  bundle_maven_3_5_2: "{{ bundle_maven_3_5_2 }}"
+  bundle_maven_3_3_9: "{{ bundle_maven_3_3_9 }}"
+  bundle_jdk18u151: "{{ bundle_jdk18u151 }}"
+  bundle_jdk18u152: "{{ bundle_jdk18u152 }}"
+  bundle_jdk901: "{{ bundle_jdk901 }}"
+  bundle_jdk17u80: "{{ bundle_jdk17u80 }}"
