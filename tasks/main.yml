@@ -1,0 +1,9 @@
+---
+
+- name: symlinks
+  with_items: "{{ psy_symlinks }}"
+  file:
+    src: "{{ item.src }}"
+    path: "{{ item.path }}"
+    force: true
+    state: link
