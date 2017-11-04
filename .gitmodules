@@ -45,3 +45,7 @@
 	path = epel
 	url = https://github.com/igloo-project/roles-epel.git
 	branch = master
+[submodule "powo.misc"]
+	path = powo.misc
+	url = https://github.com/powo-roles/powo.misc.git
+	branch = master
