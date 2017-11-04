@@ -37,3 +37,11 @@
 [submodule "powo.virtualbox"]
 	path = powo.virtualbox
 	url = git@github.com:powo-roles/powo.virtualbox.git
+[submodule "postgresql"]
+	path = postgresql
+	url = https://github.com/igloo-project/roles-postgresql.git
+	branch = master
+[submodule "epel"]
+	path = epel
+	url = https://github.com/igloo-project/roles-epel.git
+	branch = master
