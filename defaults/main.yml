@@ -1,0 +1,47 @@
+---
+
+# optional
+pmi_packages:
+  RedHat:
+    - vim-enhanced
+    - gimp
+    - thunderbird
+    - subversion
+    - subversion-javahl
+    - git
+    - libnotify
+    - screen
+    - tmux
+    - tree
+    - dconf
+    - pwgen
+    - ack
+    - graphviz
+    - ImageMagick
+    - cifs-utils
+    - bash-completion
+    - zip
+    - unzip
+  Debian:
+    - vim
+    - gimp
+    - thunderbird
+    - thunderbird-gnome-support
+    - thunderbird-locale-fr
+    - subversion
+    - libsvn-java
+    - git
+    - libnotify-bin
+    - flashplugin-installer
+    - screen
+    - tmux
+    - tree
+    - dconf-tools
+    - pwgen
+    - ack-grep
+    - graphviz
+    - imagemagick
+    - cifs-utils
+    - bash-completion
+    - zip
+    - unzip
