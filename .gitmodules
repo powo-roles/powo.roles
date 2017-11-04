@@ -49,3 +49,7 @@
 	path = powo.misc
 	url = https://github.com/powo-roles/powo.misc.git
 	branch = master
+[submodule "postgresql-cluster"]
+	path = postgresql-cluster
+	url = https://github.com/igloo-project/roles-postgresql-cluster.git
+	branch = master
