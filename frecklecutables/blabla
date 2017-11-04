@@ -1,0 +1,10 @@
+tasks:
+  - debug:
+      msg: "{{ test }} {{ listing | join(' ') }} {{ var1 }}"
+defaults:
+  test: titi
+  var1: "{{ target }}"
+  listing:
+    - "{{ item1 }}"
+  item1: item1
+  target: target

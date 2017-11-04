@@ -2,15 +2,21 @@
 doc:
   help: "install you computer and code!"
 tasks:
-  - powo.utils
-  - powo.checks
-  - powo.ubuntu-backports
-  - powo.apache
-  - powo.php
+#  - powo.utils
+#  - powo.checks
+#  - powo.ubuntu-backports
+#  - powo.apache
+#  - powo.php
+  - postgresql:
+      postgresql_versions:
+        - "9.6"
+  - powo.vagrant:
+      pva_dest_folder: "{{ tools_folder }}/vagrant"
   - powo.user:
       pu_create: false
-  - powo.chrome
   - powo.gnome-shell
+  - powo.chrome
+  - powo.misc
   - powo.eclipse:
       pec_install_base_folder: "{{ apps_folder }}"
       pec_download_folder: "{{ tools_folder }}/eclipse"

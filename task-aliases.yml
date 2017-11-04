@@ -1,4 +1,12 @@
 tasks:
+  - postgresql:
+      meta:
+        task-desc: postgresql
+        task-type: ansible-role
+        task-name: postgresql
+        task-roles:
+          - powo.utils
+          - epel
   - powo.tomcat:
       meta:
         task-desc: powo.tomcat
