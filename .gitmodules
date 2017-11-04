@@ -53,3 +53,7 @@
 	path = postgresql-cluster
 	url = https://github.com/igloo-project/roles-postgresql-cluster.git
 	branch = master
+[submodule "powo.postgresql-stop"]
+	path = powo.postgresql-stop
+	url = https://github.com/powo-roles/powo.postgresql-stop
+	branch = master

@@ -7,6 +7,11 @@ tasks:
         task-roles:
           - powo.utils
           - epel
+  - postgresql-cluster:
+      meta:
+        task-desc: postgresql-cluster
+        task-type: ansible-role
+        task-name: postgresql-cluster
   - powo.tomcat:
       meta:
         task-desc: powo.tomcat

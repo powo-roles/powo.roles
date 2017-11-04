@@ -2,14 +2,22 @@
 doc:
   help: "install you computer and code!"
 tasks:
-#  - powo.utils
-#  - powo.checks
-#  - powo.ubuntu-backports
-#  - powo.apache
-#  - powo.php
+  - powo.utils
+  - powo.checks
+  - powo.ubuntu-backports
+  - powo.apache
+  - powo.php
   - postgresql:
       postgresql_versions:
         - "9.6"
+  - powo.postgresql-stop
+  - postgresql-cluster:
+      postgresql_cluster_clusters:
+        - name: default
+          path: /data/services/postgresql/9.6-default/
+          postgresql_version: "9.6"
+          port: 5432
+          pg_hba: pg_hba_local.conf
   - powo.vagrant:
       pva_dest_folder: "{{ tools_folder }}/vagrant"
   - powo.user:
@@ -44,7 +52,7 @@ tasks:
         - "{{ bundle_tomcat_9_0_1 }}"
   - powo.virtualbox
 meta:
-  use_become: yes
+  use_become: true
 vars:
   bundle_jdk18u151:
     url: http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz
