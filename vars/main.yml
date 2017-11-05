@@ -15,3 +15,6 @@ _pec_item_install_folder: "{{ pec_install_base_folder }}/{{ _pec_item_name }}"
 _pec_item_eclipse_bin: "{{ _pec_item_install_folder }}/eclipse"
 _pec_item_eclipse_icon: "{{ _pec_item_install_folder }}/icon.xpm"
 _pec_item_desktop_file_basename: "{{ _pec_item_name }}.desktop"
+
+_pec_user: "{{ lookup('pipe', 'whoami') }}"
+_pec_home: "{{ (lookup('pipe', 'getent passwd ' + pec_user))[5] }}"
