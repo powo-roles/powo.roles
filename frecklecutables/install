@@ -121,7 +121,7 @@ vars:
     export MAVEN_OPTS="-Xmx1024m"
   bash_java_template: |
     {% raw %}
-    export JAVA_HOME={{ bin_java | dirname | dirname | quote }}
+    export JAVA_HOME={{ bin_java | dirname | dirname | expanduser | quote }}
     {% endraw %}
 defaults:
   tools_folder: "{{ tools_folder }}"
