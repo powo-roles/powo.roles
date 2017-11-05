@@ -82,3 +82,7 @@
 	path = powo.vagrant
 	url = https://github.com/powo-roles/powo.vagrant.git
 	branch = master
+[submodule "powo.filesystem"]
+	path = powo.filesystem
+	url = https://github.com/powo-roles/powo.filesystem.git
+	branch = master

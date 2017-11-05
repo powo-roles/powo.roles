@@ -8,6 +8,7 @@ args:
 tasks:
   - powo.utils
   - powo.checks
+  - powo.filesystem
   - powo.ubuntu-backports
   - powo.apache
   - powo.php
