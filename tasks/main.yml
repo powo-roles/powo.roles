@@ -3,6 +3,8 @@
 - import_tasks: requirement.yml
 
 - import_tasks: user.yml
+  become: true
+  become_user: root
   when: pu_create
 
 # register result as getent_passwd fact
