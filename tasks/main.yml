@@ -8,3 +8,9 @@
       with_items: "{{ _pmi_packages }}"
       package:
         name: "{{ item }}"
+
+    - name: ssh
+      service:
+        name: "{{ _pmi_ssh_service }}"
+        state: started
+        enabled: true

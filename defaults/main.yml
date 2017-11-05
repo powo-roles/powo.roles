@@ -1,5 +1,9 @@
 ---
 
+pmi_ssh_service:
+  RedHat: sshd
+  Debian: ssh
+
 # optional
 pmi_packages:
   RedHat:
@@ -22,6 +26,7 @@ pmi_packages:
     - bash-completion
     - zip
     - unzip
+    - openssh
   Debian:
     - vim
     - gimp
@@ -45,3 +50,5 @@ pmi_packages:
     - bash-completion
     - zip
     - unzip
+    - openssh-client
+    - openssh-server

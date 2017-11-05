@@ -1,3 +1,5 @@
 ---
 
 _pmi_packages: "{{ pmi_packages | distro(vars) }}"
+
+_pmi_ssh_service: "{{ pmi_ssh_service | distro(vars) }}"
