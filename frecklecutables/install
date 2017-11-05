@@ -26,6 +26,18 @@ tasks:
   - powo.utils
   - powo.checks
   - powo.filesystem
+  - powo.user:
+      pu_create: "{{ is_user_supplied }}"
+      pu_user: "{{ play_user }}"
+      pu_uid: "{{ play_uid }}"
+      pu_password: "{{ play_password }}"
+      pu_passphrase: "{{ play_passphrase }}"
+      pu_fullname: "{{ play_fullname }}"
+      pu_profiles:
+        - filename: 50-java.conf
+          template: "{{ bash_java_template }}"
+        - filename: 50-maven.conf
+          template: "{{ bash_maven_template }}"
   - powo.ubuntu-backports
   - powo.apache
   - powo.php
@@ -40,18 +52,6 @@ tasks:
           postgresql_version: "9.6"
           port: 5432
           pg_hba: pg_hba_local.conf
-  - powo.user:
-      pu_create: "{{ is_user_supplied }}"
-      pu_user: "{{ play_user }}"
-      pu_uid: "{{ play_uid }}"
-      pu_password: "{{ play_password }}"
-      pu_passphrase: "{{ play_passphrase }}"
-      pu_fullname: "{{ play_fullname }}"
-      pu_profiles:
-        - filename: 50-java.conf
-          template: "{{ bash_java_template }}"
-        - filename: 50-maven.conf
-          template: "{{ bash_maven_template }}"
   - powo.vagrant:
       pva_dest_folder: "{{ tools_folder }}/vagrant"
   - powo.gnome-shell
