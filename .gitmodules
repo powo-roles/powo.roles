@@ -1,42 +1,55 @@
 [submodule "powo.apache"]
 	path = powo.apache
-	url = git@github.com:powo-roles/powo.apache.git
+	url = https://github.com/powo-roles/powo.apache.git
+	branch = master
 [submodule "powo.checks"]
 	path = powo.checks
-	url = git@github.com:powo-roles/powo.checks.git
+	url = https://github.com/powo-roles/powo.checks.git
+	branch = master
 [submodule "powo.php"]
 	path = powo.php
-	url = git@github.com:powo-roles/powo.php.git
+	url = https://github.com/powo-roles/powo.php.git
+	branch = master
 [submodule "powo.utils"]
 	path = powo.utils
-	url = git@github.com:powo-roles/powo.utils.git
+	url = https://github.com/powo-roles/powo.utils.git
+	branch = master
 [submodule "powo.user"]
 	path = powo.user
-	url = git@github.com:powo-roles/powo.user.git
+	url = https://github.com/powo-roles/powo.user.git
+	branch = master
 [submodule "powo.ubuntu-backports"]
 	path = powo.ubuntu-backports
-	url = git@github.com:powo-roles/powo.ubuntu-backports.git
+	url = https://github.com/powo-roles/powo.ubuntu-backports.git
+	branch = master
 [submodule "powo.gnome-shell"]
 	path = powo.gnome-shell
-	url = git@github.com:powo-roles/powo.gnome-shell.git
+	url = https://github.com/powo-roles/powo.gnome-shell.git
+	branch = master
 [submodule "powo.archive"]
 	path = powo.archive
-	url = git@github.com:powo-roles/powo.archive.git
+	url = https://github.com/powo-roles/powo.archive.git
+	branch = master
 [submodule "powo.chrome"]
 	path = powo.chrome
-	url = git@github.com:powo-roles/powo.chrome.git
+	url = https://github.com/powo-roles/powo.chrome.git
+	branch = master
 [submodule "powo.eclipse"]
 	path = powo.eclipse
-	url = git@github.com:powo-roles/powo.eclipse.git
+	url = https://github.com/powo-roles/powo.eclipse.git
+	branch = master
 [submodule "powo.maven"]
 	path = powo.maven
-	url = git@github.com:powo-roles/powo.maven.git
+	url = https://github.com/powo-roles/powo.maven.git
+	branch = master
 [submodule "powo.tomcat"]
 	path = powo.tomcat
-	url = git@github.com:powo-roles/powo.tomcat.git
+	url = https://github.com/powo-roles/powo.tomcat.git
+	branch = master
 [submodule "powo.virtualbox"]
 	path = powo.virtualbox
-	url = git@github.com:powo-roles/powo.virtualbox.git
+	url = https://github.com/powo-roles/powo.virtualbox.git
+	branch = master
 [submodule "postgresql"]
 	path = postgresql
 	url = https://github.com/igloo-project/roles-postgresql.git
