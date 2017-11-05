@@ -8,6 +8,9 @@ eclipse_libwebkitgtk_packages:
   RedHat:
     - webkitgtk3
     - webkitgtk4
+  Fedora_27:
+    # webkitgtk, webkitgtk3 no longer exist
+    - webkitgtk4
   Fedora:
     - webkitgtk
     - webkitgtk3
