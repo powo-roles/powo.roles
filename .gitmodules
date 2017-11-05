@@ -57,3 +57,7 @@
 	path = powo.postgresql-stop
 	url = https://github.com/powo-roles/powo.postgresql-stop
 	branch = master
+[submodule "powo.symlinks"]
+	path = powo.symlinks
+	url = https://github.com/powo-roles/powo.symlinks.git
+	branch = master
