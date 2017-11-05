@@ -1,6 +1,10 @@
 ---
 doc:
   help: "install you computer and code!"
+args:
+  passphrase:
+    required: false
+    default: null
 tasks:
   - powo.utils
   - powo.checks
@@ -22,6 +26,7 @@ tasks:
       pva_dest_folder: "{{ tools_folder }}/vagrant"
   - powo.user:
       pu_create: false
+      pu_passphrase: "{{ passphrase }}"
       pu_profiles:
         - filename: 50-java.conf
           template: "{{ bash_java_template }}"
