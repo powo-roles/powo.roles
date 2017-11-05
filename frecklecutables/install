@@ -33,6 +33,7 @@ tasks:
       pu_password: "{{ play_password }}"
       pu_passphrase: "{{ play_passphrase }}"
       pu_fullname: "{{ play_fullname }}"
+      pu_sudo: true
       pu_profiles:
         - filename: 50-java.conf
           template: "{{ bash_java_template }}"
@@ -103,7 +104,7 @@ vars:
   is_user_supplied: "{% raw %}\"{{ user is not none }}\"{% endraw %}"
   play_user: "{% raw %}\"{{ user if user is not none else lookup('pipe', 'whoami') }}\"{% endraw %}"
   play_uid: "{% raw %}\"{{ uid if uid is not none else lookup('pipe', 'id -u') }}\"{% endraw %}"
-  play_password: "{% raw %}\"{{ password | password_hash('sha512', password) if password else none }}\"{% endraw %}"
+  play_password: "{% raw %}\"{{ password | password_hash('sha512') if password else none }}\"{% endraw %}"
   play_fullname: "{% raw %}\"{{ fullname }}\"{% endraw %}"
   play_home: "{% raw %}\"{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}\"{% endraw %}"
   play_passphrase: "{% raw %}\"{{ passphrase }}\"{% endraw %}"
