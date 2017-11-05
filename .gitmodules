@@ -61,3 +61,7 @@
 	path = powo.symlinks
 	url = https://github.com/powo-roles/powo.symlinks.git
 	branch = master
+[submodule "powo.java"]
+	path = powo.java
+	url = https://github.com/powo-roles/powo.java.git
+	branch = master
