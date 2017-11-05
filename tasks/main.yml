@@ -13,6 +13,7 @@
       file:
         path: /data
         src: /home/data
+        state: link
     
     - name: files
       with_items:
