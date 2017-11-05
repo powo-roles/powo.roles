@@ -78,3 +78,7 @@
 	path = powo.java
 	url = https://github.com/powo-roles/powo.java.git
 	branch = master
+[submodule "powo.vagrant"]
+	path = powo.vagrant
+	url = https://github.com/powo-roles/powo.vagrant.git
+	branch = master
