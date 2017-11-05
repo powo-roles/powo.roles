@@ -6,16 +6,15 @@
     gid: "{{ pu_gid }}"
     system: false
 
-
 - name: "user creation"
   user:
     name: "{{ pu_user }}"
     uid: "{{ pu_uid }}"
     shell: "{{ pu_shell }}"
     group: "{{ pu_group }}"
-    groups: "{{ pu_groups }}"
+    groups: "{{ _pu_groups }}"
     append: true
-    comment: "{{ pu_fullname }}"
+    comment: "{{ pu_fullname if pu_fullname else omit }}"
     createhome: true
-    password: "{{ pu_password }}"
+    password: "{{ pu_password if pu_password else omit }}"
     update_password: on_create

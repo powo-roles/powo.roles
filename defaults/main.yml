@@ -9,6 +9,7 @@ pu_uid: "{{ you must define pu_uid }}"
 pu_gid: "{{ pu_uid }}"
 pu_shell: "/bin/bash"
 pu_groups: []
+pu_sudo: false
 pu_fullname: "John Doe"
 # optional if sshkey already exists
 pu_passphrase: "{{ you must define pu_passphrase to create a ssh key}}"
@@ -19,3 +20,9 @@ pu_profiles: []
 #     export MY_VAR=toto
 # - filename: other_vars.conf
 #   template: ...
+
+pu_admin_group: "{{ pu_admin_group_distro | distro(vars) }}"
+
+pu_admin_group_distro:
+  RedHat: wheel
+  Debian: admin
