@@ -76,6 +76,8 @@
 
 - name: custom profile.d files
   with_items: "{{ pu_profiles }}"
+  loop_control:
+    label: item.path
   copy:
     dest: "{{ _pu_home }}/.profile.d/{{ item.filename }}"
     force: true
