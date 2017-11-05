@@ -1,6 +1,11 @@
 ---
 
 _virtualbox_group: vboxusers
-_virtualbox_el_dist_name: "{{ 'fedora' if ansible_distribution == 'Fedora' else 'el' }}"
-_virtualbox_el_repository: >-
-  http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_el_dist_name }}/$releasever/$basearch
+_virtualbox_dist_name: "{{ 'fedora' if ansible_distribution == 'Fedora' else 'el' }}"
+_virtualbox_repository_distro:
+  # repository not already available
+  Fedora_27: >-
+    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/26/$basearch
+  default: >-
+    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/$releasever/$basearch
+_virtualbox_repository: "{{ _virtualbox_repository_distro | distro(vars) }}"

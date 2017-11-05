@@ -11,7 +11,7 @@
   yum_repository:
     name: virtualbox
     description: Virtualbox repository
-    baseurl: "{{ _virtualbox_el_repository }}"
+    baseurl: "{{ _virtualbox_repository }}"
     enabled: true
     file: virtualbox
     gpgcheck: true
