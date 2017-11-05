@@ -1,0 +1,23 @@
+---
+
+- name: privileged
+  become: true
+  become_user: root
+  block:
+    - name: /home/data
+      file:
+        path: /home/data
+        state: directory
+    
+    - name: /data
+      file:
+        path: /data
+        src: /home/data
+    
+    - name: files
+      with_items:
+        - /data/services
+        - /data/logs
+      file:
+        path: "{{ item }}"
+        state: directory
