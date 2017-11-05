@@ -8,11 +8,14 @@
     owner: "{{ pu_user }}"
     mode: u=rwx,g=,o=
 
-- name: .ssh/id_rsa check
-  stat:
-    path: "{{ _pu_home }}/.ssh/id_rsa"
-  register: id_rsa_stat
+- name: ssh key
+  when: pu_passphrase is not none
+  block:
+    - name: .ssh/id_rsa check
+      stat:
+        path: "{{ _pu_home }}/.ssh/id_rsa"
+      register: id_rsa_stat
 
-- name: .ssh/id_rsa creation
-  command: ssh-keygen -t rsa -f "{{ _pu_home }}/.ssh/id_rsa" -N "{{ pu_passphrase }}"
-  when: not id_rsa_stat.stat.exists
+    - name: .ssh/id_rsa creation
+      command: ssh-keygen -t rsa -f "{{ _pu_home }}/.ssh/id_rsa" -N "{{ pu_passphrase }}"
+      when: not id_rsa_stat.stat.exists
