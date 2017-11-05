@@ -51,3 +51,7 @@
         pu_fullname: Toto le Héros
         pu_passphrase: titi le canari
         pu_uid: 2000
+        pu_profiles:
+          - filename: java.conf
+            template: |
+              export JAVA_HOME=/home/toto/Documents/apps/java
