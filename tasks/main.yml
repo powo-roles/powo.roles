@@ -1,5 +1,12 @@
 ---
 
+- name: directories
+  with_items: "{{ psy_directories }}"
+  file:
+    path: "{{ item }}"
+    force: true
+    state: directory
+
 - name: symlinks
   with_items: "{{ psy_symlinks }}"
   file:
