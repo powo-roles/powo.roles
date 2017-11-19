@@ -98,16 +98,16 @@ meta:
   use_become: true
 vars:
   become: true
-  become_user: "{% raw %}\"{{ play_user }}\"{% endraw %}"
-  apps_folder: "{% raw %}\"{{ play_home }}/Documents/apps\"{% endraw %}"
-  tools_folder: "{% raw %}\"{{ play_home }}/Documents/tools\"{% endraw %}"
-  is_user_supplied: "{% raw %}\"{{ user is not none }}\"{% endraw %}"
-  play_user: "{% raw %}\"{{ user if user is not none else lookup('pipe', 'whoami') }}\"{% endraw %}"
-  play_uid: "{% raw %}\"{{ uid if uid is not none else lookup('pipe', 'id -u') }}\"{% endraw %}"
-  play_password: "{% raw %}\"{{ password | password_hash('sha512') if password else none }}\"{% endraw %}"
-  play_fullname: "{% raw %}\"{{ fullname }}\"{% endraw %}"
-  play_home: "{% raw %}\"{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}\"{% endraw %}"
-  play_passphrase: "{% raw %}\"{{ passphrase }}\"{% endraw %}"
+  become_user: "{{ play_user }}"
+  apps_folder: "{{ play_home }}/Documents/apps"
+  tools_folder: "{{ play_home }}/Documents/tools"
+  is_user_supplied: "{{ user is not none }}"
+  play_user: "{{ user if user is not none else lookup('pipe', 'whoami') }}"
+  play_uid: "{{ uid if uid is not none else lookup('pipe', 'id -u') }}"
+  play_password: "{{ password | password_hash('sha512') if password else none }}"
+  play_fullname: "{{ fullname }}"
+  play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
+  play_passphrase: "{{ passphrase }}"
   bundle_jdk18u151:
     url: http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz
     checksum: sha256:c78200ce409367b296ec39be4427f020e2c585470c4eed01021feada576f027f
@@ -151,37 +151,10 @@ vars:
     checksum: sha256:7d0e7bca124474cd173e199c47103dab98fd4463bd097d03dd24abc17ee7a337
     desktop_name: Eclipse 4.7.1 (extra)
     vm: "{{ bin_java }}"
-  bin_java: "{% raw %}\"{{ apps_folder }}/{{ bundle_jdk18u152.url | basename | regex_replace('(\\\\.[a-z]{1,3})*$', '') }}/bin/java\"{% endraw %}"
-  bin_eclipse: "{% raw %}\"{{ apps_folder }}/{{ bundle_eclipse_java_471.url | basename | regex_replace('(\\\\.[a-z]{1,3})*$', '') }}/eclipse\"{% endraw %}"
-  bin_maven: "{% raw %}\"{{ apps_folder }}/{{ bundle_maven_3_5_2.basename | regex_replace('(\\\\.[a-z]{1,3})*$', '') }}/bin/mvn\"{% endraw %}"
+  bin_java: "{{ apps_folder }}/{{ bundle_jdk18u152.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/java"
+  bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_471.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/eclipse"
+  bin_maven: "{{ apps_folder }}/{{ bundle_maven_3_5_2.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
   bash_maven_template: |
     export MAVEN_OPTS="-Xmx1024m"
   bash_java_template: |
-    {% raw %}
     export JAVA_HOME={{ bin_java | dirname | dirname | expanduser | quote }}
-    {% endraw %}
-defaults:
-  is_user_supplied: "{{ is_user_supplied }}"
-  play_user: "{{ play_user }}"
-  play_uid: "{{ play_uid }}"
-  play_passphrase: "{{ play_passphrase }}"
-  play_password: "{{ play_password }}"
-  play_fullname: "{{ play_fullname }}"
-  tools_folder: "{{ tools_folder }}"
-  apps_folder: "{{ apps_folder }}"
-  bundle_eclipse_java_471: "{{ bundle_eclipse_java_471 }}"
-  bundle_tomcat_7_0_82: "{{ bundle_tomcat_7_0_82 }}"
-  bundle_tomcat_8_0_47: "{{ bundle_tomcat_8_0_47 }}"
-  bundle_tomcat_8_5_23: "{{ bundle_tomcat_8_5_23 }}"
-  bundle_tomcat_9_0_1: "{{ bundle_tomcat_9_0_1 }}"
-  bundle_maven_3_5_2: "{{ bundle_maven_3_5_2 }}"
-  bundle_maven_3_3_9: "{{ bundle_maven_3_3_9 }}"
-  bundle_jdk18u151: "{{ bundle_jdk18u151 }}"
-  bundle_jdk18u152: "{{ bundle_jdk18u152 }}"
-  bundle_jdk901: "{{ bundle_jdk901 }}"
-  bundle_jdk17u80: "{{ bundle_jdk17u80 }}"
-  bash_maven_template: "{{ bash_maven_template }}"
-  bash_java_template: "{{ bash_java_template }}"
-  bin_java: "{{ bin_java }}"
-  bin_eclipse: "{{ bin_eclipse }}"
-  bin_maven: "{{ bin_maven }}"
