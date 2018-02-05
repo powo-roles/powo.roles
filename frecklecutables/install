@@ -69,7 +69,7 @@ tasks:
       pja_download_folder: "{{ tools_folder }}/java"
       pja_bundles:
         - "{{ bundle_jdk904 }}"
-        - "{{ bundle_jdk18u152 }}"
+        - "{{ bundle_jdk18u162 }}"
   - powo.maven:
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"
@@ -117,6 +117,10 @@ vars:
     url: http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz
     checksum: sha256:218b3b340c3f6d05d940b817d0270dfe0cfd657a636bad074dcabe0c111961bf
     desktop_name: Java 1.8u152
+  bundle_jdk18u162:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u162-b12/0da788060d494f5095bf8624735fa2f1/jdk-8u162-linux-x64.tar.gz
+    checksum: sha256:68ec82d47fd9c2b8eb84225b6db398a72008285fafc98631b1ff8d2229680257
+    desktop_name: Java 1.8u162
   bundle_jdk904:
     url: http://download.oracle.com/otn-pub/java/jdk/9.0.4+11/c2514751926b4512b076cc82f959763f/jdk-9.0.4_linux-x64_bin.tar.gz
     checksum: sha256:90c4ea877e816e3440862cfa36341bc87d05373d53389ec0f2d54d4e8c95daa2
