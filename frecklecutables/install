@@ -68,7 +68,7 @@ tasks:
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_bundles:
-        - "{{ bundle_jdk901 }}"
+        - "{{ bundle_jdk904 }}"
         - "{{ bundle_jdk18u152 }}"
   - powo.maven:
       pma_install_base_folder: "{{ apps_folder }}"
@@ -117,11 +117,11 @@ vars:
     url: http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz
     checksum: sha256:218b3b340c3f6d05d940b817d0270dfe0cfd657a636bad074dcabe0c111961bf
     desktop_name: Java 1.8u152
-  bundle_jdk901:
-    url: http://download.oracle.com/otn-pub/java/jdk/9.0.1+11/jdk-9.0.1_linux-x64_bin.tar.gz
-    checksum: sha256:2cdaf0ff92d0829b510edd883a4ac8322c02f2fc1beae95d048b6716076bc014
-    desktop_name: Java 9.0.1
-    basename: jdk-9.0.1_linux-x64
+  bundle_jdk904:
+    url: http://download.oracle.com/otn-pub/java/jdk/9.0.4+11/c2514751926b4512b076cc82f959763f/jdk-9.0.4_linux-x64_bin.tar.gz
+    checksum: sha256:90c4ea877e816e3440862cfa36341bc87d05373d53389ec0f2d54d4e8c95daa2
+    desktop_name: Java 9.0.4
+    basename: jdk-9.0.4_linux-x64
   bundle_jdk17u80:
     # authentification needed :-/
     url: http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz
