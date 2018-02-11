@@ -12,8 +12,6 @@ lint:
 platforms:
   - name: m-centos7
     image: centos:7
-  - name: m-centos6
-    image: centos:6
   - name: m-fedora-rawhide
     image: fedora:rawhide
   - name: m-fedora27
