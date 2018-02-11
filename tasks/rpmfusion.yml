@@ -1,0 +1,8 @@
+---
+
+- name: check package manager
+  fail:
+    msg: "{{ ansible_pkg_mgr }} not supported, not in ({{ _rpmfusion_pkg_mgrs }})"
+  when: ansible_pkg_mgr not in _rpmfusion_pkg_mgrs
+
+- include_tasks: "{{ ansible_pkg_mgr }}.yml"

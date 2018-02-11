@@ -1,0 +1,12 @@
+---
+
+- name: rpmfusion {{ item }} check
+  yum:
+    list: installed
+  check_mode: true
+  register: rpmfusion_check
+
+- name: rpmfusion {{ item }} install
+  yum:
+    name: "{{ _rpmfusion_package_url[item] }}"
+  when: rpmfusion_check.results | selectattr('name', 'equalto', item)
