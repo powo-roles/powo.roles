@@ -86,3 +86,7 @@
 	path = powo.filesystem
 	url = https://github.com/powo-roles/powo.filesystem.git
 	branch = master
+[submodule "powo.rpmfusion"]
+	path = powo.rpmfusion
+	url = ../powo.rpmfusion.git
+	branch = master
