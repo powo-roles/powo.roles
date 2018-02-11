@@ -1,12 +1,12 @@
 ---
 
-- name: rpmfusion check
+- name: rpmfusion {{ item }} check
   dnf:
     list: installed
   check_mode: true
   register: rpmfusion_check
 
-- name: rpmfusion install
+- name: rpmfusion {{ item }} install
   dnf:
     name: "{{ _rpmfusion_package_url[item] }}"
-  when: not rpmfusion_check.results | selectattr('name', 'equalto', item)
+  when: rpmfusion_check.results | selectattr('name', 'equalto', item)

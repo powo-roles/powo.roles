@@ -3,4 +3,4 @@
 - include_tasks: rpmfusion.yml
   become: true
   become_user: root
-  with_items: "{{ rpmfusion_repositories }}"
+  with_items: "{{ _rpmfusion_packages }}"
