@@ -1,0 +1,10 @@
+---
+doc:
+  help: "enable rpmfusion and perform some generic install!"
+tasks:
+  - powo.utils
+  - powo.rpmfusion
+  - PACKAGE:
+      name: ffmpeg
+meta:
+  use_become: true
