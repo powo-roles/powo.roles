@@ -1,54 +1,54 @@
 [submodule "powo.apache"]
 	path = powo.apache
-	url = https://github.com/powo-roles/powo.apache.git
+	url = ../powo.apache.git
 	branch = master
 [submodule "powo.checks"]
 	path = powo.checks
-	url = https://github.com/powo-roles/powo.checks.git
+	url = ../powo.checks.git
 	branch = master
 [submodule "powo.php"]
 	path = powo.php
-	url = https://github.com/powo-roles/powo.php.git
+	url = ../powo.php.git
 	branch = master
 [submodule "powo.utils"]
 	path = powo.utils
-	url = https://github.com/powo-roles/powo.utils.git
+	url = ../powo.utils.git
 	branch = master
 [submodule "powo.user"]
 	path = powo.user
-	url = https://github.com/powo-roles/powo.user.git
+	url = ../powo.user.git
 	branch = master
 [submodule "powo.ubuntu-backports"]
 	path = powo.ubuntu-backports
-	url = https://github.com/powo-roles/powo.ubuntu-backports.git
+	url = ../powo.ubuntu-backports.git
 	branch = master
 [submodule "powo.gnome-shell"]
 	path = powo.gnome-shell
-	url = https://github.com/powo-roles/powo.gnome-shell.git
+	url = ../powo.gnome-shell.git
 	branch = master
 [submodule "powo.archive"]
 	path = powo.archive
-	url = https://github.com/powo-roles/powo.archive.git
+	url = ../powo.archive.git
 	branch = master
 [submodule "powo.chrome"]
 	path = powo.chrome
-	url = https://github.com/powo-roles/powo.chrome.git
+	url = ../powo.chrome.git
 	branch = master
 [submodule "powo.eclipse"]
 	path = powo.eclipse
-	url = https://github.com/powo-roles/powo.eclipse.git
+	url = ../powo.eclipse.git
 	branch = master
 [submodule "powo.maven"]
 	path = powo.maven
-	url = https://github.com/powo-roles/powo.maven.git
+	url = ../powo.maven.git
 	branch = master
 [submodule "powo.tomcat"]
 	path = powo.tomcat
-	url = https://github.com/powo-roles/powo.tomcat.git
+	url = ../powo.tomcat.git
 	branch = master
 [submodule "powo.virtualbox"]
 	path = powo.virtualbox
-	url = https://github.com/powo-roles/powo.virtualbox.git
+	url = ../powo.virtualbox.git
 	branch = master
 [submodule "postgresql"]
 	path = postgresql
@@ -60,7 +60,7 @@
 	branch = master
 [submodule "powo.misc"]
 	path = powo.misc
-	url = https://github.com/powo-roles/powo.misc.git
+	url = ../powo.misc.git
 	branch = master
 [submodule "postgresql-cluster"]
 	path = postgresql-cluster
@@ -68,23 +68,23 @@
 	branch = master
 [submodule "powo.postgresql-stop"]
 	path = powo.postgresql-stop
-	url = https://github.com/powo-roles/powo.postgresql-stop
+	url = ../powo.postgresql-stop
 	branch = master
 [submodule "powo.symlinks"]
 	path = powo.symlinks
-	url = https://github.com/powo-roles/powo.symlinks.git
+	url = ../powo.symlinks.git
 	branch = master
 [submodule "powo.java"]
 	path = powo.java
-	url = https://github.com/powo-roles/powo.java.git
+	url = ../powo.java.git
 	branch = master
 [submodule "powo.vagrant"]
 	path = powo.vagrant
-	url = https://github.com/powo-roles/powo.vagrant.git
+	url = ../powo.vagrant.git
 	branch = master
 [submodule "powo.filesystem"]
 	path = powo.filesystem
-	url = https://github.com/powo-roles/powo.filesystem.git
+	url = ../powo.filesystem.git
 	branch = master
 [submodule "powo.rpmfusion"]
 	path = powo.rpmfusion
