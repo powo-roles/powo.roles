@@ -29,6 +29,7 @@ pmi_packages:
     - openssh
     - nextcloud-client
     - atom
+    - openldap-clients
   Debian:
     - vim
     - gimp
@@ -56,3 +57,4 @@ pmi_packages:
     - openssh-server
     - nextcloud-client
     - atom
+    - ldap-utils
