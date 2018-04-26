@@ -27,6 +27,7 @@ pmi_packages:
     - zip
     - unzip
     - openssh
+    - nextcloud-client
     - atom
   Debian:
     - vim
@@ -53,4 +54,5 @@ pmi_packages:
     - unzip
     - openssh-client
     - openssh-server
+    - nextcloud-client
     - atom
