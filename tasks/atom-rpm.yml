@@ -1,0 +1,11 @@
+---
+
+- name: atom repository
+  yum_repository:
+    name: atom
+    description: google-chrome
+    baseurl: https://packagecloud.io/AtomEditor/atom/el/7/$basearch
+    enabled: yes
+    file: atom
+    gpgcheck: yes
+    gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey

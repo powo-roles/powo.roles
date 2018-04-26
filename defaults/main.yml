@@ -27,6 +27,7 @@ pmi_packages:
     - zip
     - unzip
     - openssh
+    - atom
   Debian:
     - vim
     - gimp
@@ -52,3 +53,4 @@ pmi_packages:
     - unzip
     - openssh-client
     - openssh-server
+    - atom

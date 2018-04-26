@@ -1,0 +1,15 @@
+---
+
+- debug:
+    msg: This task is not tested
+
+- name: atom repository keys
+  apt_key:
+    url: "https://packagecloud.io/AtomEditor/atom/gpgkey"
+    state: present
+
+- name: atom repository
+  apt_repository:
+    repo: deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main
+    state: present
+    filename: atom
