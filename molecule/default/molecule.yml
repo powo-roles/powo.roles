@@ -19,9 +19,9 @@ platforms:
   - name: m-xenial
     image: ubuntu:16.04
   - name: m-artful
-    image: ubuntu:18.04
+    image: ubuntu:17.10
   - name: m-bionic
-    image: ubuntu:18.10
+    image: ubuntu:18.04
 provisioner:
   name: ansible
   playbooks:
