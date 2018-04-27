@@ -14,10 +14,14 @@ platforms:
     image: centos:7
   - name: m-fedora26
     image: fedora:26
+  - name: m-fedora27
+    image: fedora:27
   - name: m-xenial
     image: ubuntu:16.04
-  - name: m-yakkety
-    image: ubuntu:16.10
+  - name: m-artful
+    image: ubuntu:18.04
+  - name: m-bionic
+    image: ubuntu:18.10
 provisioner:
   name: ansible
   playbooks:
