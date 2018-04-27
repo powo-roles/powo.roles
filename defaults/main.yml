@@ -26,11 +26,13 @@ pmi_packages:
     - bash-completion
     - zip
     - unzip
-    - openssh
+    - openssh-clients
+    - openssh-server
     - nextcloud-client
     - atom
     - openldap-clients
   Debian:
+    - apt-transport-https
     - vim
     - gimp
     - thunderbird

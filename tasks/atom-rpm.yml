@@ -1,12 +1,26 @@
 ---
 
+- name: atom rpm key
+  copy:
+    src: atom.gpg
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-ATOM
+  register: atom_rpm_gpg
+
+# force gpg key installation (needed on centos 7)
+- name: install key
+  shell: yum makecache -y --disablerepo='*' --enablerepo=atom
+  args:
+    warn: false
+  when: atom_rpm_gpg.changed and ansible_distribution in ['CentOS', 'RedHat']
+  # no warn about yum module usage
+
 - name: atom repository
   yum_repository:
     name: atom
-    description: google-chrome
+    description: atom
     baseurl: https://packagecloud.io/AtomEditor/atom/el/7/$basearch
-    enabled: yes
+    enabled: true
     file: atom
-    gpgcheck: no
-    repo_gpgcheck: yes
-    gpgkey: https://packagecloud.io/AtomEditor/atom/gpgkey
+    gpgcheck: false
+    repo_gpgcheck: true
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ATOM

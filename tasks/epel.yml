@@ -1,0 +1,6 @@
+---
+
+# needed for nextcloud-client for centos7
+- name: epel
+  import_role:
+    name: epel
