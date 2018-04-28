@@ -25,9 +25,8 @@
   become_user: root
   block:
     - name: misc
-      with_items: "{{ _pmi_packages }}"
       package:
-        name: "{{ item }}"
+        name: "{{ _pmi_packages }}"
 
     - name: ssh
       service:
