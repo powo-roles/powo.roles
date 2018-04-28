@@ -6,14 +6,6 @@
     dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-ATOM
   register: atom_rpm_gpg
 
-# force gpg key installation (needed on centos 7)
-- name: install key
-  shell: yum makecache -y --disablerepo='*' --enablerepo=atom
-  args:
-    warn: false
-  when: atom_rpm_gpg.changed and ansible_distribution in ['CentOS', 'RedHat']
-  # no warn about yum module usage
-
 - name: atom repository
   yum_repository:
     name: atom
@@ -24,3 +16,14 @@
     gpgcheck: false
     repo_gpgcheck: true
     gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ATOM
+  register: atom_rpm_repo
+
+# force gpg key installation (needed on centos 7)
+- name: install key
+  shell: yum makecache -y --disablerepo='*' --enablerepo=atom
+  args:
+    # no warn about yum module usage
+    warn: false
+  when: |
+    (atom_rpm_gpg.changed or atom_rpm_repo.changed)
+    and ansible_distribution in ['CentOS', 'RedHat']
