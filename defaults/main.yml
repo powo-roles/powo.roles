@@ -29,34 +29,37 @@ pmi_packages:
     - openssh-clients
     - openssh-server
     - nextcloud-client
+    - nextcloud-client-nautilus
     - atom
     - openldap-clients
-  Debian:
-    - apt-transport-https
-    - vim
-    - gimp
-    - thunderbird
-    - thunderbird-gnome-support
-    - thunderbird-locale-fr
-    - subversion
-    - libsvn-java
-    - git
-    - libnotify-bin
-    - flashplugin-installer
-    - screen
-    - tmux
-    - tree
-    - dconf-tools
-    - pwgen
-    - ack-grep
-    - graphviz
-    - imagemagick
-    - cifs-utils
-    - bash-completion
-    - zip
-    - unzip
-    - openssh-client
-    - openssh-server
-    - nextcloud-client
-    - atom
-    - ldap-utils
+  Debian: "{{ _debian_base + ['ack-grep'] }}"
+  Ubuntu_17.10: "{{ _debian_base }}"
+
+_debian_base:
+  - vim
+  - gimp
+  - thunderbird
+  - thunderbird-gnome-support
+  - thunderbird-locale-fr
+  - subversion
+  - libsvn-java
+  - git
+  - libnotify-bin
+  - flashplugin-installer
+  - screen
+  - tmux
+  - tree
+  - dconf-tools
+  - pwgen
+  - graphviz
+  - imagemagick
+  - cifs-utils
+  - bash-completion
+  - zip
+  - unzip
+  - openssh-client
+  - openssh-server
+  - nextcloud-client
+  - nextcloud-client-nautilus
+  - atom
+  - ldap-utils

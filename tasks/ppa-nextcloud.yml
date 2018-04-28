@@ -1,0 +1,5 @@
+---
+
+- name: nextcloud client apt repository
+  apt_repository:
+    repo: ppa:nextcloud-devs/client

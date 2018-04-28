@@ -5,6 +5,11 @@
   become_user: root
   when: ansible_distribution in ['RedHat', 'CentOS']
 
+- import_tasks: ppa-nextcloud.yml
+  become: true
+  become_user: root
+  when: ansible_distribution == 'Ubuntu'
+
 - import_tasks: atom-rpm.yml
   become: true
   become_user: root
