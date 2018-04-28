@@ -1,7 +1,9 @@
 ---
 
-- debug:
-    msg: This task is not tested
+# not always installed (example: docker xenial)
+- name: apt-transport-https
+  package:
+    name: apt-transport-https
 
 - name: atom repository keys
   apt_key:
