@@ -3,6 +3,9 @@
 - name: powo.utils
   src: git+https://github.com/powo-roles/powo.utils.git
   version: master
+- name: powo.rpmfusion
+  src: git+https://github.com/powo-roles/powo.rpmfusion.git
+  version: master
 # TODO: only used in tests
 - name: bdellegrazie.ca-certificates
 - name: epel

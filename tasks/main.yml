@@ -1,8 +1,11 @@
 ---
 
-- import_tasks: epel.yml
-  become: true
-  become_user: root
+- import_role:
+    name: powo.rpmfusion
+  when: ansible_os_family == 'RedHat'
+
+- import_role:
+    name: epel
   when: ansible_distribution in ['RedHat', 'CentOS']
 
 - import_tasks: ppa-nextcloud.yml

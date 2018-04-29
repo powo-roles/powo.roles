@@ -32,6 +32,8 @@ pmi_packages:
     - nextcloud-client-nautilus
     - atom
     - openldap-clients
+    # firefox and html5 mp4
+    - ffmpeg
   Debian: "{{ _debian_base + ['ack-grep'] }}"
   Ubuntu_17.10: "{{ _debian_base }}"
 
