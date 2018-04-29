@@ -18,6 +18,9 @@
     par_archive_strip: 1
   # do not override existing installation
   when: eclipse_check.changed
+  tags:
+    # [ANSIBLE0016] Tasks that run when changed should likely be handlers
+    - skip_ansible_lint
 
 - name: desktop files' folder
   file:
