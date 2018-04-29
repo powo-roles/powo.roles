@@ -1,5 +1,12 @@
 ---
 
+- name: check eclipse
+  check_mode: true
+  file:
+    state: directory
+    path: "{{ _pec_item_install_folder }}"
+  register: eclipse_check
+
 - name: install
   import_role:
     name: powo.archive
@@ -9,6 +16,8 @@
     par_archive_url: "{{ _pec_item_download_url }}"
     par_archive_checksum: "{{ _pec_item_download_checksum }}"
     par_archive_strip: 1
+  # do not override existing installation
+  when: eclipse_check.changed
 
 - name: desktop files' folder
   file:
