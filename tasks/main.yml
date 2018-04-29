@@ -18,6 +18,13 @@
     headers: "{{ par_download_headers }}"
     dest: "{{ _par_archive_destination_file }}"
     checksum: "{{ par_archive_checksum }}"
+  when: not par_archive_url.startswith('copy:')
+
+- name: copy
+  copy:
+    src: "{{ par_archive_url[5:] }}"
+    dest: "{{ _par_archive_destination_file }}"
+  when: par_archive_url.startswith('copy:')
 
 - name: unarchive
   unarchive:
