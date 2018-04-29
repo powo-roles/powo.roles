@@ -7,6 +7,6 @@
       pec_install_base_folder: "/tmp"
       pec_download_folder: "/tmp"
       pec_bundles:
-        - url: http://ftp.heanet.ie/mirrors/eclipse/technology/epp/downloads/release/oxygen/R/eclipse-testing-oxygen-R-linux-gtk-x86_64.tar.gz
-          checksum: sha1:6724d80afeac888186d532729deddf978bec2122
+        - url: copy:{{ lookup('env', 'MOLECULE_SCENARIO_DIRECTORY') }}/eclipse-fake.tar.gz
+          checksum: sha256:47b960891c4ca0d2f195afe7ba7932d82774a1ba9b97024e35c4cb6228415831
           desktop_name: Eclipse Oxygen (4.7.0)
