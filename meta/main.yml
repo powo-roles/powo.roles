@@ -14,7 +14,8 @@ galaxy_info:
         - 27
     - name: Ubuntu
         - xenial
-        - yakkety
+        - artful
+        - bionic
   galaxy_tags:
     - powo
     - installer
