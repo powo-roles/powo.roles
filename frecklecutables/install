@@ -95,6 +95,9 @@ tasks:
           src: "{{ bin_eclipse }}"
         - path: ~/.bin/mvn
           src: "{{ bin_maven }}"
+  - powo.rpmfusion
+  - PACKAGE:
+      name: ffmpeg
 meta:
   use_become: true
 vars:
