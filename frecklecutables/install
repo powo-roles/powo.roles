@@ -74,8 +74,8 @@ tasks:
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_bundles:
-        - "{{ bundle_jdk904 }}"
-        - "{{ bundle_jdk18u162 }}"
+        - "{{ bundle_jdk1001 }}"
+        - "{{ bundle_jdk18u172 }}"
   - powo.maven:
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"
@@ -115,28 +115,15 @@ vars:
   play_fullname: "{{ fullname }}"
   play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
   play_passphrase: "{{ passphrase }}"
-  bundle_jdk18u151:
-    url: http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz
-    checksum: sha256:c78200ce409367b296ec39be4427f020e2c585470c4eed01021feada576f027f
-    desktop_name: Java 1.8u151
-  bundle_jdk18u152:
-    url: http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz
-    checksum: sha256:218b3b340c3f6d05d940b817d0270dfe0cfd657a636bad074dcabe0c111961bf
-    desktop_name: Java 1.8u152
-  bundle_jdk18u162:
-    url: http://download.oracle.com/otn-pub/java/jdk/8u162-b12/0da788060d494f5095bf8624735fa2f1/jdk-8u162-linux-x64.tar.gz
-    checksum: sha256:68ec82d47fd9c2b8eb84225b6db398a72008285fafc98631b1ff8d2229680257
+  bundle_jdk18u172:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/jdk-8u172-linux-x64.tar.gz
+    checksum: sha256:6a27b5718a5266cc725478d0b2e30fdc9bdb74b4e496971ed0f3b9c334d08163
     desktop_name: Java 1.8u162
-  bundle_jdk904:
-    url: http://download.oracle.com/otn-pub/java/jdk/9.0.4+11/c2514751926b4512b076cc82f959763f/jdk-9.0.4_linux-x64_bin.tar.gz
-    checksum: sha256:90c4ea877e816e3440862cfa36341bc87d05373d53389ec0f2d54d4e8c95daa2
-    desktop_name: Java 9.0.4
-    basename: jdk-9.0.4_linux-x64
-  bundle_jdk17u80:
-    # authentification needed :-/
-    url: http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz
-    checksum: sha256:bad9a731639655118740bee119139c1ed019737ec802a630dd7ad7aab4309623
-    desktop_name: Java 1.7u80
+  bundle_jdk1001:
+    url: http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz
+    checksum: sha256:ae8ed645e6af38432a56a847597ac61d4283b7536688dbab44ab536199d1e5a4
+    desktop_name: Java 10.0.1
+    basename: jdk-10.0.1_linux-x64
   bundle_tomcat_7_0_82:
     url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz
     checksum: sha1:4681bfbc86bb4da76a7aabbb3c545475eb9a8075
@@ -170,7 +157,7 @@ vars:
     checksum: sha256:e538d55ab065535651115f961aa9345650e7516d735e99cced79cd15c37adbd4
     desktop_name: Eclipse 4.7.2 (extra)
     vm: "{{ bin_java }}"
-  bin_java: "{{ apps_folder }}/{{ bundle_jdk18u162.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/java"
+  bin_java: "{{ apps_folder }}/{{ bundle_jdk18u172.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/java"
   bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_472.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/eclipse"
   bin_maven: "{{ apps_folder }}/{{ bundle_maven_3_5_2.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
   bash_maven_template: |
