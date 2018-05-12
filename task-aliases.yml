@@ -40,6 +40,14 @@ tasks:
         task-name: powo.java
         task-roles:
           - powo.archive
+  - powo.misc:
+      meta:
+        task-desc: powo.misc
+        task-type: ansible-role
+        task-roles:
+          - powo.utils
+          - powo.rpmfusion
+          - epel
   - debug:
       meta:
         default-key: msg
