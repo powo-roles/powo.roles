@@ -117,7 +117,7 @@ vars:
   play_passphrase: "{{ passphrase }}"
   bundle_jdk18u172:
     url: http://download.oracle.com/otn-pub/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/jdk-8u172-linux-x64.tar.gz
-    checksum: sha256:6a27b5718a5266cc725478d0b2e30fdc9bdb74b4e496971ed0f3b9c334d08163
+    checksum: sha256:28a00b9400b6913563553e09e8024c286b506d8523334c93ddec6c9ec7e9d346
     desktop_name: Java 1.8u162
   bundle_jdk1001:
     url: http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz
