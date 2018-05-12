@@ -86,10 +86,10 @@ tasks:
       pto_install_base_folder: "{{ apps_folder }}"
       pto_download_folder: "{{ tools_folder }}/tomcat"
       pto_bundles:
-        - "{{ bundle_tomcat_7_0_84 }}"
-        - "{{ bundle_tomcat_8_0_47 }}"
-        - "{{ bundle_tomcat_8_5_23 }}"
-        - "{{ bundle_tomcat_9_0_1 }}"
+        - "{{ bundle_tomcat_7_0_88 }}"
+        - "{{ bundle_tomcat_8_0_52 }}"
+        - "{{ bundle_tomcat_8_5_31 }}"
+        - "{{ bundle_tomcat_9_0_8 }}"
   - powo.virtualbox
   - powo.symlinks:
       psy_directories:
@@ -124,21 +124,18 @@ vars:
     checksum: sha256:ae8ed645e6af38432a56a847597ac61d4283b7536688dbab44ab536199d1e5a4
     desktop_name: Java 10.0.1
     basename: jdk-10.0.1_linux-x64
-  bundle_tomcat_7_0_82:
-    url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz
-    checksum: sha1:4681bfbc86bb4da76a7aabbb3c545475eb9a8075
-  bundle_tomcat_7_0_84:
-    url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.84/bin/apache-tomcat-7.0.84.tar.gz
-    checksum: sha1:e2940f45dde581741e2639e831d08498b6bb9d3a
-  bundle_tomcat_8_0_47:
-    url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.47/bin/apache-tomcat-8.0.47.tar.gz
-    checksum: sha1:2b5a0d173040f9a576e372cae5d85b05599fd0eb
-  bundle_tomcat_8_5_23:
-    url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23.tar.gz
-    checksum: sha1:1ba27c1bb86ab9c8404e98068800f90bd662523c
-  bundle_tomcat_9_0_1:
-    url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.2/bin/apache-tomcat-9.0.2.tar.gz
-    checksum: sha1:b59e1d658a4edbca7a81d12fd6f20203a4da9743
+  bundle_tomcat_7_0_88:
+    url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.88/bin/apache-tomcat-7.0.88.tar.gz
+    checksum: sha512:5adb54155f2da0d59c86af9b6df5cce110e608b7f894cd0398821797cf87502bd2938bc8494e021daf1990b337267c391e90e129c907e9a548d23cb52b2a8451
+  bundle_tomcat_8_0_52:
+    url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.52/bin/apache-tomcat-8.0.52.tar.gz
+    checksum: sha512:23ba3c005d2e1bff30360a7aca5882ba7acaef0001395b1f77eb182c1f9c6a48db7f39b9f71ebdfb20668eca32c5f03bf00364f77d47e368850a794f6d65ea56
+  bundle_tomcat_8_5_31:
+    url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.tar.gz
+    checksum: sha512:a961eedc4b0c0729f1fb96dafb75eb48e000502233b849f47c84a6355873bc96d131b112400587e96391262e0659df9b991b4e66a78fda74168f939c4ab5af88
+  bundle_tomcat_9_0_8:
+    url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.8/bin/apache-tomcat-9.0.8.tar.gz
+    checksum: sha512:51af864fc3815bf40a200b8250f6e6aad66378f5b725199a308c0296957c58584a6358fb7df861694acea764b69ba4ce7dba0aa77792bd33ed38b66c24ff5b55
   bundle_maven_3_5_3:
     url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz
     checksum: md5:51025855d5a7456fc1a67666fbef29de
