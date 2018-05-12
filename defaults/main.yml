@@ -6,36 +6,39 @@ pmi_ssh_service:
 
 # optional
 pmi_packages:
-  RedHat:
-    - vim-enhanced
-    - gimp
-    - thunderbird
-    - subversion
-    - subversion-javahl
-    - git
-    - libnotify
-    - screen
-    - tmux
-    - tree
-    - dconf
-    - pwgen
-    - ack
-    - graphviz
-    - ImageMagick
-    - cifs-utils
-    - bash-completion
-    - zip
-    - unzip
-    - openssh-clients
-    - openssh-server
-    - nextcloud-client
-    - nextcloud-client-nautilus
-    - atom
-    - openldap-clients
-    # firefox and html5 mp4
-    - ffmpeg
+  RedHat: "{{ _redhat_base }}"
+  Fedora: "{{ _redhat_base + ['dnf-plugin-system-upgrade'] }}"
   Debian: "{{ _debian_base + ['ack-grep'] }}"
   Ubuntu_17.10: "{{ _debian_base }}"
+
+_redhat_base:
+  - vim-enhanced
+  - gimp
+  - thunderbird
+  - subversion
+  - subversion-javahl
+  - git
+  - libnotify
+  - screen
+  - tmux
+  - tree
+  - dconf
+  - pwgen
+  - ack
+  - graphviz
+  - ImageMagick
+  - cifs-utils
+  - bash-completion
+  - zip
+  - unzip
+  - openssh-clients
+  - openssh-server
+  - nextcloud-client
+  - nextcloud-client-nautilus
+  - atom
+  - openldap-clients
+  # firefox and html5 mp4
+  - ffmpeg
 
 _debian_base:
   - vim
