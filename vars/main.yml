@@ -4,7 +4,7 @@ _virtualbox_group: vboxusers
 _virtualbox_dist_name: "{{ 'fedora' if ansible_distribution == 'Fedora' else 'el' }}"
 _virtualbox_repository_distro:
   # repository not already available
-  Fedora_27: >-
+  Fedora_28: >-
     http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/26/$basearch
   default: >-
     http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/$releasever/$basearch
