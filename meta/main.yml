@@ -13,9 +13,11 @@ galaxy_info:
       versions:
         - 26
         - 27
+        - 28
     - name: Ubuntu
         - xenial
-        - yakkety
+        - artful
+        - bionic
   galaxy_tags:
     - powo
     - installer

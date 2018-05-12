@@ -11,14 +11,30 @@ lint:
     config-file: .yamllint
 platforms:
   # add epel to provide dkms to support centos 7
-  # - name: m-centos7
-  #   image: centos:7
+  #- name: m-centos7
+  #  image: centos:7
+  #  privileged: true
+  #  command: /sbin/init
+  #  volume_mounts:
+  #    - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
   - name: m-fedora26
     image: fedora:26
+    privileged: true
+    command: /sbin/init
+    volume_mounts:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
+  - name: m-fedora27
+    image: fedora:27
+    privileged: true
+    command: /sbin/init
+    volume_mounts:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
   - name: m-xenial
     image: ubuntu:16.04
-  - name: m-yakkety
-    image: ubuntu:16.10
+  - name: m-artful
+    image: ubuntu:17.10
+  - name: m-bionic
+    image: ubuntu:18.04
 provisioner:
   name: ansible
   playbooks:
