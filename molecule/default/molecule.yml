@@ -28,6 +28,12 @@ platforms:
     command: /sbin/init
     volume_mounts:
       - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
+  - name: m-fedora28
+    image: fedora:28
+    privileged: true
+    command: /sbin/init
+    volume_mounts:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:rw"
   - name: m-xenial
     image: ubuntu:16.04
   - name: m-artful
