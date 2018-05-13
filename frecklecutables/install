@@ -68,8 +68,7 @@ tasks:
       pec_install_base_folder: "{{ apps_folder }}"
       pec_download_folder: "{{ tools_folder }}/eclipse"
       pec_bundles:
-        - "{{ bundle_eclipse_java_471 }}"
-        - "{{ bundle_eclipse_java_472 }}"
+        - "{{ bundle_eclipse_java_473 }}"
   - powo.java:
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
@@ -144,18 +143,13 @@ vars:
     url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
     checksum: md5:516923b3955b6035ba6b0a5b031fbd8b
     basename: maven-3.3.9.tar.gz
-  bundle_eclipse_java_471:
-    url: http://dl.likide.org/eclipse/releases/eclipse-java-extra-oxygen-1-linux-gtk-x86_64.tar.gz
-    checksum: sha256:7d0e7bca124474cd173e199c47103dab98fd4463bd097d03dd24abc17ee7a337
-    desktop_name: Eclipse 4.7.1 (extra)
-    vm: "{{ bin_java }}"
-  bundle_eclipse_java_472:
-    url: http://dl.likide.org/eclipse/releases/eclipse-java-extra-oxygen-2-linux-gtk-x86_64.tar.gz
-    checksum: sha256:e538d55ab065535651115f961aa9345650e7516d735e99cced79cd15c37adbd4
-    desktop_name: Eclipse 4.7.2 (extra)
+  bundle_eclipse_java_473:
+    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/oxygen/eclipse-java-extra-oxygen-3-linux-gtk-x86_64.tar.gz
+    checksum: sha256:a9f0a7a9e5ed4bba9a25b18335719758316c2c6e16c7fe33c10025069abdec0f
+    desktop_name: Eclipse 4.7.3 (extra)
     vm: "{{ bin_java }}"
   bin_java: "{{ apps_folder }}/{{ bundle_jdk18u172.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/java"
-  bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_472.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/eclipse"
+  bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_473.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/eclipse"
   bin_maven: "{{ apps_folder }}/{{ bundle_maven_3_5_3.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
   bash_maven_template: |
     export MAVEN_OPTS="-Xmx1024m"
