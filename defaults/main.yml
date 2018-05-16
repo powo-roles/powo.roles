@@ -4,8 +4,10 @@
 pgs_packages:
   RedHat:
     - '@GNOME'
+    - chrome-gnome-shell
   Debian:
     - ubuntu-gnome-desktop
+    - chrome-gnome-shell
 
 pgs_arc_theme:
   Fedora:
