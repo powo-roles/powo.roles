@@ -69,8 +69,7 @@ tasks:
       pec_download_folder: "{{ tools_folder }}/eclipse"
       pec_bundles:
         - "{{ bundle_eclipse_java_473 }}"
-        - "{{ bundle_eclipse_java_48RC1 }}"
-        - "{{ bundle_eclipse_rcp_48RC1 }}"
+        - "{{ bundle_eclipse_java_48 }}"
   - powo.java:
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
@@ -150,15 +149,10 @@ vars:
     checksum: sha256:a9f0a7a9e5ed4bba9a25b18335719758316c2c6e16c7fe33c10025069abdec0f
     desktop_name: Eclipse 4.7.3 (extra)
     vm: "{{ bin_java }}"
-  bundle_eclipse_java_48RC1:
-    url: http://nexus.tools.kobalt-si.fr/repository/eclipse/photon/eclipse-java-extra-photon-RC1-linux-gtk-x86_64.tar.gz
-    checksum: sha256:a7f5e981a034e88b1b77435710f1a9a4f641969ebb784446f7130bd41c35d9ee
-    desktop_name: Eclipse 4.8RC1 (extra)
-    vm: "{{ bin_java }}"
-  bundle_eclipse_rcp_48RC1:
-    url: http://nexus.tools.kobalt-si.fr/repository/eclipse/photon/eclipse-rcp-extra-photon-RC1-linux-gtk-x86_64.tar.gz
-    checksum: sha256:e623bde61f010958ec679067f6f00fe0fd9cdde91ec62327dc40f1c277b7aeed
-    desktop_name: Eclipse RCP 4.8RC1 (extra)
+  bundle_eclipse_java_48:
+    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/photon/eclipse-java-extra-photon-linux-gtk-x86_64.tar.gz
+    checksum: sha256:7820930641f22a9b70011fcbd3a8c67796f67998a5831dfc4a7b4a8d680eb905
+    desktop_name: Eclipse 4.8 (extra)
     vm: "{{ bin_java }}"
   bin_java: "{{ apps_folder }}/{{ bundle_jdk18u172.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/java"
   bin_java_10: "{{ apps_folder }}/{{ bundle_jdk1001.basename }}/bin/java"
