@@ -10,3 +10,7 @@
   with_items: "{{ eclipse_libwebkitgtk_packages | distro(vars) }}"
   package:
     name: "{{ item }}"
+
+- name: clean old releases
+  include_tasks: clean_basename.yml
+  with_items: "{{ _pec_clean_basenames }}"
