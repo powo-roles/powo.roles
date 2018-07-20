@@ -74,8 +74,8 @@ tasks:
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_bundles:
-        - "{{ bundle_jdk1001 }}"
-        - "{{ bundle_jdk18u172 }}"
+        - "{{ bundle_jdk1002 }}"
+        - "{{ bundle_jdk18u181 }}"
   - powo.maven:
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"
@@ -115,15 +115,15 @@ vars:
   play_fullname: "{{ fullname }}"
   play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
   play_passphrase: "{{ passphrase }}"
-  bundle_jdk18u172:
-    url: http://download.oracle.com/otn-pub/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/jdk-8u172-linux-x64.tar.gz
-    checksum: sha256:28a00b9400b6913563553e09e8024c286b506d8523334c93ddec6c9ec7e9d346
-    desktop_name: Java 1.8u162
-  bundle_jdk1001:
-    url: http://download.oracle.com/otn-pub/java/jdk/10.0.1+10/fb4372174a714e6b8c52526dc134031e/jdk-10.0.1_linux-x64_bin.tar.gz
-    checksum: sha256:ae8ed645e6af38432a56a847597ac61d4283b7536688dbab44ab536199d1e5a4
-    desktop_name: Java 10.0.1
-    basename: jdk-10.0.1_linux-x64
+  bundle_jdk18u181:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz
+    checksum: sha256:1845567095bfbfebd42ed0d09397939796d05456290fb20a83c476ba09f991d3
+    desktop_name: Java 1.8u181
+  bundle_jdk1002:
+    url: http://download.oracle.com/otn-pub/java/jdk/10.0.2+13/19aef61b38124481863b1413dce1855f/jdk-10.0.2_linux-x64_bin.tar.gz
+    checksum: sha256:6633c20d53c50c20835364d0f3e172e0cbbce78fff81867488f22a6298fa372b
+    desktop_name: Java 10.0.2
+    basename: jdk-10.0.2_linux-x64
   bundle_tomcat_7_0_88:
     url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.88/bin/apache-tomcat-7.0.88.tar.gz
     checksum: sha512:5adb54155f2da0d59c86af9b6df5cce110e608b7f894cd0398821797cf87502bd2938bc8494e021daf1990b337267c391e90e129c907e9a548d23cb52b2a8451
@@ -140,6 +140,7 @@ vars:
     url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz
     checksum: md5:51025855d5a7456fc1a67666fbef29de
     basename: maven-3.5.3.tar.gz
+    checksum: sha256:218b3b340c3f6d05d940b817d0270dfe0cfd657a636bad074dcabe0c111961bf
   bundle_maven_3_3_9:
     url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
     checksum: md5:516923b3955b6035ba6b0a5b031fbd8b
@@ -154,8 +155,8 @@ vars:
     checksum: sha256:7820930641f22a9b70011fcbd3a8c67796f67998a5831dfc4a7b4a8d680eb905
     desktop_name: Eclipse 4.8 (extra)
     vm: "{{ bin_java }}"
-  bin_java: "{{ apps_folder }}/{{ bundle_jdk18u172.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/java"
-  bin_java_10: "{{ apps_folder }}/{{ bundle_jdk1001.basename }}/bin/java"
+  bin_java: "{{ apps_folder }}/{{ bundle_jdk18u181.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/java"
+  bin_java_10: "{{ apps_folder }}/{{ bundle_jdk1002.basename }}/bin/java"
   bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_473.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/eclipse"
   bin_maven: "{{ apps_folder }}/{{ bundle_maven_3_5_3.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
   bash_maven_template: |
