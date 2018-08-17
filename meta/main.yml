@@ -5,10 +5,9 @@ galaxy_info:
   license: BSD
   min_ansible_version: 2.4
   platforms:
-    # fix to provide dkms needed for centos 7
-    # - name: EL
-    #   versions:
-    #     - 7
+    - name: EL
+      versions:
+        - 7
     - name: Fedora
       versions:
         - 26
@@ -24,3 +23,6 @@ galaxy_info:
     - virtualbox
 dependencies:
   - powo.utils
+  # epel needed for dkms in centos 7
+  - name: epel
+    when: ansible_distribution in ['RedHat', 'Centos']
