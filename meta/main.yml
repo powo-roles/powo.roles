@@ -25,4 +25,4 @@ dependencies:
   - powo.utils
   # epel needed for dkms in centos 7
   - name: epel
-    when: ansible_distribution in ['RedHat', 'Centos']
+    when: ansible_distribution in ['RedHat', 'CentOS']
