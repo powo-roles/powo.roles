@@ -1,0 +1,39 @@
+---
+doc:
+  help: "just create a new user."
+args:
+  user:
+    is_var: true
+    required: false
+    default: null
+  password:
+    is_var: true
+    required: false
+    default: null
+  uid:
+    required: false
+    is_var: true
+    default: null
+  fullname:
+    required: false
+    is_var: true
+    default: null
+tasks:
+  - powo.utils
+  - powo.user:
+      pu_create: "{{ is_user_supplied }}"
+      pu_user: "{{ play_user }}"
+      pu_uid: "{{ play_uid }}"
+      pu_password: "{{ play_password }}"
+      pu_passphrase: null
+      pu_fullname: "{{ play_fullname }}"
+      pu_sudo: true
+meta:
+  use_become: true
+vars:
+  is_user_supplied: "{{ user is not none }}"
+  play_user: "{{ user if user is not none else lookup('pipe', 'whoami') }}"
+  play_uid: "{{ uid if uid is not none else lookup('pipe', 'id -u') }}"
+  play_password: "{{ password | password_hash('sha512') if password else none }}"
+  play_fullname: "{{ fullname }}"
+  play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
