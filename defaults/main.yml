@@ -4,8 +4,16 @@
 pgs_packages:
   RedHat:
     - '@GNOME'
+    - gnome-tweak-tool
+  Fedora_27:
+    - '@GNOME'
+    - gnome-tweak-tool
+  Fedora:
+    - '@GNOME'
+    - gnome-tweaks
   Debian:
     - ubuntu-gnome-desktop
+    - gnome-tweak-tool
 
 pgs_arc_theme:
   Fedora:
