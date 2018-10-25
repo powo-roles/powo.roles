@@ -17,9 +17,6 @@ pgs_packages:
     - ubuntu-gnome-desktop
     - gnome-tweak-tool
     - chrome-gnome-shell
-  Debian:
-    - ubuntu-gnome-desktop
-    - chrome-gnome-shell
 
 pgs_arc_theme:
   Fedora:
