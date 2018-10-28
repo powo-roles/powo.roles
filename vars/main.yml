@@ -19,8 +19,4 @@ _pec_item_desktop_file_basename: "{{ _pec_item_name }}.desktop"
 _pec_user: "{{ lookup('pipe', 'whoami') }}"
 _pec_home: "{{ (lookup('pipe', 'getent passwd ' + pec_user))[5] }}"
 
-_pec_clean_basenames:
-  - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
-  - eclipse-java-extra-oxygen-2-linux-gtk-x86_64
-  - eclipse-java-extra-photon-RC1-linux-gtk-x86_64
-  - eclipse-rcp-extra-photon-RC1-linux-gtk-x86_64
+_pec_clean_basenames: "{{ pec_clean_basenames }}"
