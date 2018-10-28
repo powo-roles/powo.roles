@@ -69,8 +69,14 @@ tasks:
       pec_download_folder: "{{ tools_folder }}/eclipse"
       pec_bundles:
         - "{{ bundle_eclipse_java_473 }}"
-        - "{{ bundle_eclipse_java_48 }}"
-        - "{{ bundle_eclipse_java_201809a }}"
+        - "{{ bundle_eclipse_java_48b }}"
+        - "{{ bundle_eclipse_java_201809b }}"
+      pec_clean_basenames:
+        - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
+        - eclipse-java-extra-oxygen-2-linux-gtk-x86_64
+        - eclipse-java-extra-photon-RC1-linux-gtk-x86_64
+        - eclipse-rcp-extra-photon-RC1-linux-gtk-x86_64
+        - eclipse-java-extra-2018-09a-linux-gtk-x86_64
   - powo.java:
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
@@ -118,6 +124,8 @@ tasks:
           src: "{{ dir_eclipse_47 }}"
         - path: "{{ apps_folder }}/eclipse-photon"
           src: "{{ dir_eclipse_48 }}"
+        - path: "{{ apps_folder }}/eclipse-2018-09"
+          src: "{{ dir_eclipse_201809 }}"
 meta:
   use_become: true
 vars:
@@ -171,20 +179,25 @@ vars:
     checksum: sha256:7820930641f22a9b70011fcbd3a8c67796f67998a5831dfc4a7b4a8d680eb905
     desktop_name: Eclipse 4.8 (extra)
     vm: "{{ bin_java }}"
-  bundle_eclipse_java_201809a:
-    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/2018-09/eclipse-java-extra-2018-09a-linux-gtk-x86_64.tar.gz
-    checksum: sha256:2c669ca33317f0d86b46546bcf5037db11389f5d92cead61fa1a64ae90c1b2a5
-    desktop_name: Eclipse 2018-09a (extra)
+  bundle_eclipse_java_48b:
+    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/photon/eclipse-java-extra-photon-4.8b-linux-gtk-x86_64.tar.gz
+    checksum: sha256:03771a92694e58d20711495e5b812db0bf965d300985638d47f753a4823d3467
+    desktop_name: Eclipse 4.8b (extra)
+    vm: "{{ bin_java }}"
+  bundle_eclipse_java_201809b:
+    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/2018-09/eclipse-java-extra-2018-09b-linux-gtk-x86_64.tar.gz
+    checksum: sha256:d5e932c115b55ada68db49f934d66315e6cc76890f68f946ffce99cb9787678e
+    desktop_name: Eclipse 2018-09b (extra)
     vm: "{{ bin_java }}"
   bin_java: "{{ apps_folder }}/{{ bundle_jdk8u181.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/java"
   bin_java_10: "{{ apps_folder }}/{{ bundle_jdk1002.basename }}/bin/java"
-  bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_48.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/eclipse"
+  bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_48b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/eclipse"
   bin_maven: "{{ apps_folder }}/{{ bundle_maven_3_5_4.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
   dir_jdk_8: "{{ apps_folder }}/{{ bundle_jdk8u181.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
   dir_jdk_10: "{{ apps_folder }}/{{ bundle_jdk1002.basename }}/"
   dir_eclipse_47: "{{ apps_folder }}/{{ bundle_eclipse_java_473.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-  dir_eclipse_48: "{{ apps_folder }}/{{ bundle_eclipse_java_48.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-  dir_eclipse_201809a: "{{ apps_folder }}/{{ bundle_eclipse_java_201809a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+  dir_eclipse_48: "{{ apps_folder }}/{{ bundle_eclipse_java_48b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+  dir_eclipse_201809: "{{ apps_folder }}/{{ bundle_eclipse_java_201809b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
   dir_tomcat_7: "{{ apps_folder }}/{{ bundle_tomcat_7_0_90.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
   dir_tomcat_8: "{{ apps_folder }}/{{ bundle_tomcat_8_0_53.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
   dir_tomcat_85: "{{ apps_folder }}/{{ bundle_tomcat_8_5_32.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
