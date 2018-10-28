@@ -1,6 +1,7 @@
 ---
 
-virtualbox_users: []
+virtualbox_users:
+  - "{{ lookup('env', 'USER') }}"
 virtualbox_dkms_packages:
   default:
     - dkms
