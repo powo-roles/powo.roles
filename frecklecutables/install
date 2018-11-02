@@ -181,22 +181,22 @@ vars:
     checksum: md5:516923b3955b6035ba6b0a5b031fbd8b
     basename: maven-3.3.9.tar.gz
   bundle_eclipse_java_473:
-    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/oxygen/eclipse-java-extra-oxygen-3-linux-gtk-x86_64.tar.gz
+    url: https://nexus.tools.kobalt.fr/repository/eclipse/oxygen/eclipse-java-extra-oxygen-3-linux-gtk-x86_64.tar.gz
     checksum: sha256:a9f0a7a9e5ed4bba9a25b18335719758316c2c6e16c7fe33c10025069abdec0f
     desktop_name: Eclipse 4.7.3 (extra)
     vm: "{{ bin_java }}"
   bundle_eclipse_java_48:
-    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/photon/eclipse-java-extra-photon-linux-gtk-x86_64.tar.gz
+    url: https://nexus.tools.kobalt.fr/repository/eclipse/photon/eclipse-java-extra-photon-linux-gtk-x86_64.tar.gz
     checksum: sha256:7820930641f22a9b70011fcbd3a8c67796f67998a5831dfc4a7b4a8d680eb905
     desktop_name: Eclipse 4.8 (extra)
     vm: "{{ bin_java }}"
   bundle_eclipse_java_48b:
-    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/photon/eclipse-java-extra-photon-4.8b-linux-gtk-x86_64.tar.gz
+    url: https://nexus.tools.kobalt.fr/repository/eclipse/photon/eclipse-java-extra-photon-4.8b-linux-gtk-x86_64.tar.gz
     checksum: sha256:03771a92694e58d20711495e5b812db0bf965d300985638d47f753a4823d3467
     desktop_name: Eclipse 4.8b (extra)
     vm: "{{ bin_java }}"
   bundle_eclipse_java_201809b:
-    url: https://nexus.tools.kobalt-si.fr/repository/eclipse/2018-09/eclipse-java-extra-2018-09b-linux-gtk-x86_64.tar.gz
+    url: https://nexus.tools.kobalt.fr/repository/eclipse/2018-09/eclipse-java-extra-2018-09b-linux-gtk-x86_64.tar.gz
     checksum: sha256:d5e932c115b55ada68db49f934d66315e6cc76890f68f946ffce99cb9787678e
     desktop_name: Eclipse 2018-09b (extra)
     vm: "{{ bin_java }}"
