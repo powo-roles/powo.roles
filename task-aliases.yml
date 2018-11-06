@@ -33,6 +33,13 @@ tasks:
         task-name: powo.eclipse
         task-roles:
           - powo.archive
+  - powo.luke:
+      meta:
+        task-desc: powo.luke
+        task-type: ansible-role
+        task-name: powo.luke
+        task-roles:
+          - powo.archive
   - powo.java:
       meta:
         task-desc: powo.java

@@ -90,3 +90,7 @@
 	path = powo.rpmfusion
 	url = ../powo.rpmfusion.git
 	branch = master
+[submodule "powo.luke"]
+	path = powo.luke
+	url = ../powo.luke.git
+	branch = master
