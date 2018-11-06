@@ -1,0 +1,10 @@
+---
+
+- name: drop desktop file
+  file:
+    path: "~/.local/share/applications/{{ item }}.desktop"
+    state: absent
+- name: drop luke folder
+  file:
+    path: "{{ plu_install_base_folder }}/{{ item }}"
+    state: absent

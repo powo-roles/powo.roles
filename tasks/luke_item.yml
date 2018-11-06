@@ -1,0 +1,61 @@
+---
+
+- name: luke folder
+  file:
+    path: "{{ plu_install_base_folder }}"
+    state: directory
+
+- name: luke icon
+  get_url:
+    url: "{{ plu_icon_download_url }}"
+    dest: "{{ _plu_item_luke_icon }}"
+
+- name: check luke
+  check_mode: true
+  file:
+    state: directory
+    path: "{{ _plu_item_install_folder }}"
+  register: luke_check
+
+- name: install
+  import_role:
+    name: powo.archive
+  vars:
+    par_archive_destination_folder: "{{ plu_download_folder }}"
+    par_archive_extraction_folder: "{{ _plu_item_install_folder }}"
+    par_archive_url: "{{ _plu_item_download_url }}"
+    par_archive_checksum: "{{ _plu_item_download_checksum }}"
+    par_archive_strip: null
+  # do not override existing installation
+  when: luke_check.changed
+  tags:
+    # [ANSIBLE0016] Tasks that run when changed should likely be handlers
+    - skip_ansible_lint
+
+# if archive contains a root folder, use strip_path to get rid of this root folder
+# before: luke-version/luke-root-version/luke.sh
+# after: luke-version/luke.sh
+- name: strip
+  block:
+    - shell: >
+        mv {{ _plu_item_install_folder | quote }} {{ ( _plu_item_install_folder + '.strip' ) | quote }} &&
+        mv {{ ( _plu_item_install_folder + '.strip' ) | quote }}/{{ _plu_item_strip_path | quote }} {{ _plu_item_install_folder | quote }} &&
+        rmdir {{ ( _plu_item_install_folder + '.strip' ) | quote }}
+  when: luke_check.changed and not _plu_item_strip_path is none
+
+- name: luke.sh executable
+  file:
+    path: "{{ _plu_item_luke_bin }}"
+    mode: +x
+
+- name: desktop files' folder
+  file:
+    path: "~/.local/share/applications/"
+    state: directory
+
+- name: desktop file
+  template:
+    dest: "~/.local/share/applications/{{ _plu_item_desktop_file_basename }}"
+    force: true
+    mode: u=rw,g=rw,o=r
+    src: luke-desktop.jinja
