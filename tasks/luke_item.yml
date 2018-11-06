@@ -41,7 +41,7 @@
         mv {{ _plu_item_install_folder | quote }} {{ ( _plu_item_install_folder + '.strip' ) | quote }} &&
         mv {{ ( _plu_item_install_folder + '.strip' ) | quote }}/{{ _plu_item_strip_path | quote }} {{ _plu_item_install_folder | quote }} &&
         rmdir {{ ( _plu_item_install_folder + '.strip' ) | quote }}
-  when: luke_check.changed and not _plu_item_strip_path is none
+  when: luke_check.changed and _plu_item_strip_path is not none
 
 - name: luke.sh executable
   file:
