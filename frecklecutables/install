@@ -71,6 +71,7 @@ tasks:
         - "{{ bundle_eclipse_java_473 }}"
         - "{{ bundle_eclipse_java_48b }}"
         - "{{ bundle_eclipse_java_201809b }}"
+        - "{{ bundle_eclipse_java_201812a }}"
       pec_clean_basenames:
         - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
         - eclipse-java-extra-oxygen-2-linux-gtk-x86_64
@@ -141,6 +142,8 @@ tasks:
           src: "{{ dir_eclipse_48 }}"
         - path: "{{ apps_folder }}/eclipse-2018-09"
           src: "{{ dir_eclipse_201809 }}"
+        - path: "{{ apps_folder }}/eclipse-2018-12"
+          src: "{{ dir_eclipse_201812 }}"
 meta:
   use_become: true
 vars:
@@ -207,6 +210,11 @@ vars:
     url: https://nexus.tools.kobalt.fr/repository/eclipse/2018-09/eclipse-java-extra-2018-09b-linux-gtk-x86_64.tar.gz
     checksum: sha256:d5e932c115b55ada68db49f934d66315e6cc76890f68f946ffce99cb9787678e
     desktop_name: Eclipse 2018-09b (extra)
+    vm: "{{ bin_java }}"
+  bundle_eclipse_java_201812a:
+    url: https://nexus.tools.kobalt.fr/repository/eclipse/2018-12/eclipse-java-extra-2018-12a-linux-gtk-x86_64.tar.gz
+    checksum: sha256:fb2ccc899a0f6487cf9892a8dcbc26768dfa48f4e1535336fb6746afcfa44ed3
+    desktop_name: Eclipse 2018-12a (extra)
     vm: "{{ bin_java }}"
   bundle_luke_520:
     url: https://github.com/DmitryKey/luke/releases/download/luke-5.2.0/luke-5.2.0-luke-release.zip
@@ -293,6 +301,7 @@ vars:
   dir_eclipse_47: "{{ apps_folder }}/{{ bundle_eclipse_java_473.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
   dir_eclipse_48: "{{ apps_folder }}/{{ bundle_eclipse_java_48b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
   dir_eclipse_201809: "{{ apps_folder }}/{{ bundle_eclipse_java_201809b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+  dir_eclipse_201812: "{{ apps_folder }}/{{ bundle_eclipse_java_201812a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
   dir_tomcat_7: "{{ apps_folder }}/{{ bundle_tomcat_7_0_90.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
   dir_tomcat_8: "{{ apps_folder }}/{{ bundle_tomcat_8_0_53.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
   dir_tomcat_85: "{{ apps_folder }}/{{ bundle_tomcat_8_5_32.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
