@@ -90,7 +90,7 @@ tasks:
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_bundles:
-        - "{{ bundle_jdk1101 }}"
+        #- "{{ bundle_jdk1101 }}"
         - "{{ bundle_jdk8u191 }}"
   - powo.maven:
       pma_install_base_folder: "{{ apps_folder }}"
