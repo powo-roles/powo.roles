@@ -14,7 +14,7 @@
     # In Fedora29 compat-libvpx4 package is no longer distributed
     # and needs to be downloaded from an old repo
     - name: compat-libvpx4 (Fedora 29)
-      yum:
+      dnf:
         name: https://kojipkgs.fedoraproject.org//packages/compat-libvpx4/1.6.1/1.fc28/x86_64/compat-libvpx4-1.6.1-1.fc28.x86_64.rpm
         state: present
       when: ansible_distribution == 'Fedora' and ansible_distribution_version == '29'
