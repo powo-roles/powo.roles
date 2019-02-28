@@ -108,7 +108,7 @@ tasks:
         - "{{ bundle_tomcat_8_5_32 }}"
         - "{{ bundle_tomcat_9_0_10 }}"
   - powo.virtualbox
-  - powo.prompts-coloration
+  - powo.prompts-coloration:
       prompt_coloration_profile: development
   - powo.symlinks:
       psy_directories:
