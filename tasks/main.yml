@@ -1,0 +1,42 @@
+---
+
+- block:
+    - name: prompt bash coloration
+      copy:
+        dest: /etc/profile.d/bash_coloration.sh
+        content: |
+          export PS1="\[\033[1;{{ _prompt_coloration_codes[_prompt_coloration_profile] }}m\][\u@\h \W]\$\[\033[0m\] "
+
+    - name: check postgresql install
+      command: "psql --version"
+      changed_when: false
+      failed_when: false
+      register: check_psql_install
+
+    - block:
+        - name: create config path if necessary
+          file:
+            path: "{{ _prompt_coloration_pgsql_config_path }}"
+            state: directory
+            owner: root
+            group: root
+
+        - name: prompt postgresql coloration
+          copy:
+            dest: "{{ _prompt_coloration_pgsql_config_path }}/psqlrc"
+            content: |
+              \set QUIET 1
+
+              \timing on
+
+              \set PROMPT1 '%[%033[1;{{ _prompt_coloration_codes[_prompt_coloration_profile] }}m%]%M:%> %n@%/%R%#%x%[%033[0m%] '
+              \set PROMPT2 '%[%033[1;{{ _prompt_coloration_codes[_prompt_coloration_profile] }}m%]%/%R%#%[%033[0m%] '
+              \set PROMPT3 '%[%033[1;{{ _prompt_coloration_codes[_prompt_coloration_profile] }}m%]>>%[%033[0m%] '
+
+              \set QUIET 0
+
+      when: check_psql_install.rc == 0
+
+  become: true
+  become_user: root
+  when: _prompt_coloration_profile != ""
