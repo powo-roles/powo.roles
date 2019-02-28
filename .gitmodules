@@ -94,3 +94,7 @@
 	path = powo.luke
 	url = ../powo.luke.git
 	branch = master
+[submodule "powo.prompts-coloration"]
+	path = powo.prompts-coloration
+	url = ../powo.prompts-coloration.git
+	branch = master
