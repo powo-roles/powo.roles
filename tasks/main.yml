@@ -12,6 +12,8 @@
       changed_when: false
       failed_when: false
       register: check_psql_install
+      check_mode: false
+      ignore_errors: true
 
     - block:
         - name: create config path if necessary
