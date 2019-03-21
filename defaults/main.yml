@@ -3,7 +3,7 @@
 _prompt_coloration_profile : "{{ prompt_coloration_profile | default('') }}"
 _prompt_coloration_codes:
     development: 32
-    qualification: 33
+    qualification: 36
     recette: 33
     preproduction: 33
     production: 31
