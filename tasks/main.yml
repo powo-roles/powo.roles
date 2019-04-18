@@ -23,6 +23,10 @@
   become_user: root
   when: ansible_os_family == 'Debian'
 
+- import_tasks: flameshot.yml
+  become: true
+  become_user: root
+
 - name: privileged
   become: true
   become_user: root

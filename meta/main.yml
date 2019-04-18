@@ -13,6 +13,7 @@ galaxy_info:
         - 26
         - 27
         - 28
+        - 29
     - name: Ubuntu
         - xenial
         - artful

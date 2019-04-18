@@ -41,6 +41,7 @@ _redhat_base:
   - ffmpeg
   - keepass
   - keepassxc
+  - flameshot
 
 _debian_base:
   - vim
@@ -72,3 +73,4 @@ _debian_base:
   - ldap-utils
   - keepass2
   - keepassxc
+  - flameshot
