@@ -1,6 +1,6 @@
 ---
 doc:
-  help: "install you computer and code!"
+  help: "install your computer and code!"
 args:
   user:
     is_var: true
@@ -152,19 +152,19 @@ vars:
   play_fullname: "{{ fullname }}"
   play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
   play_passphrase: "{{ passphrase }}"
-  bundle_jdk8u191:
-    url: http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz
-    checksum: sha256:53c29507e2405a7ffdbba627e6d64856089b094867479edc5ede4105c1da0d65
-    desktop_name: Java 1.8u191
-  bundle_jdk8u201:
-    url: http://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
-    checksum: sha256:cb700cc0ac3ddc728a567c350881ce7e25118eaf7ca97ca9705d4580c506e370
-    desktop_name: Java 1.8u201
-  bundle_jdk1101:
-    url: https://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz
-    checksum: sha256:e7fd856bacad04b6dbf3606094b6a81fa9930d6dbb044bbd787be7ea93abc885
-    desktop_name: Java 11.0.1
-    basename: jdk-11.0.1_linux-x64
+#  bundle_jdk8u191:
+#    url: http://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz
+#    checksum: sha256:53c29507e2405a7ffdbba627e6d64856089b094867479edc5ede4105c1da0d65
+#    desktop_name: Java 1.8u191
+#  bundle_jdk8u201:
+#    url: http://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
+#    checksum: sha256:cb700cc0ac3ddc728a567c350881ce7e25118eaf7ca97ca9705d4580c506e370
+#    desktop_name: Java 1.8u201
+#  bundle_jdk1101:
+#    url: https://download.oracle.com/otn-pub/java/jdk/11.0.1+13/90cf5d8f270a4347a95050320eef3fb7/jdk-11.0.1_linux-x64_bin.tar.gz
+#    checksum: sha256:e7fd856bacad04b6dbf3606094b6a81fa9930d6dbb044bbd787be7ea93abc885
+#    desktop_name: Java 11.0.1
+#    basename: jdk-11.0.1_linux-x64
   bundle_tomcat_7_0_90:
     url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.90/bin/apache-tomcat-7.0.90.tar.gz
     checksum: sha512:c7a47135b99684425260cd906cf5c9a5226837d3681d84ae4e3bb199068e97f0e63d07393d91ca0436204a1dc92bf9bd9a4a1c4c893187703e023503bbd81901
