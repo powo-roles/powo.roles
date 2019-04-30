@@ -1,5 +1,11 @@
 ---
 
 - name: bundles
-  include_tasks: java_item.yml
+  include_tasks: java_bundles.yml
   with_items: "{{ pja_bundles }}"
+  when: pja_bundles | length > 0
+
+- name: packages
+  include_tasks: java_packages.yml
+  with_items: "{{ pja_packages }}"
+  when: pja_packages | length > 0
