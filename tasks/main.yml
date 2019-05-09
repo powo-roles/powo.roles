@@ -9,3 +9,11 @@
   include_tasks: java_packages.yml
   with_items: "{{ pja_packages }}"
   when: pja_packages | length > 0
+
+- name: set java version
+  alternatives:
+    name: java
+    link: /usr/bin/java
+    path: "{{ pja_default_java_version }}"
+  become: true
+  become_user: root
