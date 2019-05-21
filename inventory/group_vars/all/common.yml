@@ -1,0 +1,17 @@
+---
+
+is_user_supplied: "{{ arg_user is defined }}"
+play_user: "{{ arg_user | default(lookup('pipe', 'whoami')) }}"
+play_uid: "{{ arg_uid | default(lookup('pipe', 'id -u')) }}"
+play_password: "{{ arg_password | password_hash('sha512') | default(none) }}"
+play_passphrase: "{{ arg_passphrase | default(none) }}"
+play_fullname: "{{ arg_fullname | default(none) }}"
+play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
+
+apps_folder: "{{ play_home }}/Documents/apps"
+bin_java: "{{ apps_folder }}/jdk-8/bin/java"
+
+bash_maven_template: |
+  export MAVEN_OPTS="-Xmx1024m"
+bash_java_template: |
+  export JAVA_HOME={{ bin_java | dirname | dirname | expanduser | quote }}

@@ -1,0 +1,43 @@
+---
+
+- hosts: localhost
+  roles:
+    - name: powo.utils
+    - name: powo.checks
+    - name: powo.filesystem
+    - name: powo.user
+      pu_create: "{{ is_user_supplied }}"
+      pu_user: "{{ play_user }}"
+      pu_uid: "{{ play_uid }}"
+      pu_password: "{{ play_password }}"
+      pu_passphrase: "{{ play_passphrase }}"
+      pu_fullname: "{{ play_fullname }}"
+      pu_sudo: true
+      pu_profiles:
+        - filename: 50-java.conf
+          template: "{{ bash_java_template }}"
+        - filename: 50-maven.conf
+          template: "{{ bash_maven_template }}"
+    - name: powo.ubuntu-backports
+    - name: powo.apache
+    - name: powo.php
+    - name: postgresql
+      become: true
+      become_user: root
+      postgresql_versions:
+        - "9.6"
+        - "10"
+    - name: powo.postgresql-stop
+    - name: postgresql-cluster
+      postgresql_cluster_clusters:
+        - name: default
+          path: /data/services/postgresql/9.6-default/
+          postgresql_version: "9.6"
+          port: 5432
+          pg_hbda: pg_hba_local.conf
+        - name: default
+          path: /data/services/postgresql/10-default/
+          postgresql_version: "10"
+          port: 5433
+          pg_hba: pg_hba_local.conf
+      

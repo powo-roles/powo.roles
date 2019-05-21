@@ -1,0 +1,10 @@
+---
+default_playbook: playbooks/default.yml
+ansible:
+  virtualenv:
+    selinux: true
+    path: .tools/virtualenv
+    requirements:
+      - ansible == 2.7.10
+      - ovh
+interpreter: /usr/bin/python
