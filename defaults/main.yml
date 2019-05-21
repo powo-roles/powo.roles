@@ -7,8 +7,10 @@ pc_security: false
 
 # packages by distribution
 pc_package_binding_packages:
-  Fedora:
+  Fedora_29:
     - python-dnf
+  Fedora:
+    - python3-dnf
   Ubuntu:
     - python-apt
   RedHat:
