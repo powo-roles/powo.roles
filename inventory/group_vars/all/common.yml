@@ -9,9 +9,179 @@ play_fullname: "{{ arg_fullname | default(none) }}"
 play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
 
 apps_folder: "{{ play_home }}/Documents/apps"
-bin_java: "{{ apps_folder }}/jdk-8/bin/java"
+tools_folder: "{{ play_home }}/Documents/tools"
 
-bash_maven_template: |
-  export MAVEN_OPTS="-Xmx1024m"
+# Java
+bin_java: "{{ apps_folder }}/jdk-8/bin/java"
+bin_java_11: "{{ apps_folder }}/jdk-11/bin/java"
+dir_jdk_8: "/usr/lib/jvm/{{ package_jdk8_devel.basename }}"
+dir_jdk_11: "/usr/lib/jvm//{{ package_jdk11_devel.basename }}"
 bash_java_template: |
   export JAVA_HOME={{ bin_java | dirname | dirname | expanduser | quote }}
+package_jdk8_devel:
+  package: java-1.8.0-openjdk-devel
+  basename: java-1.8.0-openjdk
+package_jdk8_headless :
+  package: java-1.8.0-openjdk-headless
+  basename: java-1.8.0-openjdk-headless
+package_jdk11_devel:
+  package: java-11-openjdk-devel
+  basename: java-11-openjdk
+package_jdk11_headless:
+  package: java-11-openjdk-headless
+  basename: java-11-openjdk-headless
+
+# Maven
+bin_maven: "{{ bin_maven_35 }}"
+bin_maven_33: "{{ apps_folder }}/{{ bundle_maven_3_3_9.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
+bin_maven_35: "{{ apps_folder }}/{{ bundle_maven_3_5_4.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
+bin_maven_36: "{{ apps_folder }}/{{ bundle_maven_3_6_0.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
+bash_maven_template: |
+  export MAVEN_OPTS="-Xmx1024m"
+bundle_maven_3_6_0:
+  url: http://mirror.ibcp.fr/pub/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+  basename: maven-3.6.0.tar.gz
+  checksum: sha512:fae9c12b570c3ba18116a4e26ea524b29f7279c17cbaadc3326ca72927368924d9131d11b9e851b8dc9162228b6fdea955446be41207a5cfc61283dd8a561d2f
+bundle_maven_3_5_4:
+  url: http://mirror.ibcp.fr/pub/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+  basename: maven-3.5.4.tar.gz
+  checksum: sha256:ce50b1c91364cb77efe3776f756a6d92b76d9038b0a0782f7d53acf1e997a14d
+bundle_maven_3_3_9:
+  url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+  checksum: md5:516923b3955b6035ba6b0a5b031fbd8b
+  basename: maven-3.3.9.tar.gz
+
+# Tomcat
+dir_tomcat_7: "{{ apps_folder }}/{{ bundle_tomcat_7_0_90.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
+dir_tomcat_8: "{{ apps_folder }}/{{ bundle_tomcat_8_0_53.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
+dir_tomcat_85: "{{ apps_folder }}/{{ bundle_tomcat_8_5_32.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
+dir_tomcat_9: "{{ apps_folder }}/{{ bundle_tomcat_9_0_10.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
+bundle_tomcat_7_0_90:
+  url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.90/bin/apache-tomcat-7.0.90.tar.gz
+  checksum: sha512:c7a47135b99684425260cd906cf5c9a5226837d3681d84ae4e3bb199068e97f0e63d07393d91ca0436204a1dc92bf9bd9a4a1c4c893187703e023503bbd81901
+bundle_tomcat_8_0_53:
+  url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.53/bin/apache-tomcat-8.0.53.tar.gz
+  checksum: sha512:cd8a4e48a629a2f2bb4ce6b101ebcce41da52b506064396ec1b2915c0b0d8d82123091242f2929a649bcd8b65ecf6cd1ab9c7d90ac0e261821097ab6fbe22df9
+bundle_tomcat_8_5_32:
+  url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz
+  checksum: sha512:fc010f4643cb9996cad3812594190564d0a30be717f659110211414faf8063c61fad1f18134154084ad3ddfbbbdb352fa6686a28fbb6402d3207d4e0a88fa9ce
+bundle_tomcat_9_0_10:
+  url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz
+  checksum: sha512:ecdee920fcb75bf30cd87c350e0732e8fa566911cd16cf2759689edd324ebac911c0d154e79ffc67e948b29eacc49c88dadc5954383d3c4af2fdb952f3d1c371
+
+# Eclipse
+bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_201903b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+dir_eclipse_201812: "{{ apps_folder }}/{{ bundle_eclipse_java_201812a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+dir_eclipse_201903: "{{ apps_folder }}/{{ bundle_eclipse_java_201903b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+bundle_eclipse_java_473:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/oxygen/eclipse-java-extra-oxygen-3-linux-gtk-x86_64.tar.gz
+  checksum: sha256:a9f0a7a9e5ed4bba9a25b18335719758316c2c6e16c7fe33c10025069abdec0f
+  desktop_name: Eclipse 4.7.3 (extra)
+  vm: "{{ bin_java }}"
+bundle_eclipse_java_48:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/photon/eclipse-java-extra-photon-linux-gtk-x86_64.tar.gz
+  checksum: sha256:7820930641f22a9b70011fcbd3a8c67796f67998a5831dfc4a7b4a8d680eb905
+  desktop_name: Eclipse 4.8 (extra)
+  vm: "{{ bin_java }}"
+bundle_eclipse_java_48b:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/photon/eclipse-java-extra-photon-4.8b-linux-gtk-x86_64.tar.gz
+  checksum: sha256:03771a92694e58d20711495e5b812db0bf965d300985638d47f753a4823d3467
+  desktop_name: Eclipse 4.8b (extra)
+  vm: "{{ bin_java }}"
+bundle_eclipse_java_201809b:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/2018-09/eclipse-java-extra-2018-09b-linux-gtk-x86_64.tar.gz
+  checksum: sha256:d5e932c115b55ada68db49f934d66315e6cc76890f68f946ffce99cb9787678e
+  desktop_name: Eclipse 2018-09b (extra)
+  vm: "{{ bin_java }}"
+bundle_eclipse_java_201812a:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/2018-12/eclipse-java-extra-2018-12a-linux-gtk-x86_64.tar.gz
+  checksum: sha256:fb2ccc899a0f6487cf9892a8dcbc26768dfa48f4e1535336fb6746afcfa44ed3
+  desktop_name: Eclipse 2018-12a (extra)
+  vm: "{{ bin_java }}"
+bundle_eclipse_java_201903b:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-03/eclipse-java-extra-2019-03b-linux-gtk-x86_64.tar.gz
+  checksum: sha256:ec1c5ce5ba75b50f2d408c94ea749eeb004530eec0201a25b07d0ba933485ca4
+  desktop_name: Eclipse 2019-03b (extra)
+  vm: "{{ bin_java }}"
+eclipse_clean_basenames:
+  - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
+  - eclipse-java-extra-oxygen-2-linux-gtk-x86_64
+  - eclipse-java-extra-photon-RC1-linux-gtk-x86_64
+  - eclipse-rcp-extra-photon-RC1-linux-gtk-x86_64
+  - eclipse-java-extra-2018-09a-linux-gtk-x86_64
+  - eclipse-java-extra-2018-12a-linux-gtk-x86_64
+
+# Luke
+bundle_luke_520:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-5.2.0/luke-5.2.0-luke-release.zip
+  checksum: sha256:1f1aec4ca5177c9f1d61d013077fba2e75baff167130eb0187963c81e6b77dae
+  desktop_name: Luke 5.2.0
+bundle_luke_530:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-5.3.0/luke-5.3.0-luke-release.zip
+  checksum: sha256:34e424fd3fbf1a76205696f71b6c6b0d8eeac79d2289007badca12a1926efbfe
+  desktop_name: Luke 5.3.0
+bundle_luke_540:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-5.4.0/luke-5.4.0-luke-release.zip
+  checksum: sha256:ff83e59a66fe76f6b5ff2bbef6cbf10e29bb58cfb3107a9f2e083c61b39f923f
+  desktop_name: Luke 5.4.0
+bundle_luke_550:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-5.5.0/luke-5.5.0-luke-release.zip
+  checksum: sha256:f219c3eb7efd5a67c393f9c581aa7f577d43cb8697bb16d290949200b6276a23
+  desktop_name: Luke 5.5.0
+bundle_luke_600:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-6.0.0/luke-6.0.0-luke-release.zip
+  checksum: sha256:cb678d5135299b4aff3ef1c6c0f532e33689775bed196f5d465b51c434b4e107
+  desktop_name: Luke 6.0.0
+bundle_luke_610:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-6.1.0/luke-6.1.0-luke-release.zip
+  checksum: sha256:737898b4159a9184347313bd5bd61d05a211878cfa22b0d57eaffb169be8bcc2
+  desktop_name: Luke 6.1.0
+bundle_luke_621:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-6.2.1/luke-6.2.1-luke-release.zip
+  checksum: sha256:99dc5d30dea557afd2a7ffd64619f4eb3f34ac9ac958a4619acd8dde5ce6ec4c
+  desktop_name: Luke 6.2.1
+bundle_luke_630:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-6.3.0/luke-6.3.0-luke-release.zip
+  checksum: sha256:163d6b5eeaf2269a00ba8c856adba708e3dd8b1b7c204ae9a981b324bebd7d7f
+  desktop_name: Luke 6.3.0
+  strip_path: luke-6.3.0
+bundle_luke_641:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-6.4.1/luke-6.4.1-luke-release.zip
+  checksum: sha256:12ba7dd85158d11fe4197f95bb1bf7ee6c5ab810c85a4df4f14b2b5b3c63ed81
+  desktop_name: Luke 6.4.1
+  strip_path: luke-6.4.1
+bundle_luke_650:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-6.5.0/luke-6.5.0-luke-release.zip
+  checksum: sha256:6af4455385212db7f68c2d7042977a763dbd57094168a0288aa3d509e443f6fb
+  desktop_name: Luke 6.5.0
+  strip_path: luke-6.5.0
+bundle_luke_660:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-6.6.0/luke-6.6.0-luke-release.zip
+  checksum: sha256:68154a592d1829e15e1795c50d6b923a2ee59f0469303fb57b53022c14eb7dd0
+  desktop_name: Luke 6.6.0
+  strip_path: luke-6.6.0
+bundle_luke_710:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-7.1.0/luke-7.1.0-luke-release.zip
+  checksum: sha256:fa71d06f12074de8ae2e063a92b676f6f3789f72dd83a362bcfa4f4466111d72
+  desktop_name: Luke 7.1.0
+  strip_path: luke-7.1.0
+bundle_luke_720:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-7.2.0/luke-7.2.0-luke-release.zip
+  checksum: sha256:2485b3d09d2bfc524f1fc4d3e9ad97c8e00aa68f9a25354631ce0ac14719e1c1
+  desktop_name: Luke 7.2.0
+  strip_path: luke-7.2.0
+bundle_luke_731:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-7.3.1/luke-javafx-7.3.1-luke-release.zip
+  checksum: sha256:8597c1a58d4442bb68a23d25126f7c02586000d7d1a3778eb20370a42439638b
+  desktop_name: Luke 7.3.1
+  strip_path: luke-7.3.1
+bundle_luke_740:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-7.4.0/luke-javafx-7.4.0-luke-release.zip
+  checksum: sha256:934098b9533ff06f602ae703643b37c003d2cf086fc7c572998f9b9e3e2cd55b
+  desktop_name: Luke 7.4.0
+  strip_path: luke-7.4.0
+bundle_luke_750:
+  url: https://github.com/DmitryKey/luke/releases/download/luke-javafx-7.5.0/luke-javafx-7.5.0-luke-release.zip
+  checksum: sha256:927787b166277cfa1d511a8b4143116b7a81eb9b075944e2c7b1d2bc442bec2f
+  desktop_name: Luke 7.5.0
+  strip_path: luke-javafx-7.5.0

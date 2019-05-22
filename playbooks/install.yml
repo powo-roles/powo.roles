@@ -22,8 +22,6 @@
     - name: powo.apache
     - name: powo.php
     - name: postgresql
-      become: true
-      become_user: root
       postgresql_versions:
         - "9.6"
         - "10"
@@ -40,4 +38,83 @@
           postgresql_version: "10"
           port: 5433
           pg_hba: pg_hba_local.conf
-      
+    - name: powo.vagrant
+      pva_dest_folder: "{{ tools_folder }}/vagrant"
+    - name: powo.gnome-shell
+    - name: powo.chrome
+    - name: powo.misc
+    - name: powo.eclipse
+      pec_install_base_folder: "{{ apps_folder }}"
+      pec_download_folder: "{{ tools_folder }}/eclipse"
+      pec_bundles:
+        - "{{ bundle_eclipse_java_201903b }}"
+      pec_clean_basenames: "{{ eclipse_clean_basenames }}"
+    - name: powo.luke
+      plu_install_base_folder: "{{ apps_folder }}/luke"
+      plu_download_folder: "{{ tools_folder }}/luke"
+      plu_bundles:
+        # hibernate-search use 5.5.0
+        - "{{ bundle_luke_550 }}"
+        - "{{ bundle_luke_660 }}"
+        - "{{ bundle_luke_750 }}"
+    - name: powo.java
+      pja_install_base_folder: "{{ apps_folder }}"
+      pja_download_folder: "{{ tools_folder }}/java"
+      pja_packages:
+        - "{{ package_jdk11_headless }}"
+        - "{{ package_jdk11_devel }}"
+        - "{{ package_jdk8_headless }}"
+        - "{{ package_jdk8_devel }}"
+      pja_default_java_version: "{{ dir_jdk_8 }}/jre/bin/java"
+    - name: powo.maven
+      pma_install_base_folder: "{{ apps_folder }}"
+      pma_download_folder: "{{ tools_folder }}/maven"
+      pma_bundles:
+        - "{{ bundle_maven_3_3_9 }}"
+        - "{{ bundle_maven_3_5_4 }}"
+        - "{{ bundle_maven_3_6_0 }}"
+    - name: powo.tomcat
+      pto_install_base_folder: "{{ apps_folder }}"
+      pto_download_folder: "{{ tools_folder }}/tomcat"
+      pto_bundles:
+        - "{{ bundle_tomcat_7_0_90 }}"
+        - "{{ bundle_tomcat_8_0_53 }}"
+        - "{{ bundle_tomcat_8_5_32 }}"
+        - "{{ bundle_tomcat_9_0_10 }}"
+    - name: powo.virtualbox
+    - name: powo.prompts-coloration
+      prompt_coloration_profile: development
+    - name: powo.symlinks
+      psy_directories:
+        - ~/.bin
+      psy_symlinks:
+        - path: ~/.bin/java
+          src: "{{ bin_java }}"
+        - path: ~/.bin/eclipse
+          src: "{{ bin_eclipse }}"
+        - path: ~/.bin/mvn
+          src: "{{ bin_maven }}"
+        - path: ~/.bin/mvn-3.3
+          src: "{{ bin_maven_33 }}"
+        - path: ~/.bin/mvn-3.5
+          src: "{{ bin_maven_35 }}"
+        - path: ~/.bin/mvn-3.6
+          src: "{{ bin_maven_36 }}"
+        - path: "{{ apps_folder }}/apache-tomcat-7"
+          src: "{{ dir_tomcat_7 }}"
+        - path: "{{ apps_folder }}/apache-tomcat-8"
+          src: "{{ dir_tomcat_8 }}"
+        - path: "{{ apps_folder }}/apache-tomcat-85"
+          src: "{{ dir_tomcat_85 }}"
+        - path: "{{ apps_folder }}/apache-tomcat-9"
+          src: "{{ dir_tomcat_9 }}"
+        - path: "{{ apps_folder }}/jdk-8"
+          src: "{{ dir_jdk_8 }}"
+        - path: "{{ apps_folder }}/jdk-11"
+          src: "{{ dir_jdk_11 }}"
+        - path: "{{ apps_folder }}/eclipse-2018-12"
+          src: "{{ dir_eclipse_201812 }}"
+        - path: "{{ apps_folder }}/eclipse-2019-03"
+          src: "{{ dir_eclipse_201903 }}"
+
+       
