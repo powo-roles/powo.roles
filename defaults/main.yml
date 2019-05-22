@@ -6,6 +6,8 @@ virtualbox_dkms_packages:
   default:
     - dkms
 virtualbox_packages:
+  Fedora_30:
+    - VirtualBox-6.0
   Ubuntu:
     - virtualbox-5.2
   RedHat:

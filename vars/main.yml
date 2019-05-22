@@ -5,7 +5,10 @@ _virtualbox_dist_name: "{{ 'fedora' if ansible_distribution == 'Fedora' else 'el
 # 2018-10-23: >= 26 seems to be a symlink/redirect on server
 # but we encounter redirection failure on repodata download
 # we put a static $releasever = 26
+# 2019-05-22: Fedora 30 repo is OK
 _virtualbox_repository_distro:
+  Fedora_30: >-
+    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/{{ ansible_distribution_major_version }}/$basearch
   default: >-
     http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/26/$basearch
 _virtualbox_repository: "{{ _virtualbox_repository_distro | distro(vars) }}"
