@@ -1,6 +1,7 @@
 ---
 
-- include_tasks: rpmfusion.yml
+- block:
+    - include_tasks: rpmfusion.yml
+      with_items: "{{ _rpmfusion_packages }}"
   become: true
   become_user: root
-  with_items: "{{ _rpmfusion_packages }}"
