@@ -1,11 +1,11 @@
 ---
 
-is_user_supplied: "{{ arg_user is defined }}"
-play_user: "{{ arg_user | default(lookup('pipe', 'whoami')) }}"
-play_uid: "{{ arg_uid | default(lookup('pipe', 'id -u')) }}"
-play_password: "{{ arg_password | password_hash('sha512') | default(none) }}"
-play_passphrase: "{{ arg_passphrase | default(none) }}"
-play_fullname: "{{ arg_fullname | default(none) }}"
+is_user_supplied: "{{ user is defined }}"
+play_user: "{{ user | default(lookup('pipe', 'whoami')) }}"
+play_uid: "{{ uid | default(lookup('pipe', 'id -u')) }}"
+play_password: "{{ password | password_hash('sha512') | default(none) }}"
+play_passphrase: "{{ passphrase | default(none) }}"
+play_fullname: "{{ fullname | default(none) }}"
 play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
 
 apps_folder: "{{ play_home }}/Documents/apps"

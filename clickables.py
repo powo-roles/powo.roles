@@ -45,15 +45,20 @@ def prompt_password(ctx, param, value):
         return password
 
 
-install = run_playbook_task(
-    main, 'install', 'playbooks/install.yml',
-    decorators=[
+init_user_decorators = [
         click.option('user', '--user', '-u'),
-        click.option('password', '--password', '-p',
-                     is_flag=True, callback=prompt_password,
-                     expose_value=True),
+        click.option('password', '--password', '-p'),
         click.option('uid', '--uid', '-i'),
         click.option('fullname', '--fullname', '-f'),
+        click.option('passphrase', '--passphrase'),
         clickable_ansible.kwargs_to_extra_vars('user', 'password', 'uid',
-                                               'fullname')
-    ])
+                                               'fullname', 'passphrase')
+]
+
+
+install = run_playbook_task(
+    main, 'install', 'playbooks/install.yml',
+    decorators=init_user_decorators)
+init_user = run_playbook_task(
+    main, 'init-user', 'playbooks/init-user.yml',
+    decorators=init_user_decorators)
