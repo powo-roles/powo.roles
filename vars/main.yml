@@ -5,7 +5,7 @@ _plu_item_download_checksum: "{{ item.checksum }}"
 _plu_item_desktop_name: "{{ item.desktop_name }}"
 # if archive contains a unique folder named strip_path
 # it allows to get rid of it
-_plu_item_strip_path: "{{ item.strip_path | default(none) }}"
+_plu_item_strip_path: "{{ item.strip_path | default('none') }}"
 
 _plu_item_download_basename: "{{ item.basename | default(_plu_item_download_url | basename) }}"
 # split extension without split version
