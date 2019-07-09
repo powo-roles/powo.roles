@@ -17,5 +17,5 @@
       register: id_rsa_stat
 
     - name: .ssh/id_rsa creation
-      command: ssh-keygen -t rsa -f "{{ _pu_home }}/.ssh/id_rsa" -N "{{ pu_passphrase }}"
+      command: ssh-keygen -t rsa -m PEM -f "{{ _pu_home }}/.ssh/id_rsa" -N "{{ pu_passphrase }}"
       when: not id_rsa_stat.stat.exists
