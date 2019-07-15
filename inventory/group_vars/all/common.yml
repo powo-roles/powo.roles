@@ -70,9 +70,10 @@ bundle_tomcat_9_0_10:
   checksum: sha512:ecdee920fcb75bf30cd87c350e0732e8fa566911cd16cf2759689edd324ebac911c0d154e79ffc67e948b29eacc49c88dadc5954383d3c4af2fdb952f3d1c371
 
 # Eclipse
-bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_201903b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_201906a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 dir_eclipse_201812: "{{ apps_folder }}/{{ bundle_eclipse_java_201812a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 dir_eclipse_201903: "{{ apps_folder }}/{{ bundle_eclipse_java_201903b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+dir_eclipse_201906: "{{ apps_folder }}/{{ bundle_eclipse_java_201906a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 bundle_eclipse_java_473:
   url: https://nexus.tools.kobalt.fr/repository/eclipse/oxygen/eclipse-java-extra-oxygen-3-linux-gtk-x86_64.tar.gz
   checksum: sha256:a9f0a7a9e5ed4bba9a25b18335719758316c2c6e16c7fe33c10025069abdec0f
@@ -102,6 +103,11 @@ bundle_eclipse_java_201903b:
   url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-03/eclipse-java-extra-2019-03b-linux-gtk-x86_64.tar.gz
   checksum: sha256:ec1c5ce5ba75b50f2d408c94ea749eeb004530eec0201a25b07d0ba933485ca4
   desktop_name: Eclipse 2019-03b (extra)
+  vm: "{{ bin_java }}"
+bundle_eclipse_java_201906a:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-06/eclipse-java-extra-2019-06a-linux-gtk-x86_64.tar.gz
+  checksum: sha256:bc519ccdbcc392689d98be26e2fe29dbe7704602d5474dd0a1121e844ef60692
+  desktop_name: Eclipse 2019-06a (extra)
   vm: "{{ bin_java }}"
 eclipse_clean_basenames:
   - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
