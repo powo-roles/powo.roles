@@ -224,12 +224,12 @@ vars:
   bundle_eclipse_java_201903b:
     url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-03/eclipse-java-extra-2019-03b-linux-gtk-x86_64.tar.gz
     checksum: sha256:ec1c5ce5ba75b50f2d408c94ea749eeb004530eec0201a25b07d0ba933485ca4
-    desktop_name: Eclipse 2019-03b (extra)
+    desktop_name: Eclipse 19.03b (extra)
     vm: "{{ bin_java }}"
   bundle_eclipse_java_201906a:
     url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-06/eclipse-java-extra-2019-06a-linux-gtk-x86_64.tar.gz
     checksum: sha256:bc519ccdbcc392689d98be26e2fe29dbe7704602d5474dd0a1121e844ef60692
-    desktop_name: Eclipse 2019-06a (extra)
+    desktop_name: Eclipse 19.06a (extra)
     vm: "{{ bin_java }}"
   bundle_luke_520:
     url: https://github.com/DmitryKey/luke/releases/download/luke-5.2.0/luke-5.2.0-luke-release.zip
