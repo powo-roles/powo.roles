@@ -52,10 +52,8 @@
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_packages:
-        - "{{ package_jdk11_headless }}"
-        - "{{ package_jdk11_devel }}"
-        - "{{ package_jdk8_headless }}"
-        - "{{ package_jdk8_devel }}"
+        - "{{ package_jdk11 }}"
+        - "{{ package_jdk8 }}"
       pja_default_java_version: "{{ dir_jdk_8 }}/jre/bin/java"
     - name: powo.maven
       pma_install_base_folder: "{{ apps_folder }}"
