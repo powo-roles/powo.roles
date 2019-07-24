@@ -11,5 +11,8 @@ _pja_item_name: "{{ item.name | default(_pja_item_download_basename | regex_repl
 
 _pja_item_install_folder: "{{ pja_install_base_folder }}/{{ _pja_item_name }}"
 
-_pja_package_name: "{{ item.package }}"
+_pja_package_name:
+  - "{{ item.package }}-devel"
+  - "{{ item.package }}-headless"
+  - "{{ item.package }}-src"
 _pja_package_key: "{{ item.key }}"
