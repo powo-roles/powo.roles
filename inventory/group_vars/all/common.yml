@@ -15,7 +15,7 @@ tools_folder: "{{ play_home }}/Documents/tools"
 bin_java: "{{ apps_folder }}/jdk-8/bin/java"
 bin_java_11: "{{ apps_folder }}/jdk-11/bin/java"
 dir_jdk_8: "/usr/lib/jvm/{{ package_jdk8_devel.basename }}"
-dir_jdk_11: "/usr/lib/jvm//{{ package_jdk11_devel.basename }}"
+dir_jdk_11: "/usr/lib/jvm/{{ package_jdk11_devel.basename }}"
 bash_java_template: |
   export JAVA_HOME={{ bin_java | dirname | dirname | expanduser | quote }}
 package_jdk8_devel:
