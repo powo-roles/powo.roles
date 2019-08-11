@@ -7,4 +7,4 @@ THIS_PATH="$( dirname "$THIS_SCRIPT" )"
 
 BOOTSTRAP_COMMAND="poetry config settings.virtualenvs.create false && cd '$THIS_PATH' && poetry install -v"
 
-curl -s -o - "${BOOTSTRAP_PY}" | BOOTSTRAP_COMMAND="$BOOTSTRAP_COMMAND" BOOTSTRAP_PATH="$THIS_PATH" python - "$@"
+curl -s -o - "${BOOTSTRAP_PY}" | BOOTSTRAP_COMMAND="$BOOTSTRAP_COMMAND" BOOTSTRAP_PATH="$THIS_PATH" python3 - "$@"

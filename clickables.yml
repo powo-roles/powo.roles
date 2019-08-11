@@ -7,4 +7,4 @@ ansible:
     requirements:
       - ansible == 2.7.10
       - ovh
-interpreter: /usr/bin/python
+interpreter: /bin/python3
