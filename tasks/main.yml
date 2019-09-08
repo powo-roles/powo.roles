@@ -29,3 +29,24 @@
         name: "{{ item }}"
         groups: "{{ _virtualbox_group }}"
         append: true
+
+    - name: dconf utility
+      package:
+        name:
+          - python2-psutil
+          - python3-psutil
+
+- name: user
+  become: true
+  become_user: "{{ play_user }}"
+  block:
+    # this settings allow virtualbox to handle windows+* shortcuts
+    - name: dconf settings
+      dconf:
+        key: /org/gnome/mutter/wayland/xwayland-allow-grabs
+        value: "true"
+    
+    - name: dconf settings
+      dconf:
+        key: /org/gnome/mutter/wayland/xwayland-grab-access-rules
+        value: '["VirtualBox Machine"]'
