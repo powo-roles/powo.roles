@@ -103,6 +103,11 @@ bundle_eclipse_java_201906a:
   checksum: sha256:bc519ccdbcc392689d98be26e2fe29dbe7704602d5474dd0a1121e844ef60692
   desktop_name: Eclipse 19.06a (extra)
   vm: "{{ bin_java }}"
+bundle_eclipse_java_201909a:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-09/eclipse-java-extra-2019-09a-linux-gtk-x86_64.tar.gz
+  checksum: sha256:08372b85c216d2fcf61313d32c9b28f7062a4d101b26c02c1e080bac7679c3f4
+  desktop_name: Eclipse 19.09a (extra)
+  vm: "{{ bin_java_11 }}"
 eclipse_clean_basenames:
   - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
   - eclipse-java-extra-oxygen-2-linux-gtk-x86_64
