@@ -7,7 +7,7 @@ channels:
 # - https://github.com/sdispater/poetry/issues/826
 # - https://github.com/pypa/pip/issues/6314
 dependencies:
-  - python=3
+  - python=3.7
   - pip
   - pip:
      - poetry
