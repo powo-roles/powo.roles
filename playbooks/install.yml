@@ -37,9 +37,8 @@
       pec_install_base_folder: "{{ apps_folder }}"
       pec_download_folder: "{{ tools_folder }}/eclipse"
       pec_bundles:
-        - "{{ bundle_eclipse_java_201906a }}"
-        - "{{ bundle_eclipse_java_201909a }}"
         - "{{ bundle_eclipse_java_201912a }}"
+        - "{{ bundle_eclipse_java_202003a }}"
       pec_clean_basenames: "{{ eclipse_clean_basenames }}"
     - name: powo.luke
       plu_install_base_folder: "{{ apps_folder }}/luke"
