@@ -70,6 +70,7 @@
         - "{{ bundle_tomcat_8_0_53 }}"
         - "{{ bundle_tomcat_8_5_32 }}"
         - "{{ bundle_tomcat_9_0_10 }}"
+    # powo.rpmfusion needed from Fedora 32
     - name: powo.virtualbox
     - name: powo.prompts-coloration
       prompt_coloration_profile: development
