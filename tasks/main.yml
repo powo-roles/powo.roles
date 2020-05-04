@@ -51,4 +51,4 @@
     - name: dconf settings
       dconf:
         key: /org/gnome/mutter/wayland/xwayland-grab-access-rules
-        value: '["VirtualBox Machine"]'
+        value: '["VirtualBox Machine", "Remmina"]'
