@@ -10,6 +10,9 @@ virtualbox_packages:
     - VirtualBox-6.0
   Fedora_31:
     - VirtualBox-6.0
+  Fedora_32:
+    # package from rpmfusion
+    - VirtualBox
   Ubuntu:
     - virtualbox-5.2
   RedHat:

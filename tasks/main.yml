@@ -6,6 +6,8 @@
   block:
     - name: repository
       include: "repository_{{ ansible_os_family }}.yml"
+      # from Fedora 32, we use rpmfusion package
+      when: ansible_distribution != 'Fedora' or ansible_distribution_version | int | default(0) < 32
 
     - name: dkms installation
       package: name={{ item }} state=present
@@ -45,7 +47,7 @@
       dconf:
         key: /org/gnome/mutter/wayland/xwayland-allow-grabs
         value: "true"
-    
+
     - name: dconf settings
       dconf:
         key: /org/gnome/mutter/wayland/xwayland-grab-access-rules
