@@ -36,7 +36,7 @@
         path: /etc/systemd/user.conf.d/powo.conf
         section: Manager
         option: DefaultLimitNOFILE
-        value: 4096
+        value: "4096"
         create: yes
 
     - name: journald.conf.d
@@ -61,7 +61,7 @@
     - name: max_user_watches
       sysctl:
         name: fs.inotify.max_user_watches
-        value: 524288
+        value: "524288"
         reload: true
         sysctl_set: true
         sysctl_file: /etc/sysctl.d/powo.conf
