@@ -15,6 +15,7 @@
       postgresql_versions:
         - "9.6"
         - "10"
+        - "12"
     - name: powo.postgresql-stop
     - name: postgresql-cluster
       postgresql_cluster_clusters:
@@ -27,6 +28,11 @@
           path: /data/services/postgresql/10-default/
           postgresql_version: "10"
           port: 5433
+          pg_hba: pg_hba_local.conf
+        - name: default
+          path: /data/services/postgresql/12-default/
+          postgresql_version: "12"
+          port: 5434
           pg_hba: pg_hba_local.conf
     - name: powo.vagrant
       pva_dest_folder: "{{ tools_folder }}/vagrant"
