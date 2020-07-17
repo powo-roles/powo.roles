@@ -42,6 +42,7 @@ _redhat_base:
   - keepass
   - keepassxc
   - flameshot
+  - nodejs
 
 _debian_base:
   - vim
@@ -74,3 +75,4 @@ _debian_base:
   - keepass2
   - keepassxc
   - flameshot
+  - nodejs
