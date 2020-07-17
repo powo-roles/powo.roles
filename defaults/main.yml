@@ -8,11 +8,14 @@ virtualbox_dkms_packages:
 virtualbox_packages:
   Fedora_30:
     - VirtualBox-6.0
+    - kernel-devel
   Fedora_31:
     - VirtualBox-6.0
+    - kernel-devel
   Fedora_32:
     # package from rpmfusion
     - VirtualBox
+    - kernel-devel
   Ubuntu:
     - virtualbox-5.2
   RedHat:
