@@ -26,6 +26,7 @@ _redhat_base:
   - pwgen
   - ack
   - graphviz
+  - solaar
   - ImageMagick
   - cifs-utils
   - bash-completion
