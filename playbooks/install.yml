@@ -43,7 +43,6 @@
       pec_install_base_folder: "{{ apps_folder }}"
       pec_download_folder: "{{ tools_folder }}/eclipse"
       pec_bundles:
-        - "{{ bundle_eclipse_java_202003a }}"
         - "{{ bundle_eclipse_java_202006a }}"
         - "{{ bundle_eclipse_java_202009a }}"
       pec_clean_basenames: "{{ eclipse_clean_basenames }}"
