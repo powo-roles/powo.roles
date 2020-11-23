@@ -27,6 +27,13 @@
   become: true
   become_user: root
 
+- import_tasks: mailhog.yml
+  become: true
+  become_user: root
+  when: ansible_os_family == 'RedHat'
+  tags:
+    - mailhog
+
 - name: privileged
   become: true
   become_user: root
