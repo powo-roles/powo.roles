@@ -7,13 +7,14 @@ _pmi_ssh_service: "{{ pmi_ssh_service | distro(vars) }}"
 _powo_misc_user: "{{ lookup('pipe', 'whoami') }}"
 
 #MailHog
-_mailhog_icon_download_url: https://github.com/ian-kent/MailHog/blob/master/public/images/hog.png
-_mailhog_icon_checksum: sha256:ffe6c1f4ec271cd759afbc71d3a5fffd596fa8aab50a84bd984a2755fa18636a
+_mailhog_icon_download_url: https://raw.githubusercontent.com/ian-kent/MailHog/master/public/images/hog.png
+_mailhog_icon_checksum: sha256:d8e096018ef2eb24e8a9e8fc54071bd9f10350211df04e7275aa9e76ff59b95d
 
 _mailhog_download_url: https://github.com/mailhog/MailHog/releases/download/v1.0.1/MailHog_linux_amd64
 _mailhog_checksum: sha256:e2ed634ded49929f089b20045581955ed217672078fd86082dd7a6c67c5d09c7
 _mailhog_desktop_name: MailHog 1.0.1
 _mailhog_exe: MailHog_linux_amd64
+_mailhog_description: "{{ _mailhog_desktop_name }}"
 
 _mailhog_install_base_folder: "{{ apps_folder }}/mailhog"
 _mailhog_icon_path: "{{ _mailhog_install_base_folder }}/hog.png"

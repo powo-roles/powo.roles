@@ -1,0 +1,7 @@
+#jinja2:trim_blocks: False
+[Desktop Entry]
+Name={{ _mailhog_desktop_name }}
+Exec=xdg-open 'http://localhost:8025/'
+Type=Application
+Description={{ _mailhog_description }}
+Icon={{ _mailhog_icon_path | expanduser }}

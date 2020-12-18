@@ -56,3 +56,15 @@
     state: restarted
     enabled: true
   when: mailhog_check.changed or mailhog_conf_check.changed
+
+- name: desktop files' folder
+  file:
+    path: "/home/{{_powo_misc_user}}/.local/share/applications/"
+    state: directory
+
+- name: desktop file
+  template:
+    dest: "/home/{{_powo_misc_user}}/.local/share/applications/mailhog.desktop"
+    force: true
+    mode: u=rw,g=rw,o=r
+    src: mailhog-desktop.jinja
