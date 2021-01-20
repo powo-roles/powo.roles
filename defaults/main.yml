@@ -77,3 +77,9 @@ _debian_base:
   - keepassxc
   - flameshot
   - nodejs
+
+_abrt_services:
+  - abrt-ccpp
+  - abrtd
+  - abrt-oops
+  - abrt-vmcore

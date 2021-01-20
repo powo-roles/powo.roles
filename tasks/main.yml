@@ -34,6 +34,11 @@
   tags:
     - mailhog
 
+- import_tasks: abrt.yml
+  become: true
+  become_user: root
+  when: ansible_os_family == 'RedHat'
+
 - name: privileged
   become: true
   become_user: root
