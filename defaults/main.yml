@@ -12,7 +12,7 @@ virtualbox_packages:
   Fedora_31:
     - VirtualBox-6.0
     - kernel-devel
-  Fedora_32:
+  Fedora:
     # package from rpmfusion
     - VirtualBox
     - kernel-devel
