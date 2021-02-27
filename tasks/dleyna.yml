@@ -1,0 +1,33 @@
+---
+
+- file:
+    path: "{{ '~' | expanduser }}/.config/systemd/user"
+    state: directory
+
+# dleyna process can hang computer shutdown
+# https://github.com/intel/dleyna-renderer/issues/164#issuecomment-616061467
+- copy:
+    dest: "{{ '~' | expanduser }}/.config/systemd/user/dleyna-renderer-service-kill.service"
+    content: |
+      [Unit]
+      Description=Kills the dleyna-rednerer-service
+      
+      [Service]
+      Type=oneshot
+      RemainAfterExit=yes
+      ExecStop=/usr/bin/killall -9 dleyna-renderer-service
+      
+      [Install]
+      WantedBy=graphical-session.target
+  register: dleyna_service
+
+- systemd:
+    name: dleyna-renderer-service-kill
+    enabled: true
+    daemon_reload: "{{ dleyna_service.changed }}"
+    scope: user
+
+- systemd:
+    name: dleyna-renderer-service-kill
+    state: started
+    scope: user

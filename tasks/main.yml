@@ -1,5 +1,8 @@
 ---
 
+- import_tasks: dleyna.yml
+  when: ansible_distribution == 'Fedora'
+
 - import_role:
     name: powo.rpmfusion
   when: ansible_os_family == 'RedHat'
