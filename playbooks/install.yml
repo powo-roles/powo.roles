@@ -73,7 +73,6 @@
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"
       pma_bundles:
-        - "{{ bundle_maven_3_3_9 }}"
         - "{{ bundle_maven_3_5_4 }}"
         - "{{ bundle_maven_3_6_3 }}"
     - name: powo.tomcat
@@ -98,8 +97,6 @@
           src: "{{ bin_eclipse }}"
         - path: ~/.bin/mvn
           src: "{{ bin_maven }}"
-        - path: ~/.bin/mvn-3.3
-          src: "{{ bin_maven_33 }}"
         - path: ~/.bin/mvn-3.5
           src: "{{ bin_maven_35 }}"
         - path: ~/.bin/mvn-3.6
