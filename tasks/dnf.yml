@@ -10,4 +10,4 @@
   dnf:
     name: "{{ _rpmfusion_package_url[item] }}"
     disable_gpg_check: true
-  when: rpmfusion_check.results | selectattr('name', 'equalto', item) == 0
+  when: rpmfusion_check.results | selectattr('name', 'equalto', item) | length == 0
