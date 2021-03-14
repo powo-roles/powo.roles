@@ -46,14 +46,14 @@
     - name: powo.gnome-shell
     - name: powo.chrome
     - name: powo.misc
-    - name: powo.eclipse
-      pec_install_base_folder: "{{ apps_folder }}"
-      pec_download_folder: "{{ tools_folder }}/eclipse"
-      pec_bundles:
-        - "{{ bundle_eclipse_java_202006a }}"
-        - "{{ bundle_eclipse_java_202009a }}"
-        - "{{ bundle_eclipse_java_202012a }}"
-      pec_clean_basenames: "{{ eclipse_clean_basenames }}"
+      #- name: powo.eclipse
+      #  pec_install_base_folder: "{{ apps_folder }}"
+      #  pec_download_folder: "{{ tools_folder }}/eclipse"
+      #  pec_bundles:
+      #    - "{{ bundle_eclipse_java_202006a }}"
+      #    - "{{ bundle_eclipse_java_202009a }}"
+      #    - "{{ bundle_eclipse_java_202012a }}"
+      #  pec_clean_basenames: "{{ eclipse_clean_basenames }}"
     - name: powo.luke
       plu_install_base_folder: "{{ apps_folder }}/luke"
       plu_download_folder: "{{ tools_folder }}/luke"
@@ -93,8 +93,8 @@
       psy_symlinks:
         - path: ~/.bin/java
           src: "{{ bin_java }}"
-        - path: ~/.bin/eclipse
-          src: "{{ bin_eclipse }}"
+            #- path: ~/.bin/eclipse
+            #  src: "{{ bin_eclipse }}"
         - path: ~/.bin/mvn
           src: "{{ bin_maven }}"
         - path: ~/.bin/mvn-3.5
@@ -113,9 +113,9 @@
           src: "{{ dir_jdk_8 }}"
         - path: "{{ apps_folder }}/jdk-11"
           src: "{{ dir_jdk_11 }}"
-        - path: "{{ apps_folder }}/eclipse-2019-06"
-          src: "{{ dir_eclipse_201906 }}"
-        - path: "{{ apps_folder }}/eclipse-2019-09"
-          src: "{{ dir_eclipse_201909 }}"
-        - path: "{{ apps_folder }}/eclipse-2019-12"
-          src: "{{ dir_eclipse_201912 }}"
+            #- path: "{{ apps_folder }}/eclipse-2019-06"
+            #  src: "{{ dir_eclipse_201906 }}"
+            #- path: "{{ apps_folder }}/eclipse-2019-09"
+            #  src: "{{ dir_eclipse_201909 }}"
+            #- path: "{{ apps_folder }}/eclipse-2019-12"
+            #  src: "{{ dir_eclipse_201912 }}"
