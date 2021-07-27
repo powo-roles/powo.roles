@@ -13,3 +13,8 @@
       with_items: "{{ _pgs_arc_theme }}"
       package:
         name: "{{ item }}"
+
+    - name: extension manager
+      package:
+        name: gnome-extensions-app
+      when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int >= 34
