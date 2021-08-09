@@ -148,6 +148,8 @@ bundle_eclipse_java_202106a:
   url: https://nexus.tools.kobalt.fr/repository/eclipse/2021-06/eclipse-java-extra-2021-06a-linux-gtk-x86_64.tar.gz
   checksum: sha256:4201f50e46243420015e0d44a83854b982e1a251e46adfcd6cb8a1d39c0acccc
   desktop_name: Eclipse 21.06a (extra)
+  # JVM 16 not compatible with sonar - https://community.sonarsource.com/t/maven-sonar-scanner-not-working-with-jdk-16/40699
+  vm: "{{ bin_java_11 }}"
 eclipse_clean_basenames:
   - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
   - eclipse-java-extra-oxygen-2-linux-gtk-x86_64
