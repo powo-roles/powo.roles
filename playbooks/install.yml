@@ -7,6 +7,7 @@
   become_user: "{{ play_user }}"
   roles:
     - name: powo.checks
+    - name: powo.selinux
     - name: powo.filesystem
     - name: powo.ubuntu-backports
     - name: powo.apache
