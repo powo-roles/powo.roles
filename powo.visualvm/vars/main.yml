@@ -1,0 +1,10 @@
+---
+
+_vvm_item_download_url: "{{ item.url }}"
+_vvm_item_download_checksum: "{{ item.checksum }}"
+_vvm_item_version: "{{ item.version }}"
+_vvm_item_name: "{{ item.name }}"
+_vvm_item_visualvm_bin: "{{ _vvm_item_install_folder }}/bin/visualvm"
+_vvm_item_visualvm_icon: "{{ _vvm_item_install_folder }}/etc/visualvm.icns"
+_vvm_item_jdkhomes: "{{ item.jdkhomes | default([]) }}"
+_vvm_item_install_folder: "{{ vvm_install_base_folder }}/{{ _vvm_item_name }}"

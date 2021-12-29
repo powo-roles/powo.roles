@@ -75,6 +75,19 @@
         - "{{ package_jdk11 }}"
         - "{{ package_jdk8 }}"
       pja_default_java_version: "{{ dir_jdk_8 }}/jre/bin/java"
+    - name: powo.visualvm
+      vvm_install_base_folder: "{{ apps_folder }}"
+      vvm_download_folder: "{{ tools_folder }}"
+      vvm_bundles:
+        - name: visualvm_211
+          version: 2.1.1
+          url: https://github.com/oracle/visualvm/releases/download/2.1.1/visualvm_211.zip
+          checksum: sha256:37be8dcea9cce558033475ba7e8103de59a2077c611f86ba4525a73ffa267d55
+          jdkhomes:
+            - version: "1.8"
+              path: /usr/lib/jvm/java-1.8.0
+            - version: "11"
+              path: /usr/lib/jvm/java-11
     - name: powo.maven
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"

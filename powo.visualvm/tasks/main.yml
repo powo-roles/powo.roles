@@ -1,0 +1,5 @@
+---
+
+- name: bundles
+  include_tasks: visualvm_item.yml
+  with_items: "{{ vvm_bundles }}"
