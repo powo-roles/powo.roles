@@ -111,10 +111,6 @@
       psy_directories:
         - ~/.bin
       psy_symlinks:
-        - path: ~/.bin/java
-          src: "{{ bin_java }}"
-            #- path: ~/.bin/eclipse
-            #  src: "{{ bin_eclipse }}"
         - path: ~/.bin/mvn
           src: "{{ bin_maven }}"
         - path: ~/.bin/mvn-3.6
@@ -139,3 +135,5 @@
           src: "{{ dir_eclipse_202109 }}"
         - path: "{{ apps_folder }}/eclipse-2021-12"
           src: "{{ dir_eclipse_202112 }}"
+        - path: ~/.bin/java
+          src: "{{ bin_java }}"
