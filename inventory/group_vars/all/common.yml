@@ -26,22 +26,25 @@ package_jdk11:
   basename: java-11-openjdk
 
 # Maven
-bin_maven: "{{ bin_maven_36 }}"
-bin_maven_33: "{{ apps_folder }}/{{ bundle_maven_3_3_9.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
-bin_maven_35: "{{ apps_folder }}/{{ bundle_maven_3_5_4.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
+bin_maven: "{{ bin_maven_38 }}"
 bin_maven_36: "{{ apps_folder }}/{{ bundle_maven_3_6_3.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
+bin_maven_38: "{{ apps_folder }}/{{ bundle_maven_3_8_4.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
 bash_maven_template: |
   export MAVEN_OPTS="-Xmx1024m"
+bundle_maven_3_8_4:
+  url: https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
+  basename: maven-3.8.4.tar.gz
+  checksum: sha512:a9b2d825eacf2e771ed5d6b0e01398589ac1bfa4171f36154d1b5787879605507802f699da6f7cfc80732a5282fd31b28e4cd6052338cbef0fa1358b48a5e3c8
 bundle_maven_3_6_3:
-  url: http://mirror.ibcp.fr/pub/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+  url: https://dlcdn.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
   basename: maven-3.6.3.tar.gz
   checksum: sha512:c35a1803a6e70a126e80b2b3ae33eed961f83ed74d18fcd16909b2d44d7dada3203f1ffe726c17ef8dcca2dcaa9fca676987befeadc9b9f759967a8cb77181c0
 bundle_maven_3_5_4:
-  url: http://mirror.ibcp.fr/pub/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+  url: https://dlcdn.apache.org/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
   basename: maven-3.5.4.tar.gz
   checksum: sha256:ce50b1c91364cb77efe3776f756a6d92b76d9038b0a0782f7d53acf1e997a14d
 bundle_maven_3_3_9:
-  url: http://mirrors.ircam.fr/pub/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+  url: https://dlcdn.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
   checksum: md5:516923b3955b6035ba6b0a5b031fbd8b
   basename: maven-3.3.9.tar.gz
 
