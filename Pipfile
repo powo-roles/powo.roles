@@ -7,6 +7,6 @@ name = "pypi"
 clickable-ansible = {ref = "v1.1", git = "https://github.com/lalmeras/clickable_ansible"}
 
 [scripts]
-infrastructure-ansible = "clickable"
+powo-roles = "clickable"
 
 [dev-packages]
