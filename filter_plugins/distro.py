@@ -1,6 +1,6 @@
 import itertools
 
-from jinja2 import evalcontextfilter
+from jinja2 import pass_eval_context
 
 
 DISTRIBUTION_SYNONYMS = [
@@ -8,7 +8,7 @@ DISTRIBUTION_SYNONYMS = [
 ]
 
 
-@evalcontextfilter
+@pass_eval_context
 def distro(ctx, arg, hostvars):
     if not isinstance(arg, dict):
         raise Exception('%s is not a dict' % (arg,))
