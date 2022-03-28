@@ -28,9 +28,13 @@ package_jdk11:
 # Maven
 bin_maven: "{{ bin_maven_38 }}"
 bin_maven_36: "{{ apps_folder }}/{{ bundle_maven_3_6_3.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
-bin_maven_38: "{{ apps_folder }}/{{ bundle_maven_3_8_4.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
+bin_maven_38: "{{ apps_folder }}/{{ bundle_maven_3_8_5.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
 bash_maven_template: |
   export MAVEN_OPTS="-Xmx1024m"
+bundle_maven_3_8_5:
+  url: https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz
+  basename: maven-3.8.5.tar.gz
+  checksum: sha512:89ab8ece99292476447ef6a6800d9842bbb60787b9b8a45c103aa61d2f205a971d8c3ddfb8b03e514455b4173602bd015e82958c0b3ddc1728a57126f773c743
 bundle_maven_3_8_4:
   url: https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
   basename: maven-3.8.4.tar.gz

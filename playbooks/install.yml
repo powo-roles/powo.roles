@@ -94,7 +94,7 @@
       pma_download_folder: "{{ tools_folder }}/maven"
       pma_bundles:
         - "{{ bundle_maven_3_6_3 }}"
-        - "{{ bundle_maven_3_8_4 }}"
+        - "{{ bundle_maven_3_8_5 }}"
     - name: powo.tomcat
       pto_install_base_folder: "{{ apps_folder }}"
       pto_download_folder: "{{ tools_folder }}/tomcat"
