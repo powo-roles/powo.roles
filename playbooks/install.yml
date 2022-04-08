@@ -60,6 +60,7 @@
         - "{{ bundle_eclipse_java_202106a }}"
         - "{{ bundle_eclipse_java_202109a }}"
         - "{{ bundle_eclipse_java_202112a }}"
+        - "{{ bundle_eclipse_java_202203a }}"
       pec_clean_basenames: "{{ eclipse_clean_basenames }}"
     - name: powo.luke
       plu_install_base_folder: "{{ apps_folder }}/luke"

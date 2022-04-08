@@ -188,10 +188,6 @@ eclipse_clean_basenames:
   - eclipse-java-extra-2019-09a-linux-gtk-x86_64
   - eclipse-java-extra-2019-12a-linux-gtk-x86_64
   - eclipse-java-extra-2020-03a-linux-gtk-x86_64
-  - eclipse-java-extra-2020-06a-linux-gtk-x86_64
-  - eclipse-java-extra-2020-09a-linux-gtk-x86_64
-  - eclipse-java-extra-2020-12a-linux-gtk-x86_64
-  - eclipse-java-extra-2021-03a-linux-gtk-x86_64
 
 # Luke
 bundle_luke_520:
