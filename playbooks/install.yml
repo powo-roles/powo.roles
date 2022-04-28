@@ -76,7 +76,7 @@
       pja_packages:
         - "{{ package_jdk11 }}"
         - "{{ package_jdk8 }}"
-      pja_default_java_version: "{{ dir_jdk_8 }}/jre/bin/java"
+      pja_default_java_version: "{{ dir_jdk_11 }}/bin/java"
     - name: powo.visualvm
       vvm_install_base_folder: "{{ apps_folder }}"
       vvm_download_folder: "{{ tools_folder }}"
