@@ -1,0 +1,9 @@
+---
+
+- name: disable packagekit
+  ansible.builtin.systemd:
+    name: packagekit
+    enabled: false
+    masked: true
+  become: true
+  become_user: root

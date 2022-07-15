@@ -1,5 +1,11 @@
 ---
 
+- import_tasks: packagekit.yml
+  when: ansible_distribution == 'Fedora'
+
+- import_tasks: docker.yml
+  when: ansible_distribution == 'Fedora'
+
 - import_tasks: dleyna.yml
   when: ansible_distribution == 'Fedora'
 

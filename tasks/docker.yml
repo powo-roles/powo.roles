@@ -1,0 +1,39 @@
+---
+
+- name: docker
+  package:
+    name:
+      - moby-engine
+      - docker-compose
+  become: true
+  become_user: root
+
+- name: docker group
+  user:
+    name: "{{ play_user }}"
+    groups: docker
+    append: true
+  become: true
+  become_user: root
+
+- name: docker service
+  service:
+    name: docker
+    enabled: true
+  become: true
+  become_user: root
+
+- name: docker content directory
+  shell: |
+    set -e
+    systemctl stop docker
+    [ -d /var/lib/docker ] || { echo "/var/lib/docker is missing"; exit 1; }
+    mv -t /home /var/lib/docker
+    ln -sT /home/docker /var/lib/docker
+    systemctl start docker
+  args:
+    creates: /home/docker
+    executable: /usr/bin/bash
+  become: true
+  become_user: root
+  when: play_all
