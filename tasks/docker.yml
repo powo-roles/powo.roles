@@ -26,7 +26,7 @@
 - name: docker content directory
   shell: |
     set -e
-    docker stop $( docker ps --format '{{.ID}}' ) || true
+    docker stop $( docker ps --format '{{ '{{' }}.ID{{ '}}' }}' ) || true
     systemctl stop docker docker.socket
     [ -d /var/lib/docker ] || { echo "/var/lib/docker is missing"; exit 1; }
     mv -t /home /var/lib/docker
