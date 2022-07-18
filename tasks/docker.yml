@@ -26,11 +26,12 @@
 - name: docker content directory
   shell: |
     set -e
-    systemctl stop docker
+    docker stop $( docker ps --format '{{.ID}}' ) || true
+    systemctl stop docker docker.socket
     [ -d /var/lib/docker ] || { echo "/var/lib/docker is missing"; exit 1; }
     mv -t /home /var/lib/docker
     ln -sT /home/docker /var/lib/docker
-    systemctl start docker
+    systemctl start docker docker.socket
   args:
     creates: /home/docker
     executable: /usr/bin/bash
