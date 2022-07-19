@@ -7,6 +7,7 @@ play_password: "{{ password | password_hash('sha512') | default(none) }}"
 play_passphrase: "{{ passphrase | default(none) }}"
 play_fullname: "{{ fullname | default(none) }}"
 play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
+play_all: false
 
 apps_folder: "{{ play_home }}/Documents/apps"
 tools_folder: "{{ play_home }}/Documents/tools"
