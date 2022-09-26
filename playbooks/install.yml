@@ -57,9 +57,8 @@
       pec_install_base_folder: "{{ apps_folder }}"
       pec_download_folder: "{{ tools_folder }}/eclipse"
       pec_bundles:
-        - "{{ bundle_eclipse_java_202112a }}"
-        - "{{ bundle_eclipse_java_202203a }}"
         - "{{ bundle_eclipse_java_202206a }}"
+        - "{{ bundle_eclipse_java_202209a }}"
       pec_clean_basenames: "{{ eclipse_clean_basenames }}"
     - name: powo.luke
       plu_install_base_folder: "{{ apps_folder }}/luke"
@@ -73,6 +72,7 @@
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_packages:
+        - "{{ package_jdk17 }}"
         - "{{ package_jdk11 }}"
         - "{{ package_jdk8 }}"
       pja_default_java_version: "{{ dir_jdk_11 }}/bin/java"

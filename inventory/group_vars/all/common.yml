@@ -15,9 +15,11 @@ tools_folder: "{{ play_home }}/Documents/tools"
 # Java
 bin_java: "{{ apps_folder }}/jdk-11/bin/java"
 bin_java_8: "{{ apps_folder }}/jdk-8/bin/java"
+bin_java_17: "{{ apps_folder }}/jdk-17/bin/java"
 
 dir_jdk_8: "/usr/lib/jvm/{{ package_jdk8.basename }}"
 dir_jdk_11: "/usr/lib/jvm/{{ package_jdk11.basename }}"
+dir_jdk_17: "/usr/lib/jvm/{{ package_jdk17.basename }}"
 bash_java_template: |
   export JAVA_HOME={{ bin_java | dirname | dirname | expanduser | quote }}
 package_jdk8:
@@ -26,6 +28,9 @@ package_jdk8:
 package_jdk11:
   package: java-11-openjdk
   basename: java-11-openjdk
+package_jdk17:
+  package: java-17-openjdk
+  basename: java-17-openjdk
 
 # Maven
 bin_maven: "{{ bin_maven_38 }}"
@@ -73,7 +78,7 @@ bundle_tomcat_9_0_10:
   checksum: sha512:ecdee920fcb75bf30cd87c350e0732e8fa566911cd16cf2759689edd324ebac911c0d154e79ffc67e948b29eacc49c88dadc5954383d3c4af2fdb952f3d1c371
 
 # Eclipse
-bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_201906a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_202206a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 dir_eclipse_201906: "{{ apps_folder }}/{{ bundle_eclipse_java_201906a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 dir_eclipse_201909: "{{ apps_folder }}/{{ bundle_eclipse_java_201909a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 dir_eclipse_201912: "{{ apps_folder }}/{{ bundle_eclipse_java_201912a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
@@ -87,6 +92,7 @@ dir_eclipse_202109: "{{ apps_folder }}/{{ bundle_eclipse_java_202109a.url | base
 dir_eclipse_202112: "{{ apps_folder }}/{{ bundle_eclipse_java_202112a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 dir_eclipse_202203: "{{ apps_folder }}/{{ bundle_eclipse_java_202203a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 dir_eclipse_202206: "{{ apps_folder }}/{{ bundle_eclipse_java_202206a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+dir_eclipse_202209: "{{ apps_folder }}/{{ bundle_eclipse_java_202209a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 bundle_eclipse_java_473:
   url: https://nexus.tools.kobalt.fr/repository/eclipse/oxygen/eclipse-java-extra-oxygen-3-linux-gtk-x86_64.tar.gz
   checksum: sha256:a9f0a7a9e5ed4bba9a25b18335719758316c2c6e16c7fe33c10025069abdec0f
@@ -183,6 +189,11 @@ bundle_eclipse_java_202206a:
   checksum: sha256:53fccbf39b53cebd71f96f0587281de844d044bfe25705dcdc6dd872550705ce
   desktop_name: Eclipse 22.06a (extra)
   vm: "{{ bin_java }}"
+bundle_eclipse_java_202209a:
+  url: https://nexus.tools.kobalt.fr/repository/eclipse/2022-09/eclipse-java-extra-2022-09a-linux-gtk-x86_64.tar.gz
+  checksum: sha256:e76615f523408c4fbcaae32c29ce4fb6c925fa372de026a006e5ace831c9cca9
+  desktop_name: Eclipse 22.09a (extra)
+  vm: ""
 eclipse_clean_basenames:
   - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
   - eclipse-java-extra-oxygen-2-linux-gtk-x86_64
@@ -202,6 +213,8 @@ eclipse_clean_basenames:
   - eclipse-java-extra-2021-03a-linux-gtk-x86_64
   - eclipse-java-extra-2021-06a-linux-gtk-x86_64
   - eclipse-java-extra-2021-09a-linux-gtk-x86_64
+  - eclipse-java-extra-2021-12a-linux-gtk-x86_64
+  - eclipse-java-extra-2022-03a-linux-gtk-x86_64
 
 # Luke
 bundle_luke_520:
