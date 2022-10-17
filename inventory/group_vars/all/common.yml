@@ -9,6 +9,46 @@ play_fullname: "{{ fullname | default(none) }}"
 play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
 play_all: false
 
+postgresql_versions:
+  - "9.6"
+  - "10"
+  - "12"
+  - "13"
+  - "14"
+  - "15"
+
+postgresql_cluster_clusters:
+  - name: default
+    path: /data/services/postgresql/9.6-default/
+    postgresql_version: "9.6"
+    port: 5432
+    pg_hbda: pg_hba_local.conf
+  - name: default
+    path: /data/services/postgresql/10-default/
+    postgresql_version: "10"
+    port: 5433
+    pg_hba: pg_hba_local.conf
+  - name: default
+    path: /data/services/postgresql/12-default/
+    postgresql_version: "12"
+    port: 5434
+    pg_hba: pg_hba_local.conf
+  - name: default
+    path: /data/services/postgresql/13-default/
+    postgresql_version: "13"
+    port: 5435
+    pg_hba: pg_hba_local.conf
+  - name: default
+    path: /data/services/postgresql/14-default/
+    postgresql_version: "14"
+    port: 5436
+    pg_hba: pg_hba_local.conf
+  - name: default
+    path: /data/services/postgresql/15-default/
+    postgresql_version: "15"
+    port: 5437
+    pg_hba: pg_hba_local.conf
+
 apps_folder: "{{ play_home }}/Documents/apps"
 tools_folder: "{{ play_home }}/Documents/tools"
 

@@ -13,41 +13,11 @@
     - name: powo.apache
     - name: powo.php
     - name: postgresql
-      postgresql_versions:
-        - "9.6"
-        - "10"
-        - "12"
-        - "13"
-        - "14"
+      #postgresql_versions: -> group_vars
     - name: powo.postgresql-stop
     - name: postgresql-cluster
       postgresql_systemd_legacy: false
-      postgresql_cluster_clusters:
-        - name: default
-          path: /data/services/postgresql/9.6-default/
-          postgresql_version: "9.6"
-          port: 5432
-          pg_hbda: pg_hba_local.conf
-        - name: default
-          path: /data/services/postgresql/10-default/
-          postgresql_version: "10"
-          port: 5433
-          pg_hba: pg_hba_local.conf
-        - name: default
-          path: /data/services/postgresql/12-default/
-          postgresql_version: "12"
-          port: 5434
-          pg_hba: pg_hba_local.conf
-        - name: default
-          path: /data/services/postgresql/13-default/
-          postgresql_version: "13"
-          port: 5435
-          pg_hba: pg_hba_local.conf
-        - name: default
-          path: /data/services/postgresql/14-default/
-          postgresql_version: "14"
-          port: 5436
-          pg_hba: pg_hba_local.conf
+      #postgresql_cluster_clusters -> group_vars
     - name: powo.vagrant
       pva_dest_folder: "{{ tools_folder }}/vagrant"
     - name: powo.gnome-shell
