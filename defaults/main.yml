@@ -12,7 +12,7 @@ pgs_packages:
   Fedora:
     - '@GNOME'
     - gnome-tweaks
-    - chrome-gnome-shell
+    - gnome-browser-connector
   Debian:
     - ubuntu-gnome-desktop
     - gnome-tweak-tool
