@@ -21,9 +21,6 @@
 # force gpg key installation (needed on centos 7)
 - name: install key
   shell: yum makecache -y --disablerepo='*' --enablerepo=atom
-  args:
-    # no warn about yum module usage
-    warn: false
   when: |
     (atom_rpm_gpg.changed or atom_rpm_repo.changed)
     and ansible_distribution in ['CentOS', 'RedHat']
