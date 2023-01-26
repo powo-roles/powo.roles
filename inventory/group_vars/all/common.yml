@@ -10,7 +10,6 @@ play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
 play_all: false
 
 postgresql_versions:
-  - "9.6"
   - "10"
   - "12"
   - "13"
@@ -18,11 +17,6 @@ postgresql_versions:
   - "15"
 
 postgresql_cluster_clusters:
-  - name: default
-    path: /data/services/postgresql/9.6-default/
-    postgresql_version: "9.6"
-    port: 5432
-    pg_hbda: pg_hba_local.conf
   - name: default
     path: /data/services/postgresql/10-default/
     postgresql_version: "10"
