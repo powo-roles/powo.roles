@@ -255,6 +255,7 @@ eclipse_clean_basenames:
   - eclipse-java-extra-2021-09a-linux-gtk-x86_64
   - eclipse-java-extra-2021-12a-linux-gtk-x86_64
   - eclipse-java-extra-2022-03a-linux-gtk-x86_64
+  - eclipse-java-extra-2022-12a-linux-gtk-x86_64
 
 # Luke
 bundle_luke_520:
