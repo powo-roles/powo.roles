@@ -20,6 +20,7 @@
   service:
     name: docker
     enabled: true
+    state: started
   become: true
   become_user: root
 
