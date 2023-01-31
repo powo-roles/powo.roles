@@ -41,8 +41,6 @@ _redhat_base:
   - openldap-clients
   # firefox and html5 mp4
   - ffmpeg
-  - keepass
-  - keepassxc
   - flameshot
   - nodejs
 
@@ -74,8 +72,6 @@ _debian_base:
   - nextcloud-client-nautilus
   - atom
   - ldap-utils
-  - keepass2
-  - keepassxc
   - flameshot
   - nodejs
 
