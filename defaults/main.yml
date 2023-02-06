@@ -37,7 +37,6 @@ _redhat_base:
   - openssh-server
   - nextcloud-client
   - nextcloud-client-nautilus
-  - atom
   - openldap-clients
   # firefox and html5 mp4
   - ffmpeg
@@ -70,7 +69,6 @@ _debian_base:
   - openssh-server
   - nextcloud-client
   - nextcloud-client-nautilus
-  - atom
   - ldap-utils
   - flameshot
   - nodejs
