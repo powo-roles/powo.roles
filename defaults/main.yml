@@ -14,10 +14,12 @@ pmi_packages:
 _redhat_base:
   - vim-enhanced
   - gimp
+  - kolourpaint
   - thunderbird
   - subversion
   - subversion-javahl
   - git
+  - gitg
   - libnotify
   - screen
   - tmux
@@ -37,6 +39,7 @@ _redhat_base:
   - openssh-server
   - nextcloud-client
   - nextcloud-client-nautilus
+  - code
   - openldap-clients
   # firefox and html5 mp4
   - ffmpeg
@@ -46,12 +49,14 @@ _redhat_base:
 _debian_base:
   - vim
   - gimp
+  - kolourpaint
   - thunderbird
   - thunderbird-gnome-support
   - thunderbird-locale-fr
   - subversion
   - libsvn-java
   - git
+  - gitg
   - libnotify-bin
   - flashplugin-installer
   - screen
@@ -69,6 +74,7 @@ _debian_base:
   - openssh-server
   - nextcloud-client
   - nextcloud-client-nautilus
+  - code
   - ldap-utils
   - flameshot
   - nodejs

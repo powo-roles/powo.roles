@@ -22,6 +22,16 @@
   become_user: root
   when: ansible_distribution == 'Ubuntu'
 
+- import_tasks: code-rpm.yml
+  become: true
+  become_user: root
+  when: ansible_os_family == 'RedHat'
+
+- import_tasks: code-deb.yml
+  become: true
+  become_user: root
+  when: ansible_os_family == 'Debian'
+
 - import_tasks: flameshot.yml
   become: true
   become_user: root

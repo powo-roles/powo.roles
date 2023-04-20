@@ -1,0 +1,17 @@
+---
+
+# not always installed (example: docker xenial)
+- name: apt-transport-https
+  package:
+    name: apt-transport-https
+
+- name: code repository keys
+  apt_key:
+    data: "{{ lookup('file', 'packages.microsoft.gpg') }}"
+    state: present
+
+- name: code repository
+  apt_repository:
+    repo: deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main
+    state: present
+    filename: code
