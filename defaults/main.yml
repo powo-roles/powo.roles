@@ -1,7 +1,8 @@
 ---
 
-chromium_packages:
-  Ubuntu:
-    - chromium-browser
-  RedHat:
-    - chromium
+# L9462 - conflit libswresample-free pour passer gnome-shell
+# chromium_packages:
+#   Ubuntu:
+#     - chromium-browser
+#   RedHat:
+#     - chromium
