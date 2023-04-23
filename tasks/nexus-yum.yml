@@ -1,0 +1,35 @@
+- name: bitwarden
+  yum_repository:
+    name: bitwarden
+    description: bitwarden
+    baseurl: https://nexus.tools.kobalt.fr/repository/bitwarden-rpm/
+    enabled: true
+    file: bitwarden
+    gpgcheck: false
+    repo_gpgcheck: false
+  become: true
+  become_user: root
+
+- name: eclipse
+  yum_repository:
+    name: eclipse
+    description: eclipse
+    baseurl: https://nexus.tools.kobalt.fr/repository/eclipse-rpm/
+    enabled: true
+    file: eclipse
+    gpgcheck: false
+    repo_gpgcheck: false
+  become: true
+  become_user: root
+
+- name: restic
+  yum_repository:
+    name: restic
+    description: restic
+    baseurl: https://nexus.tools.kobalt.fr/repository/restic/
+    enabled: true
+    file: restic
+    gpgcheck: false
+    repo_gpgcheck: false
+  become: true
+  become_user: root

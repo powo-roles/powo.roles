@@ -1,0 +1,4 @@
+- package:
+    name: restic
+  become: true
+  become_user: root

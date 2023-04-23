@@ -1,4 +1,6 @@
----
+
+- import_tasks: nexus-yum.yml
+  when: ansible_distribution == 'Fedora'
 
 - import_tasks: packagekit.yml
   when: ansible_distribution == 'Fedora'
@@ -16,6 +18,13 @@
 - import_role:
     name: epel
   when: ansible_distribution in ['RedHat', 'CentOS']
+
+- import_tasks: bitwarden.yml
+  when: ansible_distribution == 'Fedora'
+- import_tasks: restic.yml
+  when: ansible_distribution == 'Fedora'
+- import_tasks: eclipse.yml
+  when: ansible_distribution == 'Fedora'
 
 - import_tasks: ppa-nextcloud.yml
   become: true
@@ -41,7 +50,7 @@
   become_user: root
   when: ansible_os_family == 'RedHat'
   tags:
-    - mailhog
+  - mailhog
 
 - import_tasks: abrt.yml
   become: true
@@ -52,12 +61,12 @@
   become: true
   become_user: root
   block:
-    - name: misc
-      package:
-        name: "{{ _pmi_packages }}"
+  - name: misc
+    package:
+      name: "{{ _pmi_packages }}"
 
-    - name: ssh
-      service:
-        name: "{{ _pmi_ssh_service }}"
-        state: started
-        enabled: true
+  - name: ssh
+    service:
+      name: "{{ _pmi_ssh_service }}"
+      state: started
+      enabled: true
