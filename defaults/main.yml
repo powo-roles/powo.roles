@@ -30,7 +30,6 @@ _redhat_base:
   - graphviz
   - solaar
   - ImageMagick
-  - libheif
   - cifs-utils
   - bash-completion
   - zip
