@@ -33,3 +33,27 @@
     repo_gpgcheck: false
   become: true
   become_user: root
+
+- name: kube
+  yum_repository:
+    name: kube
+    description: kube
+    baseurl: https://nexus.tools.kobalt.fr/repository/kube-rpm/
+    enabled: true
+    file: kube
+    gpgcheck: false
+    repo_gpgcheck: false
+  become: true
+  become_user: root
+
+- name: goreleaser (nfpm)
+  yum_repository:
+    name: goreleaser
+    description: goreleaser (nfpm)
+    baseurl: https://repo.goreleaser.com/yum/
+    enabled: true
+    file: goreleaser
+    gpgcheck: false
+    repo_gpgcheck: false
+  become: true
+  become_user: root
