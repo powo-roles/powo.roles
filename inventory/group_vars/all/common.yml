@@ -10,7 +10,6 @@ play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
 play_all: false
 
 postgresql_versions:
-  - "10"
   - "12"
   - "13"
   - "14"
