@@ -44,6 +44,7 @@ _redhat_base:
   - ffmpeg
   - flameshot
   - nodejs
+  - python3-devel
 
 _debian_base:
   - vim
