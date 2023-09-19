@@ -14,3 +14,6 @@ _prompt_coloration_pgsql_config_distro_path:
       RedHat: /etc/sysconfig/pgsql
       Fedora: /etc/sysconfig/pgsql
       Debian: /etc/postgresql-common
+
+_prompt_coloration_ps1: "\\[\\033[1;{{ _prompt_coloration_codes[_prompt_coloration_profile] }}m\\][\\u@\\h \\W]\\$\\[\\033[0m\\] "
+_prompt_coloration_accounts: "{{ prompt_coloration_accounts | default([]) }}"

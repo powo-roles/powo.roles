@@ -5,7 +5,24 @@
       copy:
         dest: /etc/profile.d/bash_coloration.sh
         content: |
-          export PS1="\[\033[1;{{ _prompt_coloration_codes[_prompt_coloration_profile] }}m\][\u@\h \W]\$\[\033[0m\] "
+          "export PS1={{ _prompt_coloration_ps1 }}"
+      when: ansible_os_family == 'RedHat'
+
+    - block:
+      - name: prompt bash coloration for users
+        lineinfile:
+            regexp: "^PS1="
+            line: "PS1={{ _prompt_coloration_ps1 | quote }}"
+            dest: "/home/{{ item.username }}/.bashrc"
+        with_items: "{{ _prompt_coloration_accounts }}"
+
+      - name: prompt bash coloration for root
+        lineinfile:
+            regexp: "^PS1="
+            line: "PS1={{ _prompt_coloration_ps1 | quote }}"
+            dest: /root/.bashrc
+      
+      when: ansible_os_family == 'Debian'
 
     - name: check postgresql install
       command: "psql --version"
