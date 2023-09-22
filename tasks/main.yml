@@ -5,7 +5,7 @@
       copy:
         dest: /etc/profile.d/bash_coloration.sh
         content: |
-          "export PS1={{ _prompt_coloration_ps1 }}"
+          export PS1={{ _prompt_coloration_ps1 | quote }}
       when: ansible_os_family == 'RedHat'
 
     - block:
