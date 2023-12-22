@@ -61,7 +61,7 @@ package_jdk17:
   basename: java-17-openjdk
 
 # Maven
-bin_maven: "{{ bin_maven_38 }}"
+bin_maven: "{{ bin_maven_39 }}"
 bin_maven_39: "{{ apps_folder }}/{{ bundle_maven_3_9_6.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
 bin_maven_38: "{{ apps_folder }}/{{ bundle_maven_3_8_8.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
 bash_maven_template: |
