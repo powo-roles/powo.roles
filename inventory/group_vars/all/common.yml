@@ -76,141 +76,14 @@ bundle_maven_3_9_6:
   checksum: sha512:706f01b20dec0305a822ab614d51f32b07ee11d0218175e55450242e49d2156386483b506b3a4e8a03ac8611bae96395fd5eec15f50d3013d5deed6d1ee18224
 
 # Tomcat
-dir_tomcat_7: "{{ apps_folder }}/{{ bundle_tomcat_7_0_90.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
-dir_tomcat_8: "{{ apps_folder }}/{{ bundle_tomcat_8_0_53.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
-dir_tomcat_85: "{{ apps_folder }}/{{ bundle_tomcat_8_5_32.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
-dir_tomcat_9: "{{ apps_folder }}/{{ bundle_tomcat_9_0_10.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
-bundle_tomcat_7_0_90:
-  url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.90/bin/apache-tomcat-7.0.90.tar.gz
-  checksum: sha512:c7a47135b99684425260cd906cf5c9a5226837d3681d84ae4e3bb199068e97f0e63d07393d91ca0436204a1dc92bf9bd9a4a1c4c893187703e023503bbd81901
-bundle_tomcat_8_0_53:
-  url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.53/bin/apache-tomcat-8.0.53.tar.gz
-  checksum: sha512:cd8a4e48a629a2f2bb4ce6b101ebcce41da52b506064396ec1b2915c0b0d8d82123091242f2929a649bcd8b65ecf6cd1ab9c7d90ac0e261821097ab6fbe22df9
-bundle_tomcat_8_5_32:
-  url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz
-  checksum: sha512:fc010f4643cb9996cad3812594190564d0a30be717f659110211414faf8063c61fad1f18134154084ad3ddfbbbdb352fa6686a28fbb6402d3207d4e0a88fa9ce
-bundle_tomcat_9_0_10:
-  url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.10/bin/apache-tomcat-9.0.10.tar.gz
-  checksum: sha512:ecdee920fcb75bf30cd87c350e0732e8fa566911cd16cf2759689edd324ebac911c0d154e79ffc67e948b29eacc49c88dadc5954383d3c4af2fdb952f3d1c371
+dir_tomcat_9: "{{ apps_folder }}/{{ bundle_tomcat_9_0_84.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
+bundle_tomcat_9_0_84:
+  url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.84/bin/apache-tomcat-9.0.84.tar.gz
+  checksum: sha512:85a42ab5e7e4cb1923888e96a78a0f277a870d06e76147a95457878c124001c9a317eade4ad69c249a460ffe2cbefe894022b84389cdf33038bc456e3699c8e3
 
 # Eclipse
-bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_202206a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_201906: "{{ apps_folder }}/{{ bundle_eclipse_java_201906a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_201909: "{{ apps_folder }}/{{ bundle_eclipse_java_201909a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_201912: "{{ apps_folder }}/{{ bundle_eclipse_java_201912a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202003: "{{ apps_folder }}/{{ bundle_eclipse_java_202003a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202006: "{{ apps_folder }}/{{ bundle_eclipse_java_202006a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202009: "{{ apps_folder }}/{{ bundle_eclipse_java_202009a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202012: "{{ apps_folder }}/{{ bundle_eclipse_java_202012a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202103: "{{ apps_folder }}/{{ bundle_eclipse_java_202103a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202106: "{{ apps_folder }}/{{ bundle_eclipse_java_202106a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202109: "{{ apps_folder }}/{{ bundle_eclipse_java_202109a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202112: "{{ apps_folder }}/{{ bundle_eclipse_java_202112a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202203: "{{ apps_folder }}/{{ bundle_eclipse_java_202203a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202206: "{{ apps_folder }}/{{ bundle_eclipse_java_202206a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-dir_eclipse_202209: "{{ apps_folder }}/{{ bundle_eclipse_java_202209a.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
+bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_202212b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
 dir_eclipse_202212: "{{ apps_folder }}/{{ bundle_eclipse_java_202212b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
-bundle_eclipse_java_473:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/oxygen/eclipse-java-extra-oxygen-3-linux-gtk-x86_64.tar.gz
-  checksum: sha256:a9f0a7a9e5ed4bba9a25b18335719758316c2c6e16c7fe33c10025069abdec0f
-  desktop_name: Eclipse 4.7.3 (extra)
-  vm: "{{ bin_java_8 }}"
-bundle_eclipse_java_48:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/photon/eclipse-java-extra-photon-linux-gtk-x86_64.tar.gz
-  checksum: sha256:7820930641f22a9b70011fcbd3a8c67796f67998a5831dfc4a7b4a8d680eb905
-  desktop_name: Eclipse 4.8 (extra)
-  vm: "{{ bin_java_8 }}"
-bundle_eclipse_java_48b:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/photon/eclipse-java-extra-photon-4.8b-linux-gtk-x86_64.tar.gz
-  checksum: sha256:03771a92694e58d20711495e5b812db0bf965d300985638d47f753a4823d3467
-  desktop_name: Eclipse 4.8b (extra)
-  vm: "{{ bin_java_8 }}"
-bundle_eclipse_java_201809b:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2018-09/eclipse-java-extra-2018-09b-linux-gtk-x86_64.tar.gz
-  checksum: sha256:d5e932c115b55ada68db49f934d66315e6cc76890f68f946ffce99cb9787678e
-  desktop_name: Eclipse 2018-09b (extra)
-  vm: "{{ bin_java_8 }}"
-bundle_eclipse_java_201812a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2018-12/eclipse-java-extra-2018-12a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:fb2ccc899a0f6487cf9892a8dcbc26768dfa48f4e1535336fb6746afcfa44ed3
-  desktop_name: Eclipse 2018-12a (extra)
-  vm: "{{ bin_java_8 }}"
-bundle_eclipse_java_201903b:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-03/eclipse-java-extra-2019-03b-linux-gtk-x86_64.tar.gz
-  checksum: sha256:ec1c5ce5ba75b50f2d408c94ea749eeb004530eec0201a25b07d0ba933485ca4
-  desktop_name: Eclipse 19.03b (extra)
-  vm: "{{ bin_java_8 }}"
-bundle_eclipse_java_201906a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-06/eclipse-java-extra-2019-06a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:bc519ccdbcc392689d98be26e2fe29dbe7704602d5474dd0a1121e844ef60692
-  desktop_name: Eclipse 19.06a (extra)
-  vm: "{{ bin_java_8 }}"
-bundle_eclipse_java_201909a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-09/eclipse-java-extra-2019-09a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:08372b85c216d2fcf61313d32c9b28f7062a4d101b26c02c1e080bac7679c3f4
-  desktop_name: Eclipse 19.09a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_201912a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2019-12/eclipse-java-extra-2019-12a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:4af2d756f178f357864a635debdb3c53f6d3db41db687b619faa3d21e17f335e
-  desktop_name: Eclipse 19.12a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202003a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2020-03/eclipse-java-extra-2020-03a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:7d6d4319d966dc1d34fbbb8471950d7a2a6735bb55b849306f93b01050325336
-  desktop_name: Eclipse 20.03a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202006a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2020-06/eclipse-java-extra-2020-06a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:76218d47d23b2ee6cf94be97d2aad5ffba4782e2e536f1813e27614ad02ad312
-  desktop_name: Eclipse 20.06a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202009a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2020-09/eclipse-java-extra-2020-09a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:e03f4544839028001026d5bec3871e54a2ec47bb03ab19e6130425766443a08a
-  desktop_name: Eclipse 20.09a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202012a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2020-12/eclipse-java-extra-2020-12a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:31e663ce1c7e42be372050282234c3a18117cc50d19d95ace4dd76a2b6f8ba59
-  desktop_name: Eclipse 20.12a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202103a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2021-03/eclipse-java-extra-2021-03a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:46255e4a725452d96a906833e82bd5926c0dc233eabc024d449a7a94e0cf7718
-  desktop_name: Eclipse 21.03a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202106a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2021-06/eclipse-java-extra-2021-06a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:4201f50e46243420015e0d44a83854b982e1a251e46adfcd6cb8a1d39c0acccc
-  desktop_name: Eclipse 21.06a (extra)
-  # JVM 16 not compatible with sonar - https://community.sonarsource.com/t/maven-sonar-scanner-not-working-with-jdk-16/40699
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202109a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2021-09/eclipse-java-extra-2021-09a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:4f5a07f95654f86175d96f756e8b44fd253bb8af9d4a631e3a0e4fd3c25a7989
-  desktop_name: Eclipse 21.09a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202112a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2021-12/eclipse-java-extra-2021-12a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:8a2efdf0e436518cebffcda3e35c89a7cd1a05d6ee22ae3d5079202b5c0d60ed
-  desktop_name: Eclipse 21.12a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202203a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2022-03/eclipse-java-extra-2022-03a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:7d8536d75f59739898bb755b6376eede6cbf2cf581e44aafe131e5da219cd84e
-  desktop_name: Eclipse 22.03a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202206a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2022-06/eclipse-java-extra-2022-06a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:53fccbf39b53cebd71f96f0587281de844d044bfe25705dcdc6dd872550705ce
-  desktop_name: Eclipse 22.06a (extra)
-  vm: "{{ bin_java }}"
-bundle_eclipse_java_202209a:
-  url: https://nexus.tools.kobalt.fr/repository/eclipse/2022-09/eclipse-java-extra-2022-09a-linux-gtk-x86_64.tar.gz
-  checksum: sha256:e76615f523408c4fbcaae32c29ce4fb6c925fa372de026a006e5ace831c9cca9
-  desktop_name: Eclipse 22.09a (extra)
-  vm: ""
 bundle_eclipse_java_202212b:
   url: https://nexus.tools.kobalt.fr/repository/eclipse/2022-12/eclipse-java-extra-2022-12b-linux-gtk-x86_64.tar.gz
   checksum: sha256:47cf3e44d669ed3fe822fab047e6600ffbb464018e72f0411e082d5381215352
@@ -237,6 +110,8 @@ eclipse_clean_basenames:
   - eclipse-java-extra-2021-09a-linux-gtk-x86_64
   - eclipse-java-extra-2021-12a-linux-gtk-x86_64
   - eclipse-java-extra-2022-03a-linux-gtk-x86_64
+  - eclipse-java-extra-2022-06a-linux-gtk-x86_64
+  - eclipse-java-extra-2022-09a-linux-gtk-x86_64
   - eclipse-java-extra-2022-12a-linux-gtk-x86_64
 
 # Luke
