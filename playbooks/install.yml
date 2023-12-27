@@ -70,6 +70,7 @@
       pto_install_base_folder: "{{ apps_folder }}"
       pto_download_folder: "{{ tools_folder }}/tomcat"
       pto_bundles:
+        - "{{ bundle_tomcat_9_0_30 }}"
         - "{{ bundle_tomcat_9_0_84 }}"
     # powo.rpmfusion needed from Fedora 32
     - name: powo.virtualbox

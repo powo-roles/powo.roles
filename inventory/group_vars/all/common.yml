@@ -76,7 +76,10 @@ bundle_maven_3_9_6:
   checksum: sha512:706f01b20dec0305a822ab614d51f32b07ee11d0218175e55450242e49d2156386483b506b3a4e8a03ac8611bae96395fd5eec15f50d3013d5deed6d1ee18224
 
 # Tomcat
-dir_tomcat_9: "{{ apps_folder }}/{{ bundle_tomcat_9_0_84.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
+dir_tomcat_9: "{{ apps_folder }}/{{ bundle_tomcat_9_0_30.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
+bundle_tomcat_9_0_30:
+  url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz
+  checksum: sha512:40bf428a534816317e5e8732b679e6d73f6ed977aab4ac5e2b9eaf1eb087eaa68a18b0fd3da8c39ca4b96f5b6fd919dec84517abba0d5e797285ade934a92990
 bundle_tomcat_9_0_84:
   url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.84/bin/apache-tomcat-9.0.84.tar.gz
   checksum: sha512:85a42ab5e7e4cb1923888e96a78a0f277a870d06e76147a95457878c124001c9a317eade4ad69c249a460ffe2cbefe894022b84389cdf33038bc456e3699c8e3
