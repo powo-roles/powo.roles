@@ -6,10 +6,6 @@
 	path = powo.checks
 	url = ../powo.checks.git
 	branch = master
-[submodule "powo.php"]
-	path = powo.php
-	url = ../powo.php.git
-	branch = master
 [submodule "powo.utils"]
 	path = powo.utils
 	url = ../powo.utils.git
@@ -17,10 +13,6 @@
 [submodule "powo.user"]
 	path = powo.user
 	url = ../powo.user.git
-	branch = master
-[submodule "powo.ubuntu-backports"]
-	path = powo.ubuntu-backports
-	url = ../powo.ubuntu-backports.git
 	branch = master
 [submodule "powo.gnome-shell"]
 	path = powo.gnome-shell
@@ -77,10 +69,6 @@
 [submodule "powo.java"]
 	path = powo.java
 	url = ../powo.java.git
-	branch = master
-[submodule "powo.vagrant"]
-	path = powo.vagrant
-	url = ../powo.vagrant.git
 	branch = master
 [submodule "powo.filesystem"]
 	path = powo.filesystem

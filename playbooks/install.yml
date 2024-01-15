@@ -9,17 +9,13 @@
     - name: powo.checks
     - name: powo.selinux
     - name: powo.filesystem
-    - name: powo.ubuntu-backports
     - name: powo.apache
-    - name: powo.php
     - name: postgresql
       #postgresql_versions: -> group_vars
     - name: powo.postgresql-stop
     - name: postgresql-cluster
       postgresql_systemd_legacy: false
       #postgresql_cluster_clusters -> group_vars
-    - name: powo.vagrant
-      pva_dest_folder: "{{ tools_folder }}/vagrant"
     - name: powo.gnome-shell
     - name: powo.chrome
     - name: powo.misc
