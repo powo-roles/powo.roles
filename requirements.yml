@@ -6,8 +6,6 @@
 - name: powo.rpmfusion
   src: git+https://github.com/powo-roles/powo.rpmfusion.git
   version: master
-# TODO: only used in tests
-- name: bdellegrazie.ca-certificates
 - name: epel
   src: git+https://github.com/igloo-project/roles-epel.git
   version: master
