@@ -46,17 +46,20 @@ postgresql_cluster_clusters:
 postgresql_clean_versions:
   - "9.6"
   - "10"
+  - "11"
 
 postgresql_clean_cluster_clusters:
   - name: default
     path: /data/services/postgresql/9.6-default/
     postgresql_version: "9.6"
-    port: 5432
     pg_hba: pg_hba_local.conf
   - name: default
     path: /data/services/postgresql/10-default/
     postgresql_version: "10"
-    port: 5433
+    pg_hba: pg_hba_local.conf
+  - name: default
+    path: /data/services/postgresql/11-default/
+    postgresql_version: "11"
     pg_hba: pg_hba_local.conf
 
 apps_folder: "{{ play_home }}/Documents/apps"
