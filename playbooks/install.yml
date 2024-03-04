@@ -12,7 +12,6 @@
     - name: powo.apache
     - name: postgresql
       #postgresql_versions: -> group_vars
-    - name: powo.postgresql-stop
     - name: postgresql-cluster
       postgresql_systemd_legacy: false
       #postgresql_cluster_clusters -> group_vars
