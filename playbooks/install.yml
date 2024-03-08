@@ -33,6 +33,13 @@
         - "{{ bundle_luke_550 }}"
         - "{{ bundle_luke_660 }}"
         - "{{ bundle_luke_750 }}"
+        - "{{ bundle_luke_811 }}"
+        - "{{ bundle_luke_910 }}"
+      plu_clean_basenames:
+        - luke-javafx-7.5.0.zip
+        - lucene-8.11.2.zip
+      tags:
+      - luke
     - name: powo.java
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
