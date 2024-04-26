@@ -45,6 +45,7 @@ _redhat_base:
   - flameshot
   - nodejs
   - python3-devel
+  - wireguard-tools
 
 _debian_base:
   - vim
