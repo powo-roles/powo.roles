@@ -57,3 +57,16 @@
     repo_gpgcheck: false
   become: true
   become_user: root
+
+- name: bruno
+  yum_repository:
+    name: bruno
+    description: bruno
+    baseurl: https://nexus.tools.kobalt.fr/repository/bruno-rpm/
+    enabled: true
+    file: bruno
+    gpgcheck: false
+    repo_gpgcheck: false
+  become: true
+  become_user: root
+
