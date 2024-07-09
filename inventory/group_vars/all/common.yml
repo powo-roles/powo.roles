@@ -166,8 +166,8 @@ bundle_luke_811:
   desktop_name: Luke 8.11.3
   strip_path: lucene-8.11.3
   bin_path: luke/
-bundle_luke_910:
-  url: https://dlcdn.apache.org/lucene/java/9.10.0/lucene-9.10.0.tgz
-  checksum: sha256:c57b75ee0ea12b54337967b7854ebd12af3d7bad27245c1dc12a167ce2b1f8a7
-  desktop_name: Luke 9.10.0
-  strip_path: lucene-9.10.0
+bundle_luke_911:
+  url: https://dlcdn.apache.org/lucene/java/9.11.1/lucene-9.11.1.tgz
+  checksum: sha256:8878163a9a11f78ed4ff75f3eda515554587f10bcf45ac1e725c729b918aa5af
+  desktop_name: Luke 9.11.1
+  strip_path: lucene-9.11.1
