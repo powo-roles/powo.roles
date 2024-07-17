@@ -46,6 +46,8 @@ _redhat_base:
   - nodejs
   - python3-devel
   - wireguard-tools
+  - bruno
+  - bruno-next
 
 _debian_base:
   - vim
