@@ -1,8 +1,13 @@
 ---
 
-- name: check package manager
-  fail:
-    msg: "{{ ansible_pkg_mgr }} not supported, not in ({{ _rpmfusion_pkg_mgrs }})"
-  when: ansible_pkg_mgr not in _rpmfusion_pkg_mgrs
+- name: rpmfusion {{ item }} check
+  dnf:
+    list: installed
+  check_mode: true
+  register: rpmfusion_check
 
-- include_tasks: "{{ ansible_pkg_mgr }}.yml"
+- name: rpmfusion {{ item }} install
+  dnf:
+    name: "{{ _rpmfusion_package_url[item] }}"
+    disable_gpg_check: true
+  when: rpmfusion_check.results | selectattr('name', 'equalto', item) | length == 0

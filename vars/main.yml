@@ -4,11 +4,6 @@ _rpmfusion_packages:
   - rpmfusion-free-release
   - rpmfusion-nonfree-release
 
-_rpmfusion_pkg_mgrs:
-  - yum
-  - dnf
-  - dnf5
-
 _rpmfusion_package_url: "{{ _rpmfusion_package_url_dist | distro(vars) }}"
 
 _rpmfusion_package_url_dist:
