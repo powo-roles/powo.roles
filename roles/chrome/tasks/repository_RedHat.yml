@@ -1,0 +1,17 @@
+---
+
+- name: prevent google-chrome-stable repo management
+  copy:
+    dest: /etc/default/google-chrome
+    content: repo_add_once="false"
+    force: true
+
+- name: google chrome repository
+  yum_repository:
+    name: google-chrome
+    description: google-chrome
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+    enabled: yes
+    file: google-chrome
+    gpgcheck: yes
+    gpgkey: http://dl.google.com/linux/linux_signing_key.pub

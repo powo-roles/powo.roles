@@ -1,0 +1,26 @@
+---
+
+- name: code rpm key
+  copy:
+    src: packages.microsoft.gpg
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-CODE
+  register: vscode_rpm_gpg
+
+- name: code repository
+  yum_repository:
+    name: code
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    enabled: true
+    file: packages.microsoft.gpg
+    gpgcheck: false
+    repo_gpgcheck: true
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+  register: vscode_rpm_repo
+
+# force gpg key installation
+- name: install key
+  shell: yum makecache -y --disablerepo='*' --enablerepo=code
+  when: |
+    (vscode_rpm_gpg.changed or vscode_rpm_repo.changed)
+    and ansible_distribution in ['CentOS', 'RedHat']

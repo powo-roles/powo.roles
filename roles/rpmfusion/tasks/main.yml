@@ -1,0 +1,7 @@
+---
+
+- block:
+    - include_tasks: rpmfusion.yml
+      with_items: "{{ _rpmfusion_packages }}"
+  become: true
+  become_user: root

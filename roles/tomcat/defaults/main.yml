@@ -1,0 +1,7 @@
+---
+
+pto_install_base_folder: "{{ xxx_mandatory }}"
+pto_download_folder: "{{ xxx_mandatory }}"
+pto_default_vm: None
+pto_default_vmargs: None
+pto_bundles: []

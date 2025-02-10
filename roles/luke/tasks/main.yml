@@ -1,0 +1,9 @@
+---
+
+- name: bundles
+  include_tasks: luke_item.yml
+  with_items: "{{ plu_bundles }}"
+
+- name: clean old releases
+  include_tasks: clean_basename.yml
+  with_items: "{{ _plu_clean_basenames }}"

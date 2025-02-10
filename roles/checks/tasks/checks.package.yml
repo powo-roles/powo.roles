@@ -1,0 +1,6 @@
+---
+
+- name: package management bindings
+  package:
+    pkg: "{{ item }}"
+  with_items: "{{ _pc_package_binding_packages }}"

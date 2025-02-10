@@ -1,0 +1,7 @@
+---
+
+- name: openjdk install
+  package:
+    name: "{{ _pja_package_name }}"
+  become: true
+  become_user: root
