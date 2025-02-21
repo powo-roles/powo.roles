@@ -24,6 +24,14 @@
         name:
           - python3-psutil
 
+    - copy:
+        dest: /etc/modprobe.d/virtualbox-blacklist.conf
+        content: |
+          blacklist kvm
+          blacklist kvm_intel
+      notify:
+      - dracut.rebuild
+
 - name: user
   become: true
   become_user: "{{ play_user }}"

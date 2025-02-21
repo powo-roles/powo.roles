@@ -1,0 +1,4 @@
+- name: dracut.rebuild
+  shell: dracut --force --regenerate-all
+  become: true
+  become_user: root
