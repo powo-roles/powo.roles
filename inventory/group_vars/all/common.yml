@@ -161,13 +161,13 @@ bundle_luke_750:
   strip_path: luke-swing-7.5.0
   bin_path:
 bundle_luke_811:
-  url: https://dlcdn.apache.org/lucene/java/8.11.3/lucene-8.11.3.tgz
+  url: https://archive.apache.org/dist/lucene/java/8.11.3/lucene-8.11.3.tgz
   checksum: sha256:8a03d7a71bc5b85eac7497855a1f02222f5ac7811cdd75cc46766993738df0f4
   desktop_name: Luke 8.11.3
   strip_path: lucene-8.11.3
   bin_path: luke/
-bundle_luke_911:
-  url: https://dlcdn.apache.org/lucene/java/9.11.1/lucene-9.11.1.tgz
-  checksum: sha256:8878163a9a11f78ed4ff75f3eda515554587f10bcf45ac1e725c729b918aa5af
-  desktop_name: Luke 9.11.1
-  strip_path: lucene-9.11.1
+bundle_luke_912:
+  url: https://dlcdn.apache.org/lucene/java/9.12.1/lucene-9.12.1.tgz
+  checksum: sha512:83996ad2a71b22a76c7a9c1803d829e1e58a436c585cfd52850855620144cd99441017dc3e36877818989c1c7aa0cc9ae0f38581ae1c652a47ff2f498af13a9e
+  desktop_name: Luke 9.12.1
+  strip_path: lucene-9.12.1

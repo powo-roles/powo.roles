@@ -33,7 +33,7 @@
         - "{{ bundle_luke_660 }}"
         - "{{ bundle_luke_750 }}"
         - "{{ bundle_luke_811 }}"
-        - "{{ bundle_luke_911 }}"
+        - "{{ bundle_luke_912 }}"
       plu_clean_basenames:
         - luke-javafx-7.5.0.zip
         - lucene-8.11.2.zip
