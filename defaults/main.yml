@@ -48,6 +48,8 @@ _redhat_base:
   - wireguard-tools
   - bruno
   - bruno-next
+  # chargement fichiers xpm
+  - gdk-pixbuf2-modules-extra
 
 _debian_base:
   - vim
