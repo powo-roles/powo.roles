@@ -14,3 +14,10 @@
     path: "{{ item.path }}"
     force: true
     state: link
+
+
+- name: clean symlinks
+  with_items: "{{ psy_clean_symlinks }}"
+  file:
+    path: "{{ item }}"
+    state: absent
