@@ -21,8 +21,7 @@
     - name: powo.eclipse
       pec_install_base_folder: "{{ apps_folder }}"
       pec_download_folder: "{{ tools_folder }}/eclipse"
-      pec_bundles:
-        - "{{ bundle_eclipse_java_202212b }}"
+      pec_bundles: []
       pec_clean_basenames: "{{ eclipse_clean_basenames }}"
     - name: powo.luke
       plu_install_base_folder: "{{ apps_folder }}/luke"
@@ -43,9 +42,8 @@
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_packages:
-        - "{{ package_jdk17 }}"
-        - "{{ package_jdk11 }}"
-        - "{{ package_jdk8 }}"
+        - "{{ package_jdk17 | distro(vars) }}"
+        - "{{ package_jdk11 | distro(vars) }}"
       pja_default_java_version: "{{ dir_jdk_11 }}/bin/java"
     - name: powo.visualvm
       vvm_install_base_folder: "{{ apps_folder }}"
@@ -90,9 +88,11 @@
           src: "{{ bin_maven_39 }}"
         - path: "{{ apps_folder }}/apache-tomcat-9"
           src: "{{ dir_tomcat_9 }}"
-        - path: "{{ apps_folder }}/jdk-8"
-          src: "{{ dir_jdk_8 }}"
         - path: "{{ apps_folder }}/jdk-11"
           src: "{{ dir_jdk_11 }}"
+        - path: "{{ apps_folder }}/jdk-17"
+          src: "{{ dir_jdk_17 }}"
         - path: ~/.bin/java
           src: "{{ bin_java }}"
+      psy_clean_symlinks:
+        - "{{ apps_folder }}/jdk-8"
