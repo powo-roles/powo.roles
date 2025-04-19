@@ -11,8 +11,14 @@ _pja_item_name: "{{ item.name | default(_pja_item_download_basename | regex_repl
 
 _pja_item_install_folder: "{{ pja_install_base_folder }}/{{ _pja_item_name }}"
 
-_pja_package_name:
+_pja_package_name: "{{ _pja_temurin_package_name if 'temurin' in item.package else _pja_openjdk_package_name }}"
+
+# temurin : only one package name
+_pja_temurin_package_name:
+  - "{{ item.package }}"
+
+# not-temurin : 3 packages
+_pja_openjdk_package_name:
   - "{{ item.package }}-devel"
   - "{{ item.package }}-headless"
   - "{{ item.package }}-src"
-_pja_package_key: "{{ item.key }}"
