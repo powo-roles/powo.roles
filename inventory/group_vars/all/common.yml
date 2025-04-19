@@ -10,18 +10,12 @@ play_home: "{{ lookup('pipe', 'getent passwd ' + play_user).split(':')[5] }}"
 play_all: false
 
 postgresql_versions:
-  - "12"
   - "13"
   - "14"
   - "15"
   - "16"
 
 postgresql_cluster_clusters:
-  - name: default
-    path: /data/services/postgresql/12-default/
-    postgresql_version: "12"
-    port: 5434
-    pg_hba: pg_hba_local.conf
   - name: default
     path: /data/services/postgresql/13-default/
     postgresql_version: "13"
@@ -47,6 +41,7 @@ postgresql_clean_versions:
   - "9.6"
   - "10"
   - "11"
+  - "12"
 
 postgresql_clean_cluster_clusters:
   - name: default
@@ -60,6 +55,10 @@ postgresql_clean_cluster_clusters:
   - name: default
     path: /data/services/postgresql/11-default/
     postgresql_version: "11"
+    pg_hba: pg_hba_local.conf
+  - name: default
+    path: /data/services/postgresql/12-default/
+    postgresql_version: "12"
     pg_hba: pg_hba_local.conf
 
 apps_folder: "{{ play_home }}/Documents/apps"
