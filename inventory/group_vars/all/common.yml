@@ -80,6 +80,8 @@ package_jdk11:
   Fedora:
     package: temurin-11-jdk
     basename: temurin-11-jdk
+    # create a /usr/lib/jvm/java-11 symlink (eclipse-oomph)
+    symlink: java-11
 package_jdk17:
   Fedora_41:
     package: java-17-openjdk
@@ -87,6 +89,8 @@ package_jdk17:
   Fedora:
     package: temurin-17-jdk
     basename: temurin-17-jdk
+    # create a /usr/lib/jvm/java-17 symlink (eclipse-oomph)
+    symlink: java-17
 
 # Maven
 bin_maven: "{{ bin_maven_39 }}"
