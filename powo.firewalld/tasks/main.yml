@@ -6,40 +6,106 @@
   become: true
   become_user: root
 
-- name: fix config
+- name: fix FedoraWorkstation port config
   firewalld:
     zone: FedoraWorkstation
     permanent: true
     immediate: true
     port: "{{ item }}"
     state: disabled
-  with_items:
+  loop:
   - 1025-65535/udp
   - 1025-65535/tcp
   become: true
   become_user: root
 
-- name: fix config
+- name: fix FedoraWorkstation service config
   firewalld:
     zone: FedoraWorkstation
     permanent: true
     immediate: true
     service: "{{ item }}"
-    state: enabled
-  with_items:
+    state: disabled
+  loop:
   - samba-client
   become: true
   become_user: root
 
-- name: fix config
+- name: FedoraWorkstation port config
   firewalld:
     zone: FedoraWorkstation
     permanent: true
     immediate: true
     port: "{{ item }}"
     state: enabled
-  with_items:
+  loop:
   # nomachine
   - 4000/tcp
   become: true
   become_user: root
+
+- name: FedoraWorkstation service config
+  firewalld:
+    zone: FedoraWorkstation
+    permanent: true
+    immediate: true
+    service: "{{ item }}"
+    state: enabled
+  loop:
+  - ssh
+  - dhcpv6-client
+  - mdns
+  become: true
+  become_user: root
+
+# create wireguard zone
+- name: wireguard zone
+  firewalld:
+    zone: wireguard
+    permanent: true
+    state: present
+  notify: firewalld.reload
+  become: true
+  become_user: root
+
+# create wireguard zone
+- name: wireguard interface (wildcard)
+  firewalld:
+    zone: wireguard
+    permanent: true
+    state: enabled
+    interface: wg0_+
+  notify: firewalld.reload
+  become: true
+  become_user: root
+
+- meta: flush_handlers
+
+- name: wireguard ports
+  firewalld:
+    zone: wireguard
+    permanent: true
+    immediate: true
+    state: enabled
+    port: "{{ item }}"
+  loop:
+  - 4000/tcp
+  become: true
+  become_user: root
+
+- name: wireguard services
+  firewalld:
+    zone: wireguard
+    permanent: true
+    immediate: true
+    state: enabled
+    service: "{{ item }}"
+  loop:
+  - ssh
+  become: true
+  become_user: root
+
+# Command to add temporarily public access :
+# sudo firewall-cmd --zone wireguard --add-port 8080/tcp --timeout 1h
+# Remove access with :
+# sudo firewall-cmd --zone wireguard --remove-port 8080/tcp
