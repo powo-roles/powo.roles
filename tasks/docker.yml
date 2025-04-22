@@ -24,6 +24,18 @@
   become: true
   become_user: root
 
+# Enforce default ip address for listen
+# as docker does not honor firewall setup
+- name: docker config
+  copy:
+    dest: /etc/docker/daemon.json
+    content: |
+      {
+        "ip": "127.0.0.1"
+      }
+  become: true
+  become_user: root
+
 - name: docker content directory
   shell: |
     set -e
