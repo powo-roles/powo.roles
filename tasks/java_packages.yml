@@ -5,3 +5,14 @@
     name: "{{ _pja_package_name }}"
   become: true
   become_user: root
+
+# conditionnaly recreate openjdk symlinks for temurin package
+- name: openjdk symlink
+  file:
+    state: link
+    path: /usr/lib/jvm/{{ item.symlink }}
+    src: /usr/lib/jvm/{{ item.basename }}
+    force: true
+  become: true
+  become_user: root
+  when: item.symlink | default(false, true)
