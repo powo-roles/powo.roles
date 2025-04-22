@@ -1,0 +1,45 @@
+- name: firewalld service
+  service:
+    name: firewalld
+    enabled: true
+    state: started
+  become: true
+  become_user: root
+
+- name: fix config
+  firewalld:
+    zone: FedoraWorkstation
+    permanent: true
+    immediate: true
+    port: "{{ item }}"
+    state: absent
+  with_items:
+  - 1025-65535/udp
+  - 1025-65535/tcp
+  become: true
+  become_user: root
+
+- name: fix config
+  firewalld:
+    zone: FedoraWorkstation
+    permanent: true
+    immediate: true
+    service: "{{ item }}"
+    state: absent
+  with_items:
+  - smb-client
+  become: true
+  become_user: root
+
+- name: fix config
+  firewalld:
+    zone: FedoraWorkstation
+    permanent: true
+    immediate: true
+    port: "{{ item }}"
+    state: present
+  with_items:
+  # nomachine
+  - 4000/tcp
+  become: true
+  become_user: root
