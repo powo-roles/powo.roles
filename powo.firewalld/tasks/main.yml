@@ -12,7 +12,7 @@
     permanent: true
     immediate: true
     port: "{{ item }}"
-    state: absent
+    state: disabled
   with_items:
   - 1025-65535/udp
   - 1025-65535/tcp
@@ -25,9 +25,9 @@
     permanent: true
     immediate: true
     service: "{{ item }}"
-    state: absent
+    state: enabled
   with_items:
-  - smb-client
+  - samba-client
   become: true
   become_user: root
 
@@ -37,7 +37,7 @@
     permanent: true
     immediate: true
     port: "{{ item }}"
-    state: present
+    state: enabled
   with_items:
   # nomachine
   - 4000/tcp

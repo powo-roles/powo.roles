@@ -8,6 +8,7 @@
   roles:
     - name: powo.checks
     - name: powo.selinux
+    - name: powo.firewalld
     - name: powo.filesystem
     - name: powo.apache
     - name: postgresql
