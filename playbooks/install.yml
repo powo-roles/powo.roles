@@ -9,6 +9,7 @@
     - name: powo.checks
     - name: powo.selinux
     - name: powo.firewalld
+    - name: powo.sshd
     - name: powo.filesystem
     - name: powo.apache
     - name: postgresql

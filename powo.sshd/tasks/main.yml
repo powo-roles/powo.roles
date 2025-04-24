@@ -1,0 +1,18 @@
+- name: sshd - désactivation authentification par mot de passe
+  ansible.builtin.lineinfile:
+    regexp: "^#?PasswordAuthentication\\b.*"
+    line: "PasswordAuthentication no"
+    dest: "/etc/ssh/sshd_config"
+  become: true
+  become_user: root
+  notify: sshd.restart
+
+- name: sshd - désactivation login root
+  ansible.builtin.lineinfile:
+    regexp: "^#?PermitRootLogin\\b.*"
+    line: "PermitRootLogin no"
+    dest: "/etc/ssh/sshd_config"
+  become: true
+  become_user: root
+  notify: sshd.restart
+        
