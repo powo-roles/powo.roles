@@ -1,3 +1,18 @@
+- name: firewalld StrictForwardPorts=yes
+  ansible.builtin.ini_file:
+    path: /etc/firewalld/firewalld.conf
+    option: StrictForwardPorts
+    value: "yes"
+    modify_inactive_option: false
+    no_extra_spaces: true
+  become: true
+  become_user: root
+  when: ansible_distribution == 'Fedora' and ansible_distribution_major_version|int >= 42
+  notify:
+    - firewalld.restart
+
+- meta: flush_handlers
+
 - name: firewalld service
   service:
     name: firewalld

@@ -4,3 +4,10 @@
     state: reloaded
   become: true
   become_user: root
+
+- name: firewalld.restart
+  service:
+    name: firewalld
+    state: restarted
+  become: true
+  become_user: root
