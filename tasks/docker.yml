@@ -24,6 +24,13 @@
   become: true
   become_user: root
 
+- name: docker config path
+  file:
+    path: /etc/docker
+    state: directory
+  become: true
+  become_user: root
+
 # Enforce default ip address for listen
 # as docker does not honor firewall setup
 - name: docker config
