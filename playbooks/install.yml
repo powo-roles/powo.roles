@@ -61,7 +61,7 @@
             - version: "11"
               path: /usr/lib/jvm/java-11
             - version: "17"
-              path: /usr/lib/jvm/jre-17
+              path: /usr/lib/jvm/java-17
     - name: powo.maven
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"
