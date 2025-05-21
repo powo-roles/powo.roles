@@ -46,7 +46,7 @@
       pja_packages:
         - "{{ package_jdk17 | distro(vars) }}"
         - "{{ package_jdk11 | distro(vars) }}"
-      pja_default_java_version: "{{ dir_jdk_11 }}/bin/java"
+      pja_default_java_version: "{{ dir_jdk_17 }}/bin/java"
     - name: powo.visualvm
       vvm_install_base_folder: "{{ apps_folder }}"
       vvm_download_folder: "{{ tools_folder }}"

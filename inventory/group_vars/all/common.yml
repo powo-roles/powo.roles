@@ -65,8 +65,9 @@ apps_folder: "{{ play_home }}/Documents/apps"
 tools_folder: "{{ play_home }}/Documents/tools"
 
 # Java
-bin_java: "{{ apps_folder }}/jdk-11/bin/java"
+bin_java: "{{ apps_folder }}/jdk-17/bin/java"
 bin_java_8: "{{ apps_folder }}/jdk-8/bin/java"
+bin_java_11: "{{ apps_folder }}/jdk-11/bin/java"
 bin_java_17: "{{ apps_folder }}/jdk-17/bin/java"
 
 dir_jdk_11: "/usr/lib/jvm/{{ (package_jdk11 | distro(vars)).basename }}"
