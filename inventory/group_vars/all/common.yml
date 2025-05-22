@@ -36,6 +36,12 @@ postgresql_cluster_clusters:
     postgresql_version: "16"
     port: 5438
     pg_hba: pg_hba_local.conf
+  - name: default
+    path: /data/services/postgresql/17-default/
+    postgresql_version: "17"
+    port: 5439
+    pg_hba: pg_hba_local.conf
+
 
 postgresql_clean_versions:
   - "9.6"
