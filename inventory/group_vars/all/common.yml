@@ -14,6 +14,7 @@ postgresql_versions:
   - "14"
   - "15"
   - "16"
+  - "17"
 
 postgresql_cluster_clusters:
   - name: default
