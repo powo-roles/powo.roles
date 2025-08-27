@@ -46,3 +46,16 @@
       dconf:
         key: /org/gnome/mutter/wayland/xwayland-grab-access-rules
         value: "['VirtualBox Machine', 'Remmina']"
+
+- name: desktop files' folder
+  file:
+    path: "~/.local/share/applications/"
+    state: directory
+
+# https://discussion.fedoraproject.org/t/after-updating-to-f42-virtualbox-is-broken/149764/
+# github.com/VirtualBox/virtualbox/issues/70
+- name: virtualbox workaround
+  copy:
+    dest: ~/.local/share/applications/
+    src: virtualbox.desktop
+  when: ansible_distribution == 'Fedora'
