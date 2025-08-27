@@ -5,6 +5,9 @@
     name:
       - moby-engine
       - docker-compose
+      # Fedora 42: on a eu le cas du poste de Corinne sans
+      # la commande disponible
+      - iptables-nft
   become: true
   become_user: root
 
