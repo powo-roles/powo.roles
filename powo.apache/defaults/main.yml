@@ -1,0 +1,25 @@
+---
+
+# packages by distribution
+pa_packages:
+  RedHat:
+    - httpd
+  Debian:
+    - apache2
+
+pa_service:
+  RedHat:
+    httpd
+  Debian:
+    apache2
+
+pa_modules:
+  # os family
+  Debian:
+    - proxy
+    - proxy_ajp
+    - proxy_http
+    - rewrite
+    - expires
+  # not available elsewhere
+  default: []

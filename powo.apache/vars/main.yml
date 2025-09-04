@@ -1,0 +1,6 @@
+---
+
+# packages for the current distribution
+_pa_packages: "{{ pa_packages | distro(vars) }}"
+_pa_service: "{{ pa_service | distro(vars) }}"
+_pa_modules: "{{ pa_modules | distro(vars) }}"
