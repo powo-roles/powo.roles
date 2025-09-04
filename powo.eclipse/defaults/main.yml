@@ -1,0 +1,30 @@
+---
+
+pec_install_base_folder: "{{ xxx_mandatory }}"
+pec_download_folder: "{{ xxx_mandatory }}"
+pec_default_vm: null
+pec_default_vmargs: null
+eclipse_libwebkitgtk_packages:
+  RedHat:
+    - webkitgtk3
+    - webkitgtk4
+  Fedora:
+    - webkit2gtk3
+  Fedora_27:
+    # webkitgtk, webkitgtk3 no longer exist
+    - webkitgtk4
+  Fedora_26:
+    - webkitgtk
+    - webkitgtk3
+    - webkitgtk4
+  Debian:
+    - libwebkitgtk-1.0-0
+    - libwebkitgtk-3.0-0
+
+pec_clean_basenames:
+  - eclipse-java-extra-oxygen-1-linux-gtk-x86_64
+  - eclipse-java-extra-oxygen-2-linux-gtk-x86_64
+  - eclipse-java-extra-photon-RC1-linux-gtk-x86_64
+  - eclipse-rcp-extra-photon-RC1-linux-gtk-x86_64
+  - eclipse-java-extra-2018-09a-linux-gtk-x86_64
+  - eclipse-java-extra-2018-12a-linux-gtk-x86_64

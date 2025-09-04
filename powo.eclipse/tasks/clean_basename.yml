@@ -1,0 +1,10 @@
+---
+
+- name: drop desktop file
+  file:
+    path: "~/.local/share/applications/{{ item }}.desktop"
+    state: absent
+- name: drop eclipse folder
+  file:
+    path: "{{ pec_install_base_folder }}/{{ item }}"
+    state: absent

@@ -1,0 +1,7 @@
+#jinja2:trim_blocks: False
+[Desktop Entry]
+Name={{ _pec_item_desktop_name }}
+Exec=env GDK_BACKEND=x11 {{ _pec_item_eclipse_bin | expanduser | quote }}{% if _pec_item_vm %} -vm {{ _pec_item_vm | expanduser | quote }}{% endif %}{% if _pec_item_vmargs %} -vmargs {{ _pec_item_vmargs }}{% endif %}
+Type=Application
+Description={{ _pec_item_description }}
+Icon={{ _pec_item_eclipse_icon | expanduser }}

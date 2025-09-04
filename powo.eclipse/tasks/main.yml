@@ -1,0 +1,16 @@
+---
+
+- name: bundles
+  include_tasks: eclipse_item.yml
+  with_items: "{{ pec_bundles }}"
+
+- name: webkit
+  become: true
+  become_user: root
+  with_items: "{{ eclipse_libwebkitgtk_packages | distro(vars) }}"
+  package:
+    name: "{{ item }}"
+
+- name: clean old releases
+  include_tasks: clean_basename.yml
+  with_items: "{{ _pec_clean_basenames }}"
