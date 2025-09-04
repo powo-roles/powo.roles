@@ -1,0 +1,4 @@
+- package:
+    name: bitwarden-cli
+  become: true
+  become_user: root

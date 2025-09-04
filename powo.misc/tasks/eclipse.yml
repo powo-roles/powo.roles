@@ -1,0 +1,4 @@
+- package:
+    name: eclipse
+  become: true
+  become_user: root

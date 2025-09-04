@@ -1,0 +1,90 @@
+---
+
+pmi_ssh_service:
+  RedHat: sshd
+  Debian: ssh
+
+# optional
+pmi_packages:
+  RedHat: "{{ _redhat_base }}"
+  Fedora: "{{ _redhat_base + ['dnf-plugin-system-upgrade'] }}"
+  Debian: "{{ _debian_base + ['ack-grep'] }}"
+  Ubuntu_17.10: "{{ _debian_base }}"
+
+_redhat_base:
+  - vim-enhanced
+  - gimp
+  - kolourpaint
+  - thunderbird
+  - subversion
+  - subversion-javahl
+  - git
+  - gitg
+  - libnotify
+  - screen
+  - tmux
+  - tree
+  - dconf
+  - pwgen
+  - ack
+  - graphviz
+  - solaar
+  - ImageMagick
+  - cifs-utils
+  - bash-completion
+  - zip
+  - unzip
+  - openssh-clients
+  - openssh-server
+  - nextcloud-client
+  - nextcloud-client-nautilus
+  - code
+  - openldap-clients
+  # firefox and html5 mp4
+  - ffmpeg
+  - flameshot
+  - nodejs
+  - python3-devel
+  - wireguard-tools
+  - bruno
+  - bruno-next
+  # chargement fichiers xpm
+  - gdk-pixbuf2-modules-extra
+
+_debian_base:
+  - vim
+  - gimp
+  - kolourpaint
+  - thunderbird
+  - thunderbird-gnome-support
+  - thunderbird-locale-fr
+  - subversion
+  - libsvn-java
+  - git
+  - gitg
+  - libnotify-bin
+  - flashplugin-installer
+  - screen
+  - tmux
+  - tree
+  - dconf-tools
+  - pwgen
+  - graphviz
+  - imagemagick
+  - cifs-utils
+  - bash-completion
+  - zip
+  - unzip
+  - openssh-client
+  - openssh-server
+  - nextcloud-client
+  - nextcloud-client-nautilus
+  - code
+  - ldap-utils
+  - flameshot
+  - nodejs
+
+_abrt_services:
+  - abrtd
+  - abrt-oops
+  - abrt-vmcore

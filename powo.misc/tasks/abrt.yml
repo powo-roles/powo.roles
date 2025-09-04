@@ -1,0 +1,8 @@
+---
+
+- name: disable abrt services
+  loop: "{{ _abrt_services | flatten(levels=1) }}"
+  service:
+    name: "{{ item }}"
+    state: stopped
+    enabled: false
