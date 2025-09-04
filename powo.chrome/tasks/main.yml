@@ -1,0 +1,16 @@
+---
+
+- name: privileged
+  become: true
+  become_user: root
+  block:
+    - name: repository
+      include_tasks: "repository_{{ ansible_os_family }}.yml"
+
+    - name: google chrome installation
+      package: name=google-chrome-stable state=present
+
+    # L9462 - conflit libswresample-free pour passer gnome-shell
+    # - name: chromium installation
+    #   package: name={{ item }} state=present
+    #   with_items: "{{ chromium_packages | distro(vars) }}"
