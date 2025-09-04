@@ -1,0 +1,27 @@
+---
+
+_plu_item_download_url: "{{ item.url }}"
+_plu_item_download_checksum: "{{ item.checksum }}"
+_plu_item_desktop_name: "{{ item.desktop_name }}"
+_plu_item_bin_path: "{{ item.bin_path | default('bin/') }}"
+# if archive contains a unique folder named strip_path
+# it allows to get rid of it
+_plu_item_strip_path: "{{ item.strip_path | default('none') }}"
+
+_plu_item_download_basename: "{{ item.basename | default(_plu_item_download_url | basename) }}"
+# split extension without split version
+_plu_item_name: "{{ item.name | default(_plu_item_download_basename | regex_replace('\\.(zip|tgz)$', '')) }}"
+_plu_item_description: "{{ item.desktop_description | default(_plu_item_desktop_name) }}"
+
+_plu_item_install_folder: "{{ plu_install_base_folder }}/{{ _plu_item_name }}"
+# packages < 8 does not have bin folder
+# packages == 8 uses luke/
+# packages >= 9 uses bin/
+_plu_item_luke_bin: "{{ _plu_item_install_folder }}/{{ _plu_item_bin_path }}luke.sh"
+_plu_item_luke_icon: "{{ plu_install_base_folder }}/lucene-favicon.png"
+_plu_item_desktop_file_basename: "{{ _plu_item_name }}.desktop"
+
+_plu_user: "{{ lookup('pipe', 'whoami') }}"
+_plu_home: "{{ (lookup('pipe', 'getent passwd ' + plu_user))[5] }}"
+
+_plu_clean_basenames: "{{ plu_clean_basenames }}"
