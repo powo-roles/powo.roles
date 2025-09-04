@@ -1,0 +1,87 @@
+---
+
+- name: bashrc.d directory
+  file:
+    path: "{{ _pu_home }}/.bashrc.d"
+    owner: "{{ pu_user }}"
+    group: "{{ pu_group }}"
+    mode: u=rwx,g=rx,o=rx
+    state: directory
+
+# .bashrc load bashrc.d/*.conf
+- name: bashrc.d loading
+  blockinfile:
+    create: false
+    dest: "{{ _pu_home }}/.bashrc"
+    owner: "{{ pu_user }}"
+    group: "{{ pu_group }}"
+    mode: u=rw,g=r,o=r
+    state: present
+    insertafter: EOF
+    block: |
+      if compgen -G "$HOME/.bashrc.d/*.conf" > /dev/null; then
+          for item in "$HOME/.bashrc.d/"*.conf; do
+            source "$item"
+          done
+      fi
+
+# .bash_profile loads .profile
+- name: profile loading
+  blockinfile:
+    create: true
+    dest: "{{ _pu_home }}/.bash_profile"
+    owner: "{{ pu_user }}"
+    group: "{{ pu_group }}"
+    mode: u=rw,g=r,o=r
+    state: present
+    insertafter: EOF
+    block: |
+      if [ -f "$HOME/.profile" ]; then
+          source "$HOME/.profile"
+      fi
+
+- name: profile.d directory
+  file:
+    path: "{{ _pu_home }}/.profile.d"
+    owner: "{{ pu_user }}"
+    group: "{{ pu_group }}"
+    mode: u=rwx,g=rx,o=rx
+    state: directory
+
+# .profile loads .profile.d/*.conf
+- name: profile.d loading
+  blockinfile:
+    create: true
+    dest: "{{ _pu_home }}/.profile"
+    owner: "{{ pu_user }}"
+    group: "{{ pu_group }}"
+    mode: u=rw,g=r,o=r
+    state: present
+    insertafter: EOF
+    block: |
+      if compgen -G "$HOME/.profile.d/*.conf" > /dev/null; then
+          for item in "$HOME/.profile.d/"*.conf; do
+            source "$item"
+          done
+      fi
+
+- name: profile.d/50-powo.conf
+  template:
+    dest: "{{ _pu_home }}/.profile.d/50-powo.conf"
+    force: true
+    owner: "{{ pu_user }}"
+    group: "{{ pu_group }}"
+    mode: u=rw,g=r,o=r
+    src: profile.d_powo.conf.jinja
+
+- name: custom profile.d files
+  with_items: "{{ pu_profiles }}"
+  loop_control:
+    label: item.path
+  copy:
+    dest: "{{ _pu_home }}/.profile.d/{{ item.filename }}"
+    force: true
+    owner: "{{ pu_user }}"
+    group: "{{ pu_group }}"
+    mode: u=rw,o=rw,o=r
+    content: "{{ item.template }}"

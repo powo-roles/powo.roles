@@ -1,0 +1,21 @@
+---
+
+- name: ".ssh folder"
+  file:
+    path: "{{ _pu_home }}/.ssh"
+    state: directory
+    group: "{{ pu_group }}"
+    owner: "{{ pu_user }}"
+    mode: u=rwx,g=,o=
+
+- name: ssh key
+  when: pu_passphrase is not none
+  block:
+    - name: .ssh/id_rsa check
+      stat:
+        path: "{{ _pu_home }}/.ssh/id_rsa"
+      register: id_rsa_stat
+
+    - name: .ssh/id_rsa creation
+      command: ssh-keygen -t rsa -m PEM -f "{{ _pu_home }}/.ssh/id_rsa" -N "{{ pu_passphrase }}"
+      when: not id_rsa_stat.stat.exists
