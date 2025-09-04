@@ -1,0 +1,19 @@
+---
+
+_prompt_coloration_profile : "{{ prompt_coloration_profile | default('') }}"
+_prompt_coloration_codes:
+    development: 32
+    qualification: 36
+    recette: 33
+    preproduction: 33
+    production: 31
+
+_prompt_coloration_pgsql_config_path: "{{ prompt_coloration_pgsql_config_path | default(_prompt_coloration_pgsql_default_config_path) }}"
+_prompt_coloration_pgsql_default_config_path: "{{ _prompt_coloration_pgsql_config_distro_path | distro(vars) }}"
+_prompt_coloration_pgsql_config_distro_path:
+      RedHat: /etc/sysconfig/pgsql
+      Fedora: /etc/sysconfig/pgsql
+      Debian: /etc/postgresql-common
+
+_prompt_coloration_ps1: "\\[\\033[1;{{ _prompt_coloration_codes[_prompt_coloration_profile] }}m\\][\\u@\\h \\W]\\$\\[\\033[0m\\] "
+_prompt_coloration_accounts: "{{ prompt_coloration_accounts | default([]) }}"
