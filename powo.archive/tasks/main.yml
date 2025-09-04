@@ -1,0 +1,34 @@
+---
+
+- name: download folder
+  file:
+    path: "{{ par_archive_destination_folder }}"
+    state: directory
+    mode: u=rwx,g=rx,o=rx
+
+- name: extraction folder
+  file:
+    path: "{{ par_archive_extraction_folder }}"
+    state: directory
+    mode: u=rwx,g=rx,o=rx
+
+- name: download
+  get_url:
+    url: "{{ par_archive_url }}"
+    headers: "{{ par_download_headers }}"
+    dest: "{{ _par_archive_destination_file }}"
+    checksum: "{{ par_archive_checksum }}"
+  when: not par_archive_url.startswith('copy:')
+
+- name: copy
+  copy:
+    src: "{{ par_archive_url[5:] }}"
+    dest: "{{ _par_archive_destination_file }}"
+  when: par_archive_url.startswith('copy:')
+
+- name: unarchive
+  unarchive:
+    src: "{{ _par_archive_destination_file }}"
+    remote_src: true
+    dest: "{{ par_archive_extraction_folder }}"
+    extra_opts: "{{ _par_archive_extra_opts }}"

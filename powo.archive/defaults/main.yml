@@ -1,0 +1,12 @@
+---
+
+# mandatory
+par_archive_destination_folder: "{{ xxx_mandatory }}"
+par_archive_extraction_folder: "{{ xxx_mandatory }}"
+par_archive_url: "{{ xxx_mandatory }}"
+par_archive_checksum: "{{ xxx_mandatory }}"
+
+# optional
+par_archive_basename: "{{ par_archive_url | basename }}"
+par_download_headers: "{{ omit }}"
+par_archive_strip: false
