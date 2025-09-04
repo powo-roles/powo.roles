@@ -1,0 +1,32 @@
+---
+
+- name: privileged
+  become: true
+  become_user: root
+  block:
+    - name: gnome-shell
+      with_items: "{{ _pgs_packages }}"
+      package:
+        name: "{{ item }}"
+
+    - name: arc-theme
+      with_items: "{{ _pgs_arc_theme }}"
+      package:
+        name: "{{ item }}"
+
+    - name: extension manager
+      package:
+        name: gnome-extensions-app
+      when: ansible_distribution == "Fedora" and ansible_distribution_major_version|int >= 34
+
+# legacy extension not compatible with gnome >= 48
+- name: drop legacy appindicatorsupport
+  file:
+    path: ~/.local/share/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com
+    state: absent
+
+- name: appindicatorsupport
+  package:
+    name: gnome-shell-extension-appindicator
+  become: true
+  become_user: root

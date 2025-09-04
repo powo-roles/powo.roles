@@ -1,0 +1,26 @@
+---
+
+# mandatory
+pgs_packages:
+  RedHat:
+    - '@GNOME'
+    - gnome-tweak-tool
+  Fedora_27:
+    - '@GNOME'
+    - gnome-tweak-tool
+    - chrome-gnome-shell
+  Fedora:
+    - '@Fedora Workstation'
+    - gnome-tweaks
+    - gnome-browser-connector
+  Debian:
+    - ubuntu-gnome-desktop
+    - gnome-tweak-tool
+    - chrome-gnome-shell
+
+pgs_arc_theme:
+  Fedora:
+    - arc-theme
+  Ubuntu_16.10:
+    - arc-theme
+  default: []
