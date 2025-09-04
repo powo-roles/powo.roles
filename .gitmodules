@@ -1,11 +1,3 @@
-[submodule "powo.apache"]
-	path = powo.apache
-	url = ../powo.apache.git
-	branch = master
-[submodule "powo.checks"]
-	path = powo.checks
-	url = ../powo.checks.git
-	branch = master
 [submodule "powo.utils"]
 	path = powo.utils
 	url = ../powo.utils.git
@@ -17,14 +9,6 @@
 [submodule "powo.gnome-shell"]
 	path = powo.gnome-shell
 	url = ../powo.gnome-shell.git
-	branch = master
-[submodule "powo.archive"]
-	path = powo.archive
-	url = ../powo.archive.git
-	branch = master
-[submodule "powo.chrome"]
-	path = powo.chrome
-	url = ../powo.chrome.git
 	branch = master
 [submodule "powo.eclipse"]
 	path = powo.eclipse
