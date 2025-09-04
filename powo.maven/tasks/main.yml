@@ -1,0 +1,5 @@
+---
+
+- name: bundles
+  include_tasks: maven_item.yml
+  with_items: "{{ pma_bundles }}"
