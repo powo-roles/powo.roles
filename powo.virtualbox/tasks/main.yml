@@ -1,0 +1,61 @@
+---
+
+- name: privileged
+  become: true
+  become_user: root
+  block:
+    - name: dkms installation
+      package: name={{ item }} state=present
+      with_items: "{{ virtualbox_dkms_packages | distro(vars) }}"
+
+    - name: virtualbox installation
+      package: name={{ item }} state=present
+      with_items: "{{ virtualbox_packages | distro(vars) }}"
+
+    - name: "user in group vboxusers"
+      with_items: "{{ virtualbox_users }}"
+      user:
+        name: "{{ item }}"
+        groups: "{{ _virtualbox_group }}"
+        append: true
+
+    - name: dconf utility
+      package:
+        name:
+          - python3-psutil
+
+    - copy:
+        dest: /etc/modprobe.d/virtualbox-blacklist.conf
+        content: |
+          blacklist kvm
+          blacklist kvm_intel
+      notify:
+      - dracut.rebuild
+
+- name: user
+  become: true
+  become_user: "{{ play_user }}"
+  block:
+    # this settings allow virtualbox to handle windows+* shortcuts
+    - name: dconf settings
+      dconf:
+        key: /org/gnome/mutter/wayland/xwayland-allow-grabs
+        value: "true"
+
+    - name: dconf settings
+      dconf:
+        key: /org/gnome/mutter/wayland/xwayland-grab-access-rules
+        value: "['VirtualBox Machine', 'Remmina']"
+
+- name: desktop files' folder
+  file:
+    path: "~/.local/share/applications/"
+    state: directory
+
+# https://discussion.fedoraproject.org/t/after-updating-to-f42-virtualbox-is-broken/149764/
+# github.com/VirtualBox/virtualbox/issues/70
+- name: virtualbox workaround
+  copy:
+    dest: ~/.local/share/applications/
+    src: virtualbox.desktop
+  when: ansible_distribution == 'Fedora'

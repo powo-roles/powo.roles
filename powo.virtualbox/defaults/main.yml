@@ -1,0 +1,23 @@
+---
+
+virtualbox_users:
+  - "{{ lookup('env', 'USER') }}"
+virtualbox_dkms_packages:
+  default:
+    - dkms
+virtualbox_packages:
+  Fedora_30:
+    - VirtualBox-6.0
+    - kernel-devel
+  Fedora_31:
+    - VirtualBox-6.0
+    - kernel-devel
+  Fedora:
+    # package from rpmfusion
+    - VirtualBox
+    - kernel-devel
+  Ubuntu:
+    - virtualbox-5.2
+  RedHat:
+    - VirtualBox-5.2
+    - kernel-devel
