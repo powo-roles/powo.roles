@@ -1,0 +1,7 @@
+---
+
+pja_install_base_folder: "{{ xxx_mandatory }}"
+pja_download_folder: "{{ xxx_mandatory }}"
+pja_bundles: []
+pja_packages: []
+pja_default_java_version: "{{ xxx_mandatory }}"

@@ -1,0 +1,24 @@
+---
+
+_pja_item_download_url: "{{ item.url }}"
+_pja_item_download_checksum: "{{ item.checksum }}"
+_pja_item_desktop_name: "{{ item.desktop_name }}"
+_pja_headers: "Cookie: oraclelicense=accept-securebackup-cookie"
+
+_pja_item_download_basename: "{{ item.basename | default(_pja_item_download_url | basename) }}"
+# split extension without split version
+_pja_item_name: "{{ item.name | default(_pja_item_download_basename | regex_replace('(\\.[a-z]{1,3})*$', '')) }}"
+
+_pja_item_install_folder: "{{ pja_install_base_folder }}/{{ _pja_item_name }}"
+
+_pja_package_name: "{{ _pja_temurin_package_name if 'temurin' in item.package else _pja_openjdk_package_name }}"
+
+# temurin : only one package name
+_pja_temurin_package_name:
+  - "{{ item.package }}"
+
+# not-temurin : 3 packages
+_pja_openjdk_package_name:
+  - "{{ item.package }}-devel"
+  - "{{ item.package }}-headless"
+  - "{{ item.package }}-src"

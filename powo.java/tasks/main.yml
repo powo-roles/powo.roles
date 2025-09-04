@@ -1,0 +1,40 @@
+---
+
+- name: adoptium repository
+  copy:
+    dest: /etc/yum.repos.d/adoptium-temurin-java-repository.repo
+    content: |
+      [adoptium-temurin-java-repository]
+      name=Adoptium
+      baseurl=https://packages.adoptium.net/artifactory/rpm/fedora/$releasever/$basearch
+      enabled=1
+      gpgcheck=1
+      gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public
+      enabled_metadata=1
+  become: true
+  become_user: root
+
+- name: adoptium GPG
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://packages.adoptium.net/artifactory/api/gpg/key/public
+  become: true
+  become_user: root
+
+- name: bundles
+  include_tasks: java_bundles.yml
+  with_items: "{{ pja_bundles }}"
+  when: pja_bundles | length > 0
+
+- name: packages
+  include_tasks: java_packages.yml
+  with_items: "{{ pja_packages }}"
+  when: pja_packages | length > 0
+
+- name: set java version
+  alternatives:
+    name: java
+    link: /usr/bin/java
+    path: "{{ pja_default_java_version }}"
+  become: true
+  become_user: root
