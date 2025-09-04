@@ -2,8 +2,7 @@
 
 - hosts: localhost
   roles:
-    - name: powo.utils
-    - name: powo.user
+    - name: user
       pu_create: "{{ is_user_supplied }}"
       pu_user: "{{ play_user }}"
       pu_uid: "{{ play_uid }}"

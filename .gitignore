@@ -1,10 +1,12 @@
-dependencies/galaxy-roles
+dependencies/roles/*
+dependencies/collections/*
 run/*
 .tools/
 .vault_pass.txt
 poetry.lock
 *.retry
 ansible.log
+.vscode/
 
 *.pyc
 __pycache__

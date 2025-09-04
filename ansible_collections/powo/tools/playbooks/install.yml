@@ -6,26 +6,26 @@
   become: true
   become_user: "{{ play_user }}"
   roles:
-    - name: powo.checks
-    - name: powo.selinux
-    - name: powo.firewalld
-    - name: powo.sshd
-    - name: powo.filesystem
-    - name: powo.apache
+    - name: checks
+    - name: selinux
+    - name: firewalld
+    - name: sshd
+    - name: filesystem
+    - name: apache
     - name: postgresql
       #postgresql_versions: -> group_vars
     - name: postgresql-cluster
       postgresql_systemd_legacy: false
       #postgresql_cluster_clusters -> group_vars
-    - name: powo.gnome-shell
-    - name: powo.chrome
-    - name: powo.misc
-    - name: powo.eclipse
+    - name: gnome-shell
+    - name: chrome
+    - name: misc
+    - name: eclipse
       pec_install_base_folder: "{{ apps_folder }}"
       pec_download_folder: "{{ tools_folder }}/eclipse"
       pec_bundles: []
       pec_clean_basenames: "{{ eclipse_clean_basenames }}"
-    - name: powo.luke
+    - name: luke
       plu_install_base_folder: "{{ apps_folder }}/luke"
       plu_download_folder: "{{ tools_folder }}/luke"
       plu_bundles:
@@ -40,14 +40,14 @@
         - lucene-8.11.2.zip
       tags:
       - luke
-    - name: powo.java
+    - name: java
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_packages:
         - "{{ package_jdk17 | distro(vars) }}"
         - "{{ package_jdk11 | distro(vars) }}"
       pja_default_java_version: "{{ dir_jdk_17 }}/bin/java"
-    - name: powo.visualvm
+    - name: visualvm
       vvm_install_base_folder: "{{ apps_folder }}"
       vvm_download_folder: "{{ tools_folder }}"
       vvm_bundles:
@@ -62,23 +62,23 @@
               path: /usr/lib/jvm/java-11
             - version: "17"
               path: /usr/lib/jvm/java-17
-    - name: powo.maven
+    - name: maven
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"
       pma_bundles:
         - "{{ bundle_maven_3_8_8 }}"
         - "{{ bundle_maven_3_9_6 }}"
-    - name: powo.tomcat
+    - name: tomcat
       pto_install_base_folder: "{{ apps_folder }}"
       pto_download_folder: "{{ tools_folder }}/tomcat"
       pto_bundles:
         - "{{ bundle_tomcat_9_0_30 }}"
         - "{{ bundle_tomcat_9_0_84 }}"
     # powo.rpmfusion needed from Fedora 32
-    - name: powo.virtualbox
-    - name: powo.prompts-coloration
+    - name: virtualbox
+    - name: prompts-coloration
       prompt_coloration_profile: development
-    - name: powo.symlinks
+    - name: symlinks
       psy_directories:
         - ~/.bin
       psy_symlinks:

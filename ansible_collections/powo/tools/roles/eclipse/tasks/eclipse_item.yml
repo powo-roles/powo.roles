@@ -9,7 +9,7 @@
 
 - name: install
   import_role:
-    name: powo.archive
+    name: archive
   vars:
     par_archive_destination_folder: "{{ pec_download_folder }}"
     par_archive_extraction_folder: "{{ _pec_item_install_folder }}"
