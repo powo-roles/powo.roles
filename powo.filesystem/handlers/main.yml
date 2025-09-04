@@ -1,0 +1,8 @@
+---
+
+- name: systemd-journald
+  service:
+    name: systemd-journald
+    state: restarted
+  become: true
+  become_user: root

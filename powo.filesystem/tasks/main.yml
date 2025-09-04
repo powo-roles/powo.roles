@@ -1,0 +1,68 @@
+---
+
+- name: privileged
+  become: true
+  become_user: root
+  block:
+    - name: /home/data
+      file:
+        path: /home/data
+        state: directory
+    
+    - name: /data
+      file:
+        path: /data
+        src: /home/data
+        state: link
+    
+    - name: files
+      with_items:
+        - /data/services
+        - /data/logs
+      file:
+        path: "{{ item }}"
+        state: directory
+
+    - name: systemd-user.conf.d
+      file:
+        path: /etc/systemd/user.conf.d
+        state: directory
+        owner: root
+        group: root
+        mode: u=rwx,g=rx,o=rx
+
+    - name: nofile
+      ini_file:
+        path: /etc/systemd/user.conf.d/powo.conf
+        section: Manager
+        option: DefaultLimitNOFILE
+        value: "4096"
+        create: yes
+
+    - name: journald.conf.d
+      file:
+        path: /etc/systemd/journald.conf.d
+        state: directory
+        owner: root
+        group: root
+        mode: u=rwx,g=rx,o=rx
+
+    - name: journald SystemMaxUse
+      ini_file:
+        path: /etc/systemd/journald.conf.d/powo.conf
+        section: Journal
+        option: SystemMaxUse
+        value: 100M
+        owner: root
+        group: root
+        mode: u=rw,g=r,o=r
+      notify: systemd-journald
+
+    - name: max_user_watches
+      sysctl:
+        name: fs.inotify.max_user_watches
+        value: "524288"
+        reload: true
+        sysctl_set: true
+        sysctl_file: /etc/sysctl.d/powo.conf
+
