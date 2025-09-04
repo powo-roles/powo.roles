@@ -1,31 +1,3 @@
-[submodule "powo.utils"]
-	path = powo.utils
-	url = ../powo.utils.git
-	branch = master
-[submodule "powo.user"]
-	path = powo.user
-	url = ../powo.user.git
-	branch = master
-[submodule "powo.gnome-shell"]
-	path = powo.gnome-shell
-	url = ../powo.gnome-shell.git
-	branch = master
-[submodule "powo.eclipse"]
-	path = powo.eclipse
-	url = ../powo.eclipse.git
-	branch = master
-[submodule "powo.maven"]
-	path = powo.maven
-	url = ../powo.maven.git
-	branch = master
-[submodule "powo.tomcat"]
-	path = powo.tomcat
-	url = ../powo.tomcat.git
-	branch = master
-[submodule "powo.virtualbox"]
-	path = powo.virtualbox
-	url = ../powo.virtualbox.git
-	branch = master
 [submodule "postgresql"]
 	path = postgresql
 	url = https://github.com/igloo-project/roles-postgresql.git
@@ -34,35 +6,7 @@
 	path = epel
 	url = https://github.com/igloo-project/roles-epel.git
 	branch = master
-[submodule "powo.misc"]
-	path = powo.misc
-	url = ../powo.misc.git
-	branch = master
 [submodule "postgresql-cluster"]
 	path = postgresql-cluster
 	url = https://github.com/igloo-project/roles-postgresql-cluster.git
-	branch = master
-[submodule "powo.symlinks"]
-	path = powo.symlinks
-	url = ../powo.symlinks.git
-	branch = master
-[submodule "powo.java"]
-	path = powo.java
-	url = ../powo.java.git
-	branch = master
-[submodule "powo.filesystem"]
-	path = powo.filesystem
-	url = ../powo.filesystem.git
-	branch = master
-[submodule "powo.rpmfusion"]
-	path = powo.rpmfusion
-	url = ../powo.rpmfusion.git
-	branch = master
-[submodule "powo.luke"]
-	path = powo.luke
-	url = ../powo.luke.git
-	branch = master
-[submodule "powo.prompts-coloration"]
-	path = powo.prompts-coloration
-	url = ../powo.prompts-coloration.git
 	branch = master
