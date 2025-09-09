@@ -60,4 +60,4 @@
     executable: /usr/bin/bash
   become: true
   become_user: root
-  when: play_all
+  when: move_docker

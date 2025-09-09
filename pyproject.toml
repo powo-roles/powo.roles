@@ -23,7 +23,9 @@ ansible-galaxy install -r dependencies/requirements.yml \
 """
 powo-install = "powo-galaxy && ansible-playbook --diff -K powo.tools.install {args}"
 powo-install-only = "ansible-playbook --diff -K powo.tools.install {args}"
-powo-full = "powo-galaxy && ansible-playbook --diff -K powo.tools.install {args}"
+powo-full = "powo-galaxy-clean && powo-galaxy && ansible-playbook --diff -K powo.tools.install {args}"
+# déplacement des données docker (à faire une seule fois)
+powo-init = "powo-galaxy && ansible-playbook --diff -K powo.tools.install -e move_docker=true {args}"
 list-commands = [
     "echo 'Commands:'; hatch env show --json | jq --raw-output '.default.scripts | keys[]'"
 ]
