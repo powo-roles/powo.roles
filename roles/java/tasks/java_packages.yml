@@ -15,4 +15,4 @@
     force: true
   become: true
   become_user: root
-  when: item.symlink | default(false, true) | bool
+  when: item.symlink | default('', true) != ''
