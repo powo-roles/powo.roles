@@ -24,13 +24,10 @@
         name:
           - python3-psutil
 
-    - copy:
-        dest: /etc/modprobe.d/virtualbox-blacklist.conf
-        content: |
-          blacklist kvm
-          blacklist kvm_intel
-      notify:
-      - dracut.rebuild
+    - name: remove kvm_intel workaround (issue with VirtualBox 7.2.2 / kernel 6.15)
+      file:
+        path: /etc/modprobe.d/virtualbox-blacklist.conf
+        state: absent
 
 - name: user
   become: true
