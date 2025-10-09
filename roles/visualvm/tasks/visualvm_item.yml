@@ -8,6 +8,9 @@
     par_archive_extraction_folder: "{{ _vvm_item_install_folder | dirname }}"
     par_archive_url: "{{ _vvm_item_download_url }}"
     par_archive_checksum: "{{ _vvm_item_download_checksum }}"
+  # unarchive + zip workaround: https://github.com/ansible/ansible/issues/85779
+  environment:
+    TZ: UTC
 
 - name: desktop
   copy:
