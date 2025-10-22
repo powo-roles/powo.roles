@@ -50,6 +50,7 @@ _redhat_base:
   - bruno-next
   # chargement fichiers xpm
   - gdk-pixbuf2-modules-extra
+  - nfpm
 
 _debian_base:
   - vim
