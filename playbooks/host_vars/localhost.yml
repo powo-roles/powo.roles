@@ -102,27 +102,19 @@ package_jdk17:
 
 # Maven
 bin_maven: "{{ bin_maven_39 }}"
-bin_maven_39: "{{ apps_folder }}/{{ bundle_maven_3_9_6.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
-bin_maven_38: "{{ apps_folder }}/{{ bundle_maven_3_8_8.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
+bin_maven_39: "{{ apps_folder }}/{{ bundle_maven_3_9_11.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
 bash_maven_template: |
   export MAVEN_OPTS="-Xmx1024m"
-bundle_maven_3_8_8:
-  url: https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
-  basename: maven-3.8.8.tar.gz
-  checksum: sha512:332088670d14fa9ff346e6858ca0acca304666596fec86eea89253bd496d3c90deae2be5091be199f48e09d46cec817c6419d5161fb4ee37871503f472765d00
-bundle_maven_3_9_6:
-  url: https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
-  basename: maven-3.9.6.tar.gz
-  checksum: sha512:706f01b20dec0305a822ab614d51f32b07ee11d0218175e55450242e49d2156386483b506b3a4e8a03ac8611bae96395fd5eec15f50d3013d5deed6d1ee18224
+bundle_maven_3_9_11:
+  url: https://dlcdn.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz
+  basename: maven-3.9.11.tar.gz
+  checksum: sha512:bcfe4fe305c962ace56ac7b5fc7a08b87d5abd8b7e89027ab251069faebee516b0ded8961445d6d91ec1985dfe30f8153268843c89aa392733d1a3ec956c9978
 
 # Tomcat
-dir_tomcat_9: "{{ apps_folder }}/{{ bundle_tomcat_9_0_30.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
-bundle_tomcat_9_0_30:
-  url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz
-  checksum: sha512:40bf428a534816317e5e8732b679e6d73f6ed977aab4ac5e2b9eaf1eb087eaa68a18b0fd3da8c39ca4b96f5b6fd919dec84517abba0d5e797285ade934a92990
-bundle_tomcat_9_0_84:
-  url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.84/bin/apache-tomcat-9.0.84.tar.gz
-  checksum: sha512:85a42ab5e7e4cb1923888e96a78a0f277a870d06e76147a95457878c124001c9a317eade4ad69c249a460ffe2cbefe894022b84389cdf33038bc456e3699c8e3
+dir_tomcat_9: "{{ apps_folder }}/{{ bundle_tomcat_9_0_111.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
+bundle_tomcat_9_0_111:
+  url: https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.111/bin/apache-tomcat-9.0.111.tar.gz
+  checksum: sha512:2a955d97c6ed7d01fbf0392f3e2920129bcd541b259e894f441e411bac3bbe65576bcb3a314f06d624c9d70040828d26aa8a2c4f39d225d73f6a3db7523aa3ba
 
 # Eclipse
 bin_eclipse: "{{ apps_folder }}/{{ bundle_eclipse_java_202212b.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/"
