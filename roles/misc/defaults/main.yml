@@ -40,8 +40,6 @@ _redhat_base:
   - nextcloud-client-nautilus
   - code
   - openldap-clients
-  # firefox and html5 mp4
-  - ffmpeg
   - flameshot
   - nodejs
   - python3-devel
