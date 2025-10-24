@@ -49,6 +49,7 @@ _redhat_base:
   # chargement fichiers xpm
   - gdk-pixbuf2-modules-extra
   - nfpm
+  - rbw
 
 _debian_base:
   - vim
