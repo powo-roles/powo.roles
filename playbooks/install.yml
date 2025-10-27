@@ -44,6 +44,8 @@
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_packages:
+        - "{{ package_jdk25 | distro(vars) }}"
+        - "{{ package_jdk21 | distro(vars) }}"
         - "{{ package_jdk17 | distro(vars) }}"
         - "{{ package_jdk11 | distro(vars) }}"
       pja_default_java_version: "{{ dir_jdk_17 }}/bin/java"
@@ -62,6 +64,10 @@
               path: /usr/lib/jvm/java-11
             - version: "17"
               path: /usr/lib/jvm/java-17
+            - version: "21"
+              path: /usr/lib/jvm/java-21
+            - version: "25"
+              path: /usr/lib/jvm/java-25
     - name: maven
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"
@@ -90,6 +96,10 @@
           src: "{{ dir_jdk_11 }}"
         - path: "{{ apps_folder }}/jdk-17"
           src: "{{ dir_jdk_17 }}"
+        - path: "{{ apps_folder }}/jdk-21"
+          src: "{{ dir_jdk_21 }}"
+        - path: "{{ apps_folder }}/jdk-25"
+          src: "{{ dir_jdk_25 }}"
         - path: ~/.bin/java
           src: "{{ bin_java }}"
       psy_clean_symlinks:

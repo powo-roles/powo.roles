@@ -76,29 +76,39 @@ bin_java: "{{ apps_folder }}/jdk-17/bin/java"
 bin_java_8: "{{ apps_folder }}/jdk-8/bin/java"
 bin_java_11: "{{ apps_folder }}/jdk-11/bin/java"
 bin_java_17: "{{ apps_folder }}/jdk-17/bin/java"
+bin_java_21: "{{ apps_folder }}/jdk-21/bin/java"
+bin_java_25: "{{ apps_folder }}/jdk-25/bin/java"
 
 dir_jdk_11: "/usr/lib/jvm/{{ (package_jdk11 | distro(vars)).basename }}"
 dir_jdk_17: "/usr/lib/jvm/{{ (package_jdk17 | distro(vars)).basename }}"
+dir_jdk_21: "/usr/lib/jvm/{{ (package_jdk21 | distro(vars)).basename }}"
+dir_jdk_25: "/usr/lib/jvm/{{ (package_jdk25 | distro(vars)).basename }}"
 bash_java_template: |
   export JAVA_HOME={{ bin_java | dirname | dirname | expanduser | quote }}
 package_jdk11:
-  Fedora_41:
-    package: java-11-openjdk
-    basename: java-11-openjdk
   Fedora:
     package: temurin-11-jdk
     basename: temurin-11-jdk
     # create a /usr/lib/jvm/java-11 symlink (eclipse-oomph)
     symlink: java-11
 package_jdk17:
-  Fedora_41:
-    package: java-17-openjdk
-    basename: java-17-openjdk
   Fedora:
     package: temurin-17-jdk
     basename: temurin-17-jdk
     # create a /usr/lib/jvm/java-17 symlink (eclipse-oomph)
     symlink: java-17
+package_jdk21:
+  Fedora:
+    package: temurin-21-jdk
+    basename: temurin-21-jdk
+    # create a /usr/lib/jvm/java-21 symlink (eclipse-oomph)
+    symlink: java-21
+package_jdk25:
+  Fedora:
+    package: temurin-25-jdk
+    basename: temurin-25-jdk
+    # create a /usr/lib/jvm/java-25 symlink (eclipse-oomph)
+    symlink: java-25
 
 # Maven
 bin_maven: "{{ bin_maven_39 }}"
