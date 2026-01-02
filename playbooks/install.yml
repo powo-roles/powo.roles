@@ -26,18 +26,6 @@
       pec_bundles: []
       pec_clean_basenames: "{{ eclipse_clean_basenames }}"
     - name: luke
-      plu_install_base_folder: "{{ apps_folder }}/luke"
-      plu_download_folder: "{{ tools_folder }}/luke"
-      plu_bundles:
-        # hibernate-search use 5.5.0
-        - "{{ bundle_luke_550 }}"
-        - "{{ bundle_luke_660 }}"
-        - "{{ bundle_luke_750 }}"
-        - "{{ bundle_luke_811 }}"
-        - "{{ bundle_luke_912 }}"
-      plu_clean_basenames:
-        - luke-javafx-7.5.0.zip
-        - lucene-8.11.2.zip
       tags:
       - luke
     - name: java

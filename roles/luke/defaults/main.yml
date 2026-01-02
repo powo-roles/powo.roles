@@ -1,9 +1,1 @@
 ---
-
-plu_icon_download_url: "https://lucene.apache.org/theme/images/lucene/lucene-favicon.png"
-plu_icon_checksum: sha256:1e8a23bca7aa5f54252be053561a4434124652097a03188cc3007158f1a68f37
-
-plu_install_base_folder: "{{ xxx_mandatory }}"
-plu_download_folder: "{{ xxx_mandatory }}"
-
-plu_clean_basenames: []

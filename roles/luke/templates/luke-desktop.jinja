@@ -1,7 +1,0 @@
-#jinja2:trim_blocks: False
-[Desktop Entry]
-Name={{ _plu_item_desktop_name }}
-Exec=env LUKE_PATH={{ _plu_item_luke_bin | dirname | expanduser | quote }} {{ _plu_item_luke_bin | expanduser | quote }}
-Type=Application
-Description={{ _plu_item_description }}
-Icon={{ _plu_item_luke_icon | expanduser }}

@@ -1,9 +1,37 @@
 ---
 
-- name: bundles
-  include_tasks: luke_item.yml
-  with_items: "{{ plu_bundles }}"
+- name: kobalt-rpm
+  yum_repository:
+    name: kobalt-rpm
+    description: kobalt-rpm
+    baseurl: https://nexus.tools.kobalt.fr/repository/kobalt-rpm
+    enabled: true
+    file: kobalt-rpm
+    gpgcheck: false
+  become: true
+  become_user: root
 
-- name: clean old releases
-  include_tasks: clean_basename.yml
-  with_items: "{{ _plu_clean_basenames }}"
+- name: install lucene
+  package:
+    name: "{{ item }}"
+  with_items:
+  - lucene-9.x
+  - lucene-10.x
+  become: true
+  become_user: root
+
+- name: clean
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - ~/Documents/apps/luke
+    - ~/.local/share/applications/luke-5.5.0-luke-release.desktop
+    - ~/.local/share/applications/luke-6.6.0-luke-release.desktop
+    - ~/.local/share/applications/luke-swing-7.5.0-luke-release.desktop
+    - ~/.local/share/applications/lucene-8.11.3.desktop
+    - ~/.local/share/applications/lucene-8.11.4.desktop
+    - ~/.local/share/applications/lucene-9.10.0.desktop
+    - ~/.local/share/applications/lucene-9.11.1.desktop
+    - ~/.local/share/applications/lucene-9.12.1.desktop
+    - ~/.local/share/applications/lucene-9.12.3.desktop
