@@ -1,6 +1,5 @@
 ---
 
-vvm_install_base_folder: "{{ xxx_mandatory }}"
-vvm_download_folder: "{{ xxx_mandatory }}"
-vvm_bundles: []
+
+
 

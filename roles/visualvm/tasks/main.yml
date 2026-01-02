@@ -1,5 +1,34 @@
 ---
 
-- name: bundles
-  include_tasks: visualvm_item.yml
-  with_items: "{{ vvm_bundles }}"
+- name: kobalt-rpm
+  yum_repository:
+    name: kobalt-rpm
+    description: kobalt-rpm
+    baseurl: https://nexus.tools.kobalt.fr/repository/kobalt-rpm
+    enabled: true
+    file: kobalt-rpm
+    gpgcheck: false
+  become: true
+  become_user: root
+
+- name: install visualvm
+  package:
+    name: visualvm
+  become: true
+  become_user: root
+
+- name: clean
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - ~/Documents/apps/visualvm_211
+    - ~/Documents/apps/visualvm_215
+    - ~/.local/share/applications/visualvm-2.1.1-java-11.desktop
+    - ~/.local/share/applications/visualvm-2.1.1-java-17.desktop
+    - ~/.local/share/applications/visualvm-2.1.1-java-1.8.desktop
+    - ~/.local/share/applications/visualvm-2.1.5-java-11.desktop
+    - ~/.local/share/applications/visualvm-2.1.5-java-17.desktop
+    - ~/.local/share/applications/visualvm-2.1.5-java-1.8.desktop
+    - ~/.local/share/applications/visualvm-2.1.5-java-21.desktop
+    - ~/.local/share/applications/visualvm-2.1.5-java-25.desktop
