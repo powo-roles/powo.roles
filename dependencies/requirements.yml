@@ -5,9 +5,6 @@ roles:
 - name: postgresql
   src: https://github.com/igloo-project/roles-postgresql.git
   version: master
-- name: postgresql-cluster
-  src: https://github.com/igloo-project/roles-postgresql-cluster.git
-  version: master
 - name: powo.utils
   src: https://github.com/powo-roles/powo.utils.git
   version: master

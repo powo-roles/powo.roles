@@ -14,9 +14,6 @@
     - name: apache
     - name: postgresql
       #postgresql_versions: -> group_vars
-    - name: postgresql-cluster
-      postgresql_systemd_legacy: false
-      #postgresql_cluster_clusters -> group_vars
     - name: gnome-shell
     - name: chrome
     - name: misc

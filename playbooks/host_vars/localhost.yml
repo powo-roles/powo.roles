@@ -14,38 +14,11 @@ postgresql_versions:
   - "15"
   - "16"
   - "17"
+  - "18"
+# install only client
+postgresql_client_only: true
 
-postgresql_cluster_clusters:
-  - name: default
-    path: /data/services/postgresql/14-default/
-    postgresql_version: "14"
-    port: 5436
-    pg_hba: pg_hba_local.conf
-  - name: default
-    path: /data/services/postgresql/15-default/
-    postgresql_version: "15"
-    port: 5437
-    pg_hba: pg_hba_local.conf
-  - name: default
-    path: /data/services/postgresql/16-default/
-    postgresql_version: "16"
-    port: 5438
-    pg_hba: pg_hba_local.conf
-  - name: default
-    path: /data/services/postgresql/17-default/
-    postgresql_version: "17"
-    port: 5439
-    pg_hba: pg_hba_local.conf
-
-
-postgresql_clean_versions:
-  - "13"
-
-postgresql_clean_cluster_clusters:
-  - name: default
-    path: /data/services/postgresql/13-default/
-    postgresql_version: "13"
-    pg_hba: pg_hba_local.conf
+postgresql_clean_versions: []
 
 apps_folder: "{{ play_home }}/Documents/apps"
 tools_folder: "{{ play_home }}/Documents/tools"
