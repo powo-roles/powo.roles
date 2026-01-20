@@ -19,7 +19,7 @@ powo-galaxy-clean = "rm -rf dependencies/collections/* dependencies/roles/*"
 powo-galaxy = """\
 env ANSIBLE_COLLECTIONS_PATH=dependencies/collections/ \
 ANSIBLE_ROLES_PATH=dependencies/roles/ \
-ansible-galaxy install -r dependencies/requirements.yml \
+ansible-galaxy install --force -r dependencies/requirements.yml \
 """
 powo-install = "powo-galaxy && ansible-playbook --diff -K powo.tools.install {args}"
 powo-install-only = "ansible-playbook --diff -K powo.tools.install {args}"
