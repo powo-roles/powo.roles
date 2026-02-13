@@ -50,6 +50,8 @@ _redhat_base:
   - gdk-pixbuf2-modules-extra
   - nfpm
   - rbw
+  # Utilitaire d'analyse d'espace disque
+  - gdu
 
 _debian_base:
   - vim
