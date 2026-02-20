@@ -4,16 +4,16 @@ _rpmfusion_packages:
   - rpmfusion-free-release
   - rpmfusion-nonfree-release
 
-_rpmfusion_package_url: "{{ _rpmfusion_package_url_dist | distro(vars) }}"
+_rpmfusion_package_url: "{{ lookup('distro', _rpmfusion_package_url_dist) }}"
 
 _rpmfusion_package_url_dist:
   Fedora:
     rpmfusion-free-release:
-      https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ansible_distribution_major_version}}.noarch.rpm
+      https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ansible_facts['distribution_major_version']}}.noarch.rpm
     rpmfusion-nonfree-release:
-      https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ansible_distribution_major_version}}.noarch.rpm
+      https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ansible_facts['distribution_major_version']}}.noarch.rpm
   RedHat:
     rpmfusion-free-release:
-      https://download1.rpmfusion.org/free/el/rpmfusion-free-release-{{ansible_distribution_major_version}}.noarch.rpm
+      https://download1.rpmfusion.org/free/el/rpmfusion-free-release-{{ansible_facts['distribution_major_version']}}.noarch.rpm
     rpmfusion-nonfree-release:
-      https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-{{ansible_distribution_major_version}}.noarch.rpm
+      https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-{{ansible_facts['distribution_major_version']}}.noarch.rpm

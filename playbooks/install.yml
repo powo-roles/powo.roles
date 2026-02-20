@@ -29,10 +29,10 @@
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
       pja_packages:
-        - "{{ package_jdk25 | distro(vars) }}"
-        - "{{ package_jdk21 | distro(vars) }}"
-        - "{{ package_jdk17 | distro(vars) }}"
-        - "{{ package_jdk11 | distro(vars) }}"
+        - "{{ lookup('distro', package_jdk25) }}"
+        - "{{ lookup('distro', package_jdk21) }}"
+        - "{{ lookup('distro', package_jdk17) }}"
+        - "{{ lookup('distro', package_jdk11) }}"
       pja_default_java_version: "{{ dir_jdk_17 }}/bin/java"
     - name: visualvm
     - name: maven

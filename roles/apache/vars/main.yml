@@ -1,6 +1,6 @@
 ---
 
 # packages for the current distribution
-_pa_packages: "{{ pa_packages | distro(vars) }}"
-_pa_service: "{{ pa_service | distro(vars) }}"
-_pa_modules: "{{ pa_modules | distro(vars) }}"
+_pa_packages: "{{ lookup('distro', pa_packages) }}"
+_pa_service: "{{ lookup('distro', pa_service) }}"
+_pa_modules: "{{ lookup('distro', pa_modules) }}"

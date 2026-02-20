@@ -1,5 +1,5 @@
 ---
 
 # valid after getent task run
-_pu_home: "{{ getent_passwd[pu_user][4] }}"
+_pu_home: "{{ ansible_facts['getent_passwd'][pu_user][4] }}"
 _pu_groups: "{{ (pu_groups + [pu_admin_group] if pu_sudo else []) | unique }}"

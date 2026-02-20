@@ -1,8 +1,8 @@
 ---
 
-_pmi_packages: "{{ pmi_packages | distro(vars) }}"
+_pmi_packages: "{{ lookup('distro', pmi_packages) }}"
 
-_pmi_ssh_service: "{{ pmi_ssh_service | distro(vars) }}"
+_pmi_ssh_service: "{{ lookup('distro', pmi_ssh_service) }}"
 
 _powo_misc_user: "{{ lookup('pipe', 'whoami') }}"
 

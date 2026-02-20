@@ -13,6 +13,6 @@
 
 - name: virtualbox repository
   apt_repository:
-    repo: deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} non-free contrib
+    repo: deb http://download.virtualbox.org/virtualbox/debian {{ ansible_facts['distribution_release'] }} non-free contrib
     state: present
     filename: virtualbox

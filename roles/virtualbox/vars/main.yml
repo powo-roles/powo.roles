@@ -10,11 +10,11 @@ _virtualbox_dist_name: "{{ 'fedora' if ansible_distribution == 'Fedora' else 'el
 # 2019-11-05: Fedora 30 repo is OK (symlink)
 _virtualbox_repository_distro:
   Fedora_31: >-
-    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/{{ ansible_distribution_major_version }}/$basearch
+    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/{{ ansible_facts['distribution_major_version'] }}/$basearch
   Fedora_30: >-
-    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/{{ ansible_distribution_major_version }}/$basearch
+    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/{{ ansible_facts['distribution_major_version'] }}/$basearch
   Fedora_29: >-
-    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/{{ ansible_distribution_major_version }}/$basearch
+    http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/{{ ansible_facts['distribution_major_version'] }}/$basearch
   default: >-
     http://download.virtualbox.org/virtualbox/rpm/{{ _virtualbox_dist_name }}/26/$basearch
-_virtualbox_repository: "{{ _virtualbox_repository_distro | distro(vars) }}"
+_virtualbox_repository: "{{ lookup('distro', _virtualbox_repository_distro) }}"

@@ -6,7 +6,7 @@
         dest: /etc/profile.d/bash_coloration.sh
         content: |
           export PS1={{ _prompt_coloration_ps1 | quote }}
-      when: ansible_os_family == 'RedHat'
+      when: ansible_facts['os_family'] == 'RedHat'
 
     - block:
       - name: prompt bash coloration for users
@@ -22,7 +22,7 @@
             line: "PS1={{ _prompt_coloration_ps1 | quote }}"
             dest: /root/.bashrc
       
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts['os_family'] == 'Debian'
 
     - name: check postgresql install
       command: "psql --version"

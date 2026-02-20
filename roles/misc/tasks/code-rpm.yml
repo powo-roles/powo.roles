@@ -23,4 +23,4 @@
   shell: yum makecache -y --disablerepo='*' --enablerepo=code
   when: |
     (vscode_rpm_gpg.changed or vscode_rpm_repo.changed)
-    and ansible_distribution in ['CentOS', 'RedHat']
+    and ansible_facts['distribution'] in ['CentOS', 'RedHat']

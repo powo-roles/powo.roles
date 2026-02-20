@@ -6,11 +6,11 @@
   block:
     - name: dkms installation
       package: name={{ item }} state=present
-      with_items: "{{ virtualbox_dkms_packages | distro(vars) }}"
+      with_items: "{{ lookup('distro', virtualbox_dkms_packages) }}"
 
     - name: virtualbox installation
       package: name={{ item }} state=present
-      with_items: "{{ virtualbox_packages | distro(vars) }}"
+      with_items: "{{ lookup('distro', virtualbox_packages) }}"
 
     - name: "user in group vboxusers"
       with_items: "{{ virtualbox_users }}"
@@ -51,4 +51,4 @@
   file:
     path: ~/.local/share/applications/virtualbox.desktop
     state: absent
-  when: ansible_distribution == 'Fedora'
+  when: ansible_facts['distribution'] == 'Fedora'

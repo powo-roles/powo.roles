@@ -1,4 +1,4 @@
 ---
 
-_pgs_packages: "{{ pgs_packages | distro(vars) }}"
-_pgs_arc_theme: "{{ pgs_arc_theme | distro(vars) }}"
+_pgs_packages: "{{ lookup('distro', pgs_packages) }}"
+_pgs_arc_theme: "{{ lookup('distro', pgs_arc_theme) }}"

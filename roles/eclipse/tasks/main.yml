@@ -7,7 +7,7 @@
 - name: webkit
   become: true
   become_user: root
-  with_items: "{{ eclipse_libwebkitgtk_packages | distro(vars) }}"
+  with_items: "{{ lookup('distro', eclipse_libwebkitgtk_packages) }}"
   package:
     name: "{{ item }}"
 

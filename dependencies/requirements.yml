@@ -4,10 +4,10 @@ collections:
 roles:
 - name: postgresql
   src: https://github.com/igloo-project/roles-postgresql.git
-  version: master
+  version: main
 - name: powo.utils
   src: https://github.com/powo-roles/powo.utils.git
-  version: master
+  version: main
 # postgresql requirement
 - name: epel
 

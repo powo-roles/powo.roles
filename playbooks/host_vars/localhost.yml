@@ -31,10 +31,10 @@ bin_java_17: "{{ apps_folder }}/jdk-17/bin/java"
 bin_java_21: "{{ apps_folder }}/jdk-21/bin/java"
 bin_java_25: "{{ apps_folder }}/jdk-25/bin/java"
 
-dir_jdk_11: "/usr/lib/jvm/{{ (package_jdk11 | distro(vars)).basename }}"
-dir_jdk_17: "/usr/lib/jvm/{{ (package_jdk17 | distro(vars)).basename }}"
-dir_jdk_21: "/usr/lib/jvm/{{ (package_jdk21 | distro(vars)).basename }}"
-dir_jdk_25: "/usr/lib/jvm/{{ (package_jdk25 | distro(vars)).basename }}"
+dir_jdk_11: "/usr/lib/jvm/{{ (lookup('distro', package_jdk11)).basename }}"
+dir_jdk_17: "/usr/lib/jvm/{{ (lookup('distro', package_jdk17)).basename }}"
+dir_jdk_21: "/usr/lib/jvm/{{ (lookup('distro', package_jdk21)).basename }}"
+dir_jdk_25: "/usr/lib/jvm/{{ (lookup('distro', package_jdk25)).basename }}"
 bash_java_template: |
   export JAVA_HOME={{ bin_java | dirname | dirname | expanduser | quote }}
 package_jdk11:

@@ -21,7 +21,7 @@ pu_profiles: []
 # - filename: other_vars.conf
 #   template: ...
 
-pu_admin_group: "{{ pu_admin_group_distro | distro(vars) }}"
+pu_admin_group: "{{ lookup('distro', pu_admin_group_distro) }}"
 
 pu_admin_group_distro:
   RedHat: wheel

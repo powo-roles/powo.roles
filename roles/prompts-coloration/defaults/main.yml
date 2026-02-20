@@ -9,7 +9,7 @@ _prompt_coloration_codes:
     production: 31
 
 _prompt_coloration_pgsql_config_path: "{{ prompt_coloration_pgsql_config_path | default(_prompt_coloration_pgsql_default_config_path) }}"
-_prompt_coloration_pgsql_default_config_path: "{{ _prompt_coloration_pgsql_config_distro_path | distro(vars) }}"
+_prompt_coloration_pgsql_default_config_path: "{{ lookup('distro', _prompt_coloration_pgsql_config_distro_path) }}"
 _prompt_coloration_pgsql_config_distro_path:
       RedHat: /etc/sysconfig/pgsql
       Fedora: /etc/sysconfig/pgsql
