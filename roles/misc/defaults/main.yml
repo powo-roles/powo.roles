@@ -45,7 +45,6 @@ _redhat_base:
   - python3-devel
   - wireguard-tools
   - bruno
-  - bruno-next
   # chargement fichiers xpm
   - gdk-pixbuf2-modules-extra
   - nfpm
