@@ -39,7 +39,7 @@
       pma_install_base_folder: "{{ apps_folder }}"
       pma_download_folder: "{{ tools_folder }}/maven"
       pma_bundles:
-        - "{{ bundle_maven_3_9_14 }}"
+        - "{{ bundle_maven_3_9_15 }}"
     - name: tomcat
       pto_install_base_folder: "{{ apps_folder }}"
       pto_download_folder: "{{ tools_folder }}/tomcat"
