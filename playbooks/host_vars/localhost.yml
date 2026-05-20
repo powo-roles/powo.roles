@@ -64,13 +64,13 @@ package_jdk25:
 
 # Maven
 bin_maven: "{{ bin_maven_39 }}"
-bin_maven_39: "{{ apps_folder }}/{{ bundle_maven_3_9_15.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
+bin_maven_39: "{{ apps_folder }}/{{ bundle_maven_3_9_16.basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}/bin/mvn"
 bash_maven_template: |
   export MAVEN_OPTS="-Xmx1024m"
-bundle_maven_3_9_15:
-  url: https://dlcdn.apache.org/maven/maven-3/3.9.15/binaries/apache-maven-3.9.15-bin.tar.gz
-  basename: maven-3.9.15.tar.gz
-  checksum: sha512:33d81e0ec785f0207e3e5e3ffb61863e1dca5784c15ac3fb5ff105f69cffbea484eb8d473ea60467a63f7b0570eef8622f2fed8eee96acbe668aa313391cddb3
+bundle_maven_3_9_16:
+  url: https://dlcdn.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz
+  basename: maven-3.9.16.tar.gz
+  checksum: sha512:831a8591fe20c8243b1dbe7d71e3244f31d1665b0804b2e825e38cbbe5ce0cafb8338851f90780735568773e0a6cd07bbec107cda0b896b008b861075358b6f6
 
 # Tomcat
 dir_tomcat_9: "{{ apps_folder }}/{{ bundle_tomcat_9_0_111.url | basename | regex_replace('(\\.[a-z]{1,3})*$', '') }}"
