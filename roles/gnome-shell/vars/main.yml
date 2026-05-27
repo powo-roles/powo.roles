@@ -1,4 +1,3 @@
 ---
 
 _pgs_packages: "{{ lookup('distro', pgs_packages) }}"
-_pgs_arc_theme: "{{ lookup('distro', pgs_arc_theme) }}"

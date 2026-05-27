@@ -22,9 +22,6 @@
       pec_download_folder: "{{ tools_folder }}/eclipse"
       pec_bundles: []
       pec_clean_basenames: "{{ eclipse_clean_basenames }}"
-    - name: luke
-      tags:
-      - luke
     - name: java
       pja_install_base_folder: "{{ apps_folder }}"
       pja_download_folder: "{{ tools_folder }}/java"
