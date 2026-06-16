@@ -8,6 +8,4 @@ roles:
 - name: powo.utils
   src: https://github.com/powo-roles/powo.utils.git
   version: main
-# postgresql requirement
-- name: epel
 
