@@ -1,16 +1,17 @@
 ---
 
-- name: disable packagekit
+- name: disable dnf5daemon-server
   ansible.builtin.systemd:
-    name: packagekit
+    name: dnf5daemon-server
     enabled: false
     masked: true
+    state: stopped
   become: true
   become_user: root
 
-- name: packagekit clear cache
+- name: dnf5daemon-server clear cache
   file:
     state: absent
-    path: /var/cache/PackageKit
+    path: /var/cache/dnf5daemon-server
   become: true
   become_user: root

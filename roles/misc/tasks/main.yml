@@ -2,7 +2,7 @@
 - import_tasks: nexus-yum.yml
   when: ansible_facts['distribution'] == 'Fedora'
 
-- import_tasks: packagekit.yml
+- import_tasks: dnf5daemon-server.yml
   when: ansible_facts['distribution'] == 'Fedora'
 
 - import_tasks: docker.yml
